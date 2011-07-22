@@ -1,6 +1,7 @@
 
 localedir = $(datadir)/locale
 pixmapsdir = $(datadir)/pixmaps/
+uidir = $(datadir)/seahorse/ui/
 
 INCLUDES = -I$(top_builddir) \
 	-I$(top_srcdir) \
@@ -12,40 +13,68 @@ INCLUDES = -I$(top_builddir) \
 	-DLOCALEDIR=\""$(localedir)"\" \
 	-DPIXMAPSDIR=\""$(pixmapsdir)"\" \
 	-DLIBCRYPTUI_API_SUBJECT_TO_CHANGE \
-	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\"
+	-DAUTOSTARTDIR=\""$(sysconfdir)/xdg/autostart"\" \
+	-DSEAHORSE_UIDIR=\""$(uidir)"\"
 
 bin_PROGRAMS = seahorse-daemon
+
+MARSHAL_SRCS = \
+	seahorse-marshal.c seahorse-marshal.h
 
 BUILT_SOURCES = \
 	seahorse-service-bindings.h \
 	seahorse-service-keyset-bindings.h \
-	seahorse-service-crypto-bindings.h 
-
-if WITH_PGP
-PGP_LDADD = $(top_builddir)/pgp/libseahorse-pgp.la
-PGP_SRCS = seahorse-service-crypto.c
-else
-PGP_LDADD = 
-PGP_SRCS = 
-endif
-
-if WITH_SSH
-SSH_LDADD = $(top_builddir)/ssh/libseahorse-ssh.la
-else
-SSH_LDADD = 
-endif
+	seahorse-service-crypto-bindings.h \
+	$(MARSHAL_SRCS)
 
 seahorse_daemon_SOURCES = \
-    seahorse-daemon.c seahorse-daemon.h \
-    seahorse-dbus-server.c seahorse-service.c seahorse-service.h \
-    seahorse-service-keyset.c \
-    $(PGP_SRCS)
+	seahorse-daemon.c seahorse-daemon.h \
+	seahorse-dbus-server.c \
+	seahorse-gpgme.c seahorse-gpgme.h \
+	seahorse-gpgme-data.c seahorse-gpgme-data.h \
+	seahorse-gpgme-generate.c seahorse-gpgme-generate.h \
+	seahorse-gpgme-key.c seahorse-gpgme-key.h \
+	seahorse-gpgme-key-op.c seahorse-gpgme-key-op.h \
+	seahorse-gpgme-operation.c seahorse-gpgme-operation.h \
+	seahorse-gpgme-source.c seahorse-gpgme-source.h \
+	seahorse-gpgme-subkey.c seahorse-gpgme-subkey.h \
+	seahorse-gpgme-uid.c seahorse-gpgme-uid.h \
+	seahorse-gpg-op.h seahorse-gpg-op.c \
+	seahorse-gpg-options.c seahorse-gpg-options.h \
+	seahorse-object-list.c seahorse-object-list.h \
+	seahorse-pgp.c seahorse-pgp.h \
+	seahorse-pgp-key.c seahorse-pgp-key.h \
+	seahorse-pgp-keysets.c seahorse-pgp-keysets.h \
+	seahorse-pgp-module.c seahorse-pgp-module.h \
+	seahorse-pgp-signature.c seahorse-pgp-signature.h \
+	seahorse-pgp-subkey.c seahorse-pgp-subkey.h \
+	seahorse-pgp-uid.c seahorse-pgp-uid.h \
+	seahorse-secure-buffer.c seahorse-secure-buffer.h \
+	seahorse-service.c seahorse-service.h \
+	seahorse-service-keyset.c seahorse-service-crypto.c \
+	seahorse-context.c seahorse-context.h \
+	seahorse-gconf.c seahorse-gconf.h \
+	seahorse-gtkstock.c seahorse-gtkstock.h \
+	seahorse-libdialogs.h \
+	seahorse-notification.c \
+	seahorse-object.c seahorse-object.h \
+	seahorse-operation.c seahorse-operation.h \
+	seahorse-passphrase.c seahorse-passphrase.h \
+	seahorse-progress.c seahorse-progress.h \
+	seahorse-secure-memory.c seahorse-secure-memory.h \
+	seahorse-set.c seahorse-set.h \
+	seahorse-source.c seahorse-source.h \
+	seahorse-transfer-operation.c seahorse-transfer-operation.h \
+	seahorse-types.c seahorse-types.h \
+	seahorse-unix-signal.c seahorse-unix-signal.h \
+	seahorse-unknown.c seahorse-unknown.h \
+	seahorse-unknown-source.c seahorse-unknown-source.h \
+	seahorse-util.c seahorse-util.h \
+	seahorse-validity.c seahorse-validity.h \
+	seahorse-widget.c seahorse-widget.h \
+	$(BUILT_SOURCES)
 
 seahorse_daemon_LDADD = \
-	$(top_builddir)/libseahorse/libseahorse.la \
-	$(PGP_LDADD) \
-	$(SSH_LDADD) \
-	$(top_builddir)/common/libseahorse-common.la \
 	$(top_builddir)/libcryptui/libcryptui.la \
 	$(top_builddir)/libegg/libeggdatetime.la \
 	$(top_builddir)/libegg/libeggsmclient.la \
@@ -54,14 +83,16 @@ seahorse_daemon_LDADD = \
 man_MANS = seahorse-daemon.1
 
 EXTRA_DIST = \
-    $(man_MANS) \
-    seahorse-service.xml \
-    seahorse-service-keyset.xml \
-    seahorse-service-crypto.xml \
-    seahorse-service-bindings.h \
-    seahorse-service-keyset-bindings.h \
-    seahorse-service-crypto-bindings.h \
-    org.gnome.seahorse.service.in
+	$(man_MANS) \
+	seahorse-service.xml \
+	seahorse-service-keyset.xml \
+	seahorse-service-crypto.xml \
+	seahorse-service-bindings.h \
+	seahorse-service-keyset-bindings.h \
+	seahorse-service-crypto-bindings.h \
+	org.gnome.seahorse.service.in \
+	$(ui_DATA) \
+	seahorse-marshal.list
 
 CLEANFILES = *.bak \
 	org.gnome.seahorse.service
@@ -82,3 +113,15 @@ service_DATA = $(service_in_files:.service.in=.service)
 # Rule to make the service file with bindir expanded
 $(service_DATA): $(service_in_files) Makefile
 	@sed -e "s|\@bindir\@|$(bindir)|" $< > $@
+
+seahorse-marshal.h: seahorse-marshal.list $(GLIB_GENMARSHAL)
+	$(GLIB_GENMARSHAL) $< --header --prefix=seahorse_marshal > $@
+
+seahorse-marshal.c: seahorse-marshal.list $(GLIB_GENMARSHAL)
+	echo "#include \"seahorse-marshal.h\"" > $@ && \
+	$(GLIB_GENMARSHAL) $< --body --prefix=seahorse_marshal >> $@
+
+ui_DATA = \
+	seahorse-progress.xml \
+	seahorse-notify.xml \
+	seahorse-pgp-generate.xml

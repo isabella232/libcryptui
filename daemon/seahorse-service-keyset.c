@@ -470,10 +470,6 @@ seahorse_service_keyset_init (SeahorseServiceKeyset *keyset)
 static void
 seahorse_service_keyset_class_init (SeahorseServiceKeysetClass *klass)
 {
-    GObjectClass *gclass;
-
-    gclass = G_OBJECT_CLASS (klass);
-    
     signals[KEY_ADDED] = g_signal_new ("key_added", SEAHORSE_TYPE_SERVICE_KEYSET, 
                 G_SIGNAL_RUN_LAST | G_SIGNAL_DETAILED, G_STRUCT_OFFSET (SeahorseServiceKeysetClass, key_added),
                 NULL, NULL, g_cclosure_marshal_VOID__STRING, G_TYPE_NONE, 1, G_TYPE_STRING);

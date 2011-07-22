@@ -24,9 +24,7 @@
 
 #include "seahorse-service-bindings.h"
 #include "seahorse-service-keyset-bindings.h"
-#ifdef WITH_PGP
 #include "seahorse-service-crypto-bindings.h"
-#endif
 
 #define DBUS_API_SUBJECT_TO_CHANGE
 #include <dbus/dbus.h>
@@ -37,9 +35,7 @@
 
 /* The main service objects */
 SeahorseService *the_service = NULL;
-#ifdef WITH_PGP
 SeahorseServiceCrypto *the_crypto = NULL;
-#endif
 DBusGConnection *connection = NULL;
 
 /**
@@ -92,14 +88,12 @@ seahorse_dbus_server_init ()
     dbus_g_connection_register_g_object (connection, "/org/gnome/seahorse/keys",
                                          G_OBJECT (the_service));
 
-#ifdef WITH_PGP
     dbus_g_object_type_install_info (SEAHORSE_TYPE_SERVICE_CRYPTO,
                                      &dbus_glib_seahorse_service_crypto_object_info);
     
     the_crypto = g_object_new (SEAHORSE_TYPE_SERVICE_CRYPTO, NULL);
     dbus_g_connection_register_g_object (connection, "/org/gnome/seahorse/crypto",
                                          G_OBJECT (the_crypto));
-#endif 
 }
 
 /**
@@ -129,13 +123,11 @@ seahorse_dbus_server_cleanup ()
     if (the_service)
         g_object_unref (the_service);
     the_service = NULL;
-    
-#ifdef WITH_PGP
+
     if (the_crypto)
         g_object_unref (the_crypto);
     the_crypto = NULL;
-#endif
-    
+
     if (connection)
         dbus_g_connection_unref (connection);
     connection = NULL;

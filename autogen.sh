@@ -4,7 +4,7 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME="seahorse"
+PKG_NAME="libcryptui"
 
 (test -f $srcdir/configure.ac) || {
     echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
@@ -19,7 +19,7 @@ which gnome-autogen.sh || {
 
 (gtkdocize --flavour=no-tmpl) < /dev/null > /dev/null 2>&1 || {
     echo
-    echo "You must have gtk-doc installed to compile seahorse."
+    echo "You must have gtk-doc installed to compile libcryptui."
     echo "Install the appropriate package for your distribution,"
     echo "or get the source tarball at http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/"
     DIE=1

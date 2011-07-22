@@ -5,7 +5,7 @@ AC_PREREQ(2.52)
 dnl ****************************************************************************
 dnl MAIN SEAHORSE VERSION (update after release)
 
-AC_INIT(seahorse, 3.1.2)
+AC_INIT(libcryptui, 3.1.2)
 
 dnl ****************************************************************************
 dnl LIBCRYPTUI libtool versioning
@@ -20,7 +20,7 @@ LIBCRYPTUI_AGE=0
 
 dnl ****************************************************************************
 
-AC_CONFIG_SRCDIR(src/seahorse-main.c)
+AC_CONFIG_SRCDIR(daemon/seahorse-daemon.c)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(config.h)
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -40,7 +40,6 @@ AC_SYS_LARGEFILE
 AC_TYPE_OFF_T
 AC_FUNC_FSEEKO
 
-AC_CHECK_FUNCS(setresuid setresgid)
 AC_CHECK_FUNCS(strsep)
 
 AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
@@ -88,299 +87,91 @@ dnl **************************************************************
 dnl GPG / GPGME CHECKS
 dnl **************************************************************
 
-AC_ARG_ENABLE(pgp,
-	AC_HELP_STRING([--enable-pgp], [enable PGP support (default is auto)]))
-	
-have_gpg=""
-have_gpgme=""
+AC_ARG_ENABLE(gpg-check, 
+	AC_HELP_STRING([--disable-gpg-check], [check GPG version (default is yes)]),
+	DO_CHECK=$enableval, DO_CHECK=yes)
 
-if test "$enable_pgp" = "no"; then
-	echo "disabling PGP support"
-else
-	AC_ARG_ENABLE(gpg-check, 
-		AC_HELP_STRING([--disable-gpg-check], [check GPG version (default is yes)]),
-		DO_CHECK=$enableval, DO_CHECK=yes)
-	
-	if test	"$DO_CHECK" = "yes"; then
-		accepted_versions="1.2 1.4 2.0"
-		AC_PATH_PROGS(GNUPG, [gpg gpg2], no)
-		AC_DEFINE_UNQUOTED(GNUPG, "$GNUPG", [Path to gpg executable.])
-		ok="no"
-		if test "$GNUPG" != "no"; then
-			AC_MSG_CHECKING(for appropriate GnuPG version)
-			gnupg_version=`$GNUPG --version | grep gpg`
-			major=`echo $gnupg_version | \
-				sed 's/^gpg (GnuPG) \([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\1/'`
-			minor=`echo $gnupg_version | \
-				sed 's/^gpg (GnuPG) \([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\2/'`
-			micro=`echo $gnupg_version | \
-				sed 's/^gpg (GnuPG) \([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\3/'`
-    
-			for ver in $accepted_versions; do
-				if test "$ver" = "$major.$minor"; then
-					AC_DEFINE_UNQUOTED(GPG_MAJOR, [$major], [GPG Major Version])
-					AC_DEFINE_UNQUOTED(GPG_MINOR, [$minor], [GPG Minor Version])
-					AC_DEFINE_UNQUOTED(GPG_MICRO, [$micro], [GPG Micro Version])
-					ok="yes"
-					break
-				fi
-			done
-		fi
-  
-		if test "$ok" = "yes"; then
-			AC_MSG_RESULT([yes])
-			have_gpg="$gnupg_version"
-		else
-			AC_MSG_RESULT([no])
-		fi
+if test	"$DO_CHECK" = "yes"; then
+	accepted_versions="1.2 1.4 2.0"
+	AC_PATH_PROGS(GNUPG, [gpg gpg2], no)
+	AC_DEFINE_UNQUOTED(GNUPG, "$GNUPG", [Path to gpg executable.])
+	ok="no"
+	if test "$GNUPG" != "no"; then
+		AC_MSG_CHECKING(for appropriate GnuPG version)
+		gnupg_version=`$GNUPG --version | grep gpg`
+		major=`echo $gnupg_version | \
+			sed 's/^gpg (GnuPG) \([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\1/'`
+		minor=`echo $gnupg_version | \
+			sed 's/^gpg (GnuPG) \([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\2/'`
+		micro=`echo $gnupg_version | \
+			sed 's/^gpg (GnuPG) \([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\3/'`
+
+		for ver in $accepted_versions; do
+			if test "$ver" = "$major.$minor"; then
+				AC_DEFINE_UNQUOTED(GPG_MAJOR, [$major], [GPG Major Version])
+				AC_DEFINE_UNQUOTED(GPG_MINOR, [$minor], [GPG Minor Version])
+				AC_DEFINE_UNQUOTED(GPG_MICRO, [$micro], [GPG Micro Version])
+				ok="yes"
+				break
+			fi
+		done
 	fi
 
+	if test "$ok" = "yes"; then
+		AC_MSG_RESULT([yes])
+		have_gpg="$gnupg_version"
+	else
+		AC_MSG_RESULT([no])
+	fi
+fi
 
-	ok="no"
-	min_gpgme_version=1.0.0
-	AC_PATH_PROG(GPGME_CONFIG, gpgme-config, "failed")
-	if test $GPGME_CONFIG != "failed" ; then
-      		AC_MSG_CHECKING(for GPGME - version >= $min_gpgme_version)
-		req_major=`echo $min_gpgme_version | \
-			sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\)/\1/'`
-		req_minor=`echo $min_gpgme_version | \
-			sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\)/\2/'`
-		req_micro=`echo $min_gpgme_version | \
-			sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\)/\3/'`
-		gpgme_config_version=`$GPGME_CONFIG --version`
-		major=`echo $gpgme_config_version | \
-			sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\1/'`
-		minor=`echo $gpgme_config_version | \
-			sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\2/'`
-		micro=`echo $gpgme_config_version | \
-			sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\3/'`
+ok="no"
+min_gpgme_version=1.0.0
+AC_PATH_PROG(GPGME_CONFIG, gpgme-config, "failed")
+if test $GPGME_CONFIG != "failed" ; then
+	AC_MSG_CHECKING(for GPGME - version >= $min_gpgme_version)
+	req_major=`echo $min_gpgme_version | \
+		sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\)/\1/'`
+	req_minor=`echo $min_gpgme_version | \
+		sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\)/\2/'`
+	req_micro=`echo $min_gpgme_version | \
+		sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\)/\3/'`
+	gpgme_config_version=`$GPGME_CONFIG --version`
+	major=`echo $gpgme_config_version | \
+		sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\1/'`
+	minor=`echo $gpgme_config_version | \
+		sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\2/'`
+	micro=`echo $gpgme_config_version | \
+		sed 's/\([[0-9]]*\)\.\([[0-9]]*\)\.\([[0-9]]*\).*/\3/'`
 
-		if test "$major" -eq "$req_major"; then
-			if test "$minor" -ge "$req_minor"; then
-				if test "$micro" -ge "$req_micro"; then
-					ok="yes"
-				fi
+	if test "$major" -eq "$req_major"; then
+		if test "$minor" -ge "$req_minor"; then
+			if test "$micro" -ge "$req_micro"; then
+				ok="yes"
 			fi
 		fi
 	fi
-
-	if test $ok = "yes"; then
-		GPGME_CFLAGS=`$GPGME_CONFIG --cflags`
-		GPGME_LIBS=`$GPGME_CONFIG --libs`
-		AC_MSG_RESULT(yes)
-		have_gpgme="$gpgme_config_version"
-	else
-		AC_MSG_RESULT(no)
-	fi
 fi
 
-if test "$enable_pgp" != "no" -a -n "$have_gpg" -a -n "$have_gpgme"; then
-	enable_pgp="yes"
-fi
-
-if test "$enable_pgp" = "yes"; then
-	if test -z "$have_gpg"; then
-		AC_MSG_ERROR([Appropriate version of GnuPG not found. Please install one of versions: $accepted_versions])
-	fi
-			
-	if test -z "$have_gpgme"; then
-		AC_MSG_ERROR(GPGME $min_gpgme_version or later needed)
-	fi
-
-	SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GPGME_CFLAGS"
-	SEAHORSE_LIBS="$SEAHORSE_LIBS $GPGME_LIBS"
-        AC_DEFINE(WITH_PGP, 1, [With PGP Support])
-fi
-
-AM_CONDITIONAL(WITH_PGP, test "$enable_pgp" = "yes")
-
-dnl ******************************************************************************
-dnl LDAP [from gpg]
-dnl ******************************************************************************
-
-AC_MSG_CHECKING([LDAP keyserver support])
-AC_ARG_ENABLE(ldap,
-[  --disable-ldap          disable LDAP keyserver interface],
-    try_ldap=$enableval, try_ldap=yes)
-
-if test "$enable_pgp" != "yes"; then
-	echo "LDAP keyserver interface requires PGP support"
-	try_ldap=no
-fi
-
-AC_MSG_RESULT($try_ldap)
-with_ldap=no
-
-dnl Must check for network library requirements before doing link tests
-dnl for ldap, for example. If ldap libs are static (or dynamic and without
-dnl ELF runtime link paths), then link will fail and LDAP support won't
-dnl be detected.
-
-AC_CHECK_FUNC(gethostbyname, , AC_CHECK_LIB(nsl, gethostbyname,
-	[NETLIBS="-lnsl $NETLIBS"]))
-AC_CHECK_FUNC(setsockopt, , AC_CHECK_LIB(socket, setsockopt,
-	[NETLIBS="-lsocket $NETLIBS"]))
-	
-dnl Try and link a LDAP test program to weed out unusable LDAP
-dnl libraries.  -lldap [-llber [-lresolv]] is for OpenLDAP.  OpenLDAP in
-dnl general is terrible with creating weird dependencies.  If all else
-dnl fails, the user can play guess-the-dependency by using something
-dnl like LDAP_LIBS="-lfoo" ./configure
-
-if test "$try_ldap" = yes ; then
-  for MY_LDAPLIBS in ${LDAP_LIBS+"$LDAP_LIBS"} "-lldap" "-lldap -llber" "-lldap -llber -lresolv"; do
-    _ldap_save_libs=$LIBS
-    LIBS="$MY_LDAPLIBS $NETLIBS $LIBS"
-
-    AC_MSG_CHECKING([whether LDAP via \"$MY_LDAPLIBS\" is present and sane])
-    AC_TRY_LINK([#include <ldap.h>],[ldap_open("foobar",1234);],
-                [cv_func_ldap_init=yes],[cv_func_ldap_init=no])
-    AC_MSG_RESULT([$cv_func_ldap_init])
-
-    if test $cv_func_ldap_init = no; then
-      AC_MSG_CHECKING([whether I can make LDAP be sane with lber.h])
-      AC_TRY_LINK([#include <lber.h>
-#include <ldap.h>],[ldap_open("foobar",1234);],
-         [cv_func_ldaplber_init=yes],[cv_func_ldaplber_init=no])
-      AC_MSG_RESULT([$cv_func_ldaplber_init])
-    fi
-
-    if test "$cv_func_ldaplber_init" = yes ; then
-       AC_DEFINE(NEED_LBER_H,1,[Define if the LDAP library requires including lber.h before ldap.h])
-    fi
-
-    if test "$cv_func_ldap_init" = yes || \
-  	test "$cv_func_ldaplber_init" = yes ; then
-       LDAP_LIBS=$MY_LDAPLIBS
-    fi
-
-    LIBS=$_ldap_save_libs
-
-    if test "$LDAP_LIBS" != ""; then 
-    	with_keyserver=yes
-        with_ldap=yes
-		AC_DEFINE(WITH_LDAP, 1, [Support for LDAP operations])
-    	break
-    fi
-  done
-fi	
-
-AM_CONDITIONAL(WITH_LDAP, test "$with_ldap" = "yes")
-SEAHORSE_LIBS="$SEAHORSE_LIBS $LDAP_LIBS"
-
-AC_SUBST(NETLIBS)
-
-
-dnl ****************************************************************************
-dnl HKP (libsoup)
-dnl ****************************************************************************
-
-# Allow hkp to be disabled 
-AC_ARG_ENABLE(hkp,
-        AC_HELP_STRING([--disable-hkp],
-        [disable HKP keyserver interface]))
-
-# HKP tests
-if test "$enable_pgp" != "yes"; then
-	echo "HKP keyserver interface requires PGP support"
-	enable_hkp=no
-fi
- 
-if test "$enable_hkp" = "no"; then
-    echo "disabling HKP keyserver interface"
+if test $ok = "yes"; then
+	GPGME_CFLAGS=`$GPGME_CONFIG --cflags`
+	GPGME_LIBS=`$GPGME_CONFIG --libs`
+	AC_MSG_RESULT(yes)
+	have_gpgme="$gpgme_config_version"
 else
-    
-    echo "checking for supported versions of libsoup..."
-
-    PKG_CHECK_MODULES(SOUP, libsoup-2.4, 
-        [enable_hkp=yes],  
-        [enable_hkp=no])
-
-    if test "$enable_hkp" = yes; then
-        with_keyserver=yes
-        
-        AC_DEFINE(WITH_HKP, 1, [Support for HKP operations])
-        SEAHORSE_LIBS="$SEAHORSE_LIBS $SOUP_LIBS"
-        SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $SOUP_CFLAGS"
-        
-        # libsoup is also used for async lookups
-        AC_DEFINE(WITH_SOUP, 1, [With libsoup])
-    fi
+	AC_MSG_RESULT(no)
 fi
 
-AM_CONDITIONAL(WITH_HKP, test "$enable_hkp" = "yes")
-
-
-dnl ***************
-dnl KEYSERVER
-dnl ***************
-
-AM_CONDITIONAL(WITH_KEYSERVER, test "$with_keyserver" = "yes")
-
-if test "$with_keyserver" = "yes"; then
-	echo "enabling key server support"
-	AC_DEFINE(WITH_KEYSERVER, 1, [Support for key server actions])
-else
-    with_keyserver=no
-	echo "disabling key server support"
+if test -z "$have_gpg"; then
+	AC_MSG_ERROR([Appropriate version of GnuPG not found. Please install one of versions: $accepted_versions])
 fi
 
-
-dnl ****************************************************************************
-dnl GNOME-KEYRING
-dnl ****************************************************************************
-
-PKG_CHECK_MODULES([GNOME_KEYRING], gnome-keyring-1 >= 2.25.5,
-                  [enable_gnome_keyring=yes],[enable_gnome_keyring=no])
-
-if test "$enable_gnome_keyring" = "no"; then
-    AC_MSG_ERROR([gnome-keyring library or headers not found.])
+if test -z "$have_gpgme"; then
+	AC_MSG_ERROR(GPGME $min_gpgme_version or later needed)
 fi
 
-SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GNOME_KEYRING_CFLAGS"
-SEAHORSE_LIBS="$SEAHORSE_LIBS $GNOME_KEYRING_LIBS"
-        
-
-dnl *******************
-dnl KEY SHARING 
-dnl *******************
-
-AVAHI_GLIB_REQUIRED=0.6
-
-# Allow sharing to be disabled
-AC_ARG_ENABLE(sharing, 
-        AC_HELP_STRING([--disable-sharing],
-        [Don't compile in DNS-SD key sharing]))
-
-if test "$enable_pgp" != "yes"; then
-	echo "DNS-SD key sharing requires PGP support"
-	enable_sharing=no
-fi
-	
-if test "$enable_hkp" = "no"; then
-    	echo "DNS-SD key sharing requires HKP support"
-	enable_sharing=no
-fi
-
-if test "$enable_sharing" = "no"; then
-    echo "disabling DNS-SD key sharing"
-else
-
-    PKG_CHECK_MODULES(SHARING, avahi-client avahi-glib >= $AVAHI_GLIB_REQUIRED, 
-        [enable_sharing=yes],  
-        [enable_sharing=no])
-		
-	if test "$enable_sharing" = "yes"; then
-		echo "enabling key sharing"
-		
-		AC_DEFINE_UNQUOTED(WITH_SHARING, 1, [Compile bonjour key sharing code])
-		SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $SHARING_CFLAGS"
-		SEAHORSE_LIBS="$SEAHORSE_LIBS $SHARING_LIBS"
-    fi
-fi
-
-AM_CONDITIONAL(WITH_SHARING, test "$enable_sharing" = "yes")
-
+SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GPGME_CFLAGS"
+SEAHORSE_LIBS="$SEAHORSE_LIBS $GPGME_LIBS"
 
 dnl ****************************************************************************
 dnl DBUS
@@ -431,61 +222,6 @@ else
 fi
 
 dnl ****************************************************************************
-dnl  PKCS11
-dnl ****************************************************************************
-
-AC_ARG_ENABLE(pkcs11,
-	AC_HELP_STRING([--disable-pkcs11],
-		[Support keys and certificates via PKCS#11]))
-
-if test "$enable_pkcs11" = "no"; then
-	echo "disabling pkcs11 support"
-	enable_pkcs11="no"
-else
-	PKG_CHECK_MODULES(GCR, gcr-3 >= 3.0.0, gcr_is_present="yes", gcr_is_present="no")
-	if test "$gcr_is_present" = "no"; then
-		echo "disabling pkcs11 support"
-	fi
-	PKG_CHECK_MODULES(GCK, gck-1 >= 3.1.2, enable_pkcs11="yes", enable_pkcs11="no")
-	if test "$enable_pkcs11" = "yes" && test "$gcr_is_present" = "yes"; then
-		AC_DEFINE(WITH_PKCS11, 1, [gck library available])
-		SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GCK_CFLAGS $GCR_CFLAGS"
-		SEAHORSE_LIBS="$SEAHORSE_LIBS $GCK_LIBS $GCR_LIBS"
-	else
-		enable_pkcs11="no"
-	fi
-fi
-
-AM_CONDITIONAL(WITH_PKCS11, test "$enable_pkcs11" = "yes")
-
-dnl ****************************************************************************
-dnl  SSH 
-dnl ****************************************************************************
-
-AC_ARG_ENABLE(ssh,
-        AC_HELP_STRING([--disable-ssh], 
-        [Support for managing SSH keys]))
-        
-if test "x$enable_ssh" = "xno"; then
-    echo "disabling ssh support"
-else
-
-    AC_PATH_PROG(SSH_KEYGEN_PATH, ssh-keygen, "failed")
-    AC_PATH_PROG(SSH_PATH, ssh, "failed")
-    
-    if test $SSH_KEYGEN_PATH != "failed" && 
-       test $SSH_PATH != "failed"; then
-        enable_ssh="yes"
-        AC_DEFINE(WITH_SSH, 1, [With SSH Support])
-        AC_DEFINE_UNQUOTED(SSH_KEYGEN_PATH, "$SSH_KEYGEN_PATH", [Path to ssh-keygen])
-        AC_DEFINE_UNQUOTED(SSH_PATH, "$SSH_PATH", [Path to ssh])
-    fi
-    
-fi
-
-AM_CONDITIONAL(WITH_SSH, test "$enable_ssh" = "yes")
-
-dnl ****************************************************************************
 
 # Debug mode
 AC_ARG_ENABLE(debug, 
@@ -522,6 +258,20 @@ if test "$enable_tests" != "yes"; then
 fi
 
 AM_CONDITIONAL(WITH_TESTS, test "$enable_tests" = "yes")
+
+dnl ****************************************************************************
+dnl GNOME-KEYRING
+dnl ****************************************************************************
+
+PKG_CHECK_MODULES([GNOME_KEYRING], gnome-keyring-1 >= 2.25.5,
+                  [enable_gnome_keyring=yes],[enable_gnome_keyring=no])
+
+if test "$enable_gnome_keyring" = "no"; then
+	AC_MSG_ERROR([gnome-keyring library or headers not found.])
+fi
+
+SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GNOME_KEYRING_CFLAGS"
+SEAHORSE_LIBS="$SEAHORSE_LIBS $GNOME_KEYRING_LIBS"
 
 dnl ****************************************************************************
 dnl LIBCRYPTUI
@@ -595,33 +345,20 @@ dnl ****************************************************************************
 
 AC_OUTPUT([
 Makefile
-seahorse.spec
-common/Makefile
-gkr/Makefile
 libcryptui/cryptui.pc
 libcryptui/Makefile
 libcryptui/tests/Makefile
 libegg/Makefile
-libseahorse/Makefile
-pgp/Makefile
 po/Makefile.in
-help/Makefile
 data/Makefile
-data/icons/Makefile
 pixmaps/Makefile
 pixmaps/22x22/Makefile
 pixmaps/48x48/Makefile
 pixmaps/scalable/Makefile
-pkcs11/Makefile
-src/Makefile
-src/seahorse.desktop.in
-ssh/Makefile
 daemon/Makefile
 reference/Makefile
 reference/libcryptui/Makefile
 reference/libcryptui/version.xml
-reference/libseahorse/Makefile
-reference/libseahorse/version.xml
 ])
 
 dnl ****************************************************************************
@@ -629,15 +366,8 @@ dnl  SUMMARY
 dnl ****************************************************************************
 
 echo "
-PKCS11 Support:             $enable_pkcs11
-PGP Support:                $enable_pgp
-  GnuPG Version:            $have_gpg
-  GPGME Version:            $have_gpgme
-SSH Support:                $enable_ssh
-Keyserver Support:          $with_keyserver
-  LDAP:                     $with_ldap
-  HKP:                      $enable_hkp
-  Key Sharing:              $enable_sharing
+GnuPG Version:              $have_gpg
+GPGME Version:              $have_gpgme
 Notification Support:       $enable_libnotify
 Build introspection data:   ${enable_introspection}
 "

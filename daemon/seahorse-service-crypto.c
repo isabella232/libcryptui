@@ -21,16 +21,16 @@
 
 #include "config.h"
 
-#include "seahorse-service.h"
+#include "seahorse-gpgme.h"
+#include "seahorse-gpgme-generate.h"
+#include "seahorse-gpgme-key.h"
+#include "seahorse-gpgme-operation.h"
+#include "seahorse-libdialogs.h"
 #include "seahorse-object.h"
 #include "seahorse-gconf.h"
 #include "seahorse-util.h"
-#include "seahorse-libdialogs.h"
+#include "seahorse-service.h"
 
-#include "pgp/seahorse-gpgme.h"
-#include "pgp/seahorse-gpgme-dialogs.h"
-#include "pgp/seahorse-gpgme-key.h"
-#include "pgp/seahorse-gpgme-operation.h"
 
 #include <string.h>
 

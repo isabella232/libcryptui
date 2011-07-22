@@ -25,19 +25,9 @@
 #include "seahorse-daemon.h"
 #include "seahorse-gconf.h"
 #include "seahorse-gtkstock.h"
+#include "seahorse-pgp-module.h"
 #include "seahorse-secure-memory.h"
 #include "seahorse-unix-signal.h"
-
-#include "common/seahorse-cleanup.h"
-#include "common/seahorse-registry.h"
-
-#ifdef WITH_PGP
-#include "pgp/seahorse-pgp-module.h"
-#endif
-
-#ifdef WITH_SSH
-#include "ssh/seahorse-ssh-module.h"
-#endif
 
 #include "libegg/eggsmclient.h"
 #include "libegg/eggdesktopfile.h"
@@ -281,15 +271,10 @@ int main(int argc, char* argv[])
     seahorse_context_new (SEAHORSE_CONTEXT_APP | SEAHORSE_CONTEXT_DAEMON);
 
     /* Load the various components */
-#ifdef WITH_PGP
     seahorse_pgp_module_init ();
-#endif
-#ifdef WITH_SSH
-    seahorse_ssh_module_init ();
-#endif
-    
+
     seahorse_context_refresh_auto (NULL);
-    
+
     /* Initialize the various daemon components */
     seahorse_dbus_server_init ();
 
@@ -304,7 +289,6 @@ int main(int argc, char* argv[])
 
     g_option_context_free (octx);
     seahorse_context_destroy (SCTX_APP ());
-    seahorse_cleanup_perform ();
 
     return 0;
 }

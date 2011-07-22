@@ -1,5 +1,3 @@
-SUBDIRS = icons
-
 @INTLTOOL_SCHEMAS_RULE@
 
 schemasdir = $(GCONF_SCHEMA_FILE_DIR)

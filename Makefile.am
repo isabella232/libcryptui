@@ -37,7 +37,7 @@ DISTCHECK_CONFIGURE_FLAGS = \
     --disable-debug
 
 CHANGELOG_START = \
-	d2f8367dc600080b6cf3edbe4e2fc204f929471e
+	018d8c2c8eccd35281c595228be44d4630310251
 
 dist-hook:
 	@if test -d "$(srcdir)/.git"; \

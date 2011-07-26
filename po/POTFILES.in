@@ -25,7 +25,7 @@ daemon/seahorse-unknown-source.c
 daemon/seahorse-util.c
 daemon/seahorse-validity.c
 daemon/seahorse-widget.c
-data/seahorse.schemas.in
+data/cryptui.schemas.in
 libcryptui/cryptui.c
 libcryptui/cryptui-key-chooser.c
 libcryptui/cryptui-key-list.c

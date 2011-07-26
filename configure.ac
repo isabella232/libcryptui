@@ -325,7 +325,7 @@ dnl *******************
 dnl ***** gettext *****
 dnl *******************
 
-GETTEXT_PACKAGE=seahorse
+GETTEXT_PACKAGE=cryptui
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Name of the gettext domain.])
 

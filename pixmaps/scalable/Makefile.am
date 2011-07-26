@@ -1,4 +1,4 @@
-iconsvgdir = $(datadir)/pixmaps/seahorse/scalable/
+iconsvgdir = $(datadir)/pixmaps/cryptui/scalable/
 iconsvg_DATA =  seahorse-key.svg \
                 seahorse-key-personal.svg \
                 seahorse-key-ssh.svg \

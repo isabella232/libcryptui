@@ -1,5 +1,5 @@
 
-icon48dir = $(datadir)/pixmaps/seahorse/48x48/
+icon48dir = $(datadir)/pixmaps/cryptui/48x48/
 icon48_DATA =   seahorse-key.png \
                 seahorse-key-personal.png \
                 seahorse-key-ssh.png \

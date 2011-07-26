@@ -1,7 +1,7 @@
 @INTLTOOL_SCHEMAS_RULE@
 
 schemasdir = $(GCONF_SCHEMA_FILE_DIR)
-schemas_in_files = seahorse.schemas.in
+schemas_in_files = cryptui.schemas.in
 schemas_DATA = $(schemas_in_files:.schemas.in=.schemas)
 
 if GCONF_SCHEMAS_INSTALL

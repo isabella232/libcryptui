@@ -1,7 +1,7 @@
 
 localedir = $(datadir)/locale
-pixmapsdir = $(datadir)/pixmaps/
-uidir = $(datadir)/seahorse/ui/
+pixmapsdir = $(datadir)/pixmaps/cryptui/
+uidir = $(datadir)/cryptui/ui/
 
 INCLUDES = -I$(top_builddir) \
 	-I$(top_srcdir) \

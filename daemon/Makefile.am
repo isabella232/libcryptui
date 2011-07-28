@@ -44,7 +44,6 @@ seahorse_daemon_SOURCES = \
 	seahorse-object-list.c seahorse-object-list.h \
 	seahorse-pgp.c seahorse-pgp.h \
 	seahorse-pgp-key.c seahorse-pgp-key.h \
-	seahorse-pgp-keysets.c seahorse-pgp-keysets.h \
 	seahorse-pgp-module.c seahorse-pgp-module.h \
 	seahorse-pgp-signature.c seahorse-pgp-signature.h \
 	seahorse-pgp-subkey.c seahorse-pgp-subkey.h \
@@ -53,7 +52,6 @@ seahorse_daemon_SOURCES = \
 	seahorse-service.c seahorse-service.h \
 	seahorse-service-keyset.c seahorse-service-crypto.c \
 	seahorse-context.c seahorse-context.h \
-	seahorse-gconf.c seahorse-gconf.h \
 	seahorse-gtkstock.c seahorse-gtkstock.h \
 	seahorse-libdialogs.h \
 	seahorse-notification.c \

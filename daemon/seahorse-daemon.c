@@ -23,7 +23,6 @@
 
 #include "seahorse-context.h"
 #include "seahorse-daemon.h"
-#include "seahorse-gconf.h"
 #include "seahorse-gtkstock.h"
 #include "seahorse-pgp-module.h"
 #include "seahorse-secure-memory.h"
@@ -256,10 +255,6 @@ int main(int argc, char* argv[])
     /* Handle some signals */
     seahorse_unix_signal_register (SIGINT, unix_signal);
     seahorse_unix_signal_register (SIGTERM, unix_signal);
-
-    /* Force gconf to reconnect after daemonizing */
-    if (!daemon_no_daemonize)
-        seahorse_gconf_disconnect ();
 
     /* We log to the syslog */
     prepare_logging ();

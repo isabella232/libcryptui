@@ -21,7 +21,6 @@
 
 #include "seahorse-set.h"
 #include "seahorse-marshal.h"
-#include "seahorse-gconf.h"
 
 enum {
     PROP_0,

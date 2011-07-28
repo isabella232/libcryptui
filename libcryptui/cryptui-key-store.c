@@ -49,7 +49,8 @@ static const GType col_types[] = {
 
 struct _CryptUIKeyStorePriv {
     gboolean                    initialized;
-    
+    GSettings                   *settings;
+
     GHashTable                  *rows;
     GtkTreeModelFilter          *filter;
     GtkTreeStore                *store;
@@ -433,7 +434,7 @@ load_sort_order (CryptUIKeyStore *ckstore)
     const gchar *name;
 
     if (ckstore->priv->sortable)
-        sort = _cryptui_gconf_get_string (SEAHORSE_RECIPIENTS_SORT_KEY);
+        sort = g_settings_get_string (ckstore->priv->settings, "sort-by");
     
     name = sort ? sort : "";
     
@@ -481,7 +482,7 @@ sort_changed (GtkTreeSortable *sort, CryptUIKeyStore *ckstore)
     }
     
     x = g_strconcat (ord == GTK_SORT_DESCENDING ? "-" : "", name ? name : "", NULL);
-    _cryptui_gconf_set_string (SEAHORSE_RECIPIENTS_SORT_KEY, x);
+    g_settings_set_string (ckstore->priv->settings, "sort-by", x);
     g_free (x);
 }
 
@@ -494,7 +495,8 @@ cryptui_key_store_init (CryptUIKeyStore *ckstore)
 {
     /* init private vars */
     ckstore->priv = g_new0 (CryptUIKeyStorePriv, 1);
-    
+    ckstore->priv->settings = g_settings_new ("org.gnome.seahorse.recipients");
+
     /* Our key -> row ref mapping */
     ckstore->priv->rows = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, 
                                                  (GDestroyNotify)gtk_tree_row_reference_free);
@@ -566,7 +568,8 @@ cryptui_key_store_finalize (GObject *gobject)
     g_object_unref (ckstore->priv->store);
     g_object_unref (ckstore->priv->filter);
     g_hash_table_destroy (ckstore->priv->rows);
-     
+    g_object_unref (ckstore->priv->settings);
+
     /* Allocated in property setter */
     g_free (ckstore->priv->search_text); 
     g_free (ckstore->priv->none_option);
@@ -608,6 +611,7 @@ cryptui_key_store_set_property (GObject *gobject, guint prop_id,
     /* Sortable columns */
     case PROP_SORTABLE:
         ckstore->priv->sortable = g_value_get_boolean (value);
+        load_sort_order (ckstore);
         break;
     
     /* Display and use the check boxes */
@@ -653,7 +657,6 @@ cryptui_key_store_get_property (GObject *gobject, guint prop_id,
     
     case PROP_SORTABLE:
         g_value_set_boolean (value, ckstore->priv->sortable);
-        load_sort_order (ckstore);
         break;
     
     case PROP_USE_CHECKS:

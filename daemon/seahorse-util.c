@@ -22,7 +22,6 @@
 
 #include "config.h"
 
-#include "seahorse-gconf.h"
 #include "seahorse-object.h"
 #include "seahorse-pgp-module.h"
 #include "seahorse-util.h"

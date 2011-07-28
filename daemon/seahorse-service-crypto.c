@@ -27,7 +27,6 @@
 #include "seahorse-gpgme-operation.h"
 #include "seahorse-libdialogs.h"
 #include "seahorse-object.h"
-#include "seahorse-gconf.h"
 #include "seahorse-util.h"
 #include "seahorse-service.h"
 
@@ -304,7 +303,9 @@ crypto_encrypt_generic (SeahorseServiceCrypto *crypto,
     gpgme_data_t plain, cipher;
     gpgme_error_t gerr;
     gboolean ret = TRUE;
-    
+    GSettings *settings;
+    gchar *keyid;
+
     /* 
      * TODO: Once we support different kinds of keys that support encryption
      * then all this logic will need to change. 
@@ -364,12 +365,19 @@ crypto_encrypt_generic (SeahorseServiceCrypto *crypto,
     gpgme_set_textmode (pop->gctx, textmode);
     gpgme_set_armor (pop->gctx, ascii_armor);
 
-    /* Add the default key if set and necessary */
-    if (seahorse_gconf_get_boolean (ENCRYPTSELF_KEY)) {
-        skey = SEAHORSE_OBJECT (seahorse_context_get_default_key (SCTX_APP ()));
-        if (SEAHORSE_IS_PGP_KEY (skey))
-            recipkeys = g_list_append (recipkeys, skey);
-    }
+	/* Add the default key if set and necessary */
+	settings = g_settings_new ("org.gnome.crypto.pgp");
+	if (g_settings_get_boolean (settings, "encrypt-to-self")) {
+		keyid = g_settings_get_string (settings, "default-key");
+		if (keyid && keyid[0]) {
+			skey = seahorse_context_find_object (NULL, g_quark_from_string (keyid),
+			                                     SEAHORSE_LOCATION_LOCAL);
+			if (SEAHORSE_IS_PGP_KEY (skey))
+				recipkeys = g_list_append (recipkeys, skey);
+		}
+		g_free (keyid);
+	}
+	g_object_unref (settings);
 
     /* Make keys into the right format for GPGME */
     recips = keylist_to_keys (recipkeys);

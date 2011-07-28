@@ -27,7 +27,6 @@
 #include <libintl.h>
 
 #include "seahorse-context.h"
-#include "seahorse-gconf.h"
 #include "seahorse-libdialogs.h"
 #include "seahorse-marshal.h"
 #include "seahorse-transfer-operation.h"
@@ -74,7 +73,6 @@ struct _SeahorseContextPrivate {
     GSList *sources;                        /* Sources which add keys to this context */
     GHashTable *objects_by_source;          /* See explanation above */
     GHashTable *objects_by_type;            /* See explanation above */
-    guint notify_id;                        /* Notify for GConf watch */
     SeahorseMultiOperation *refresh_ops;    /* Operations for refreshes going on */
     gboolean in_destruction;                /* In destroy signal */
 };
@@ -180,11 +178,6 @@ seahorse_context_dispose (GObject *gobject)
             g_object_unref (G_OBJECT (l->data));
     }
     g_slist_free (objects);
-
-    /* Gconf notification */
-    if (sctx->pv->notify_id)
-        seahorse_gconf_unnotify (sctx->pv->notify_id);
-    sctx->pv->notify_id = 0;
 
     /* Release all the sources */
     for (l = sctx->pv->sources; l; l = g_slist_next (l))
@@ -997,42 +990,6 @@ seahorse_context_remove_object (SeahorseContext *sctx, SeahorseObject *sobj)
     }
 }
 
-
-/* -----------------------------------------------------------------------------
- * DEPRECATED 
- */
-
-/**
- * seahorse_context_get_default_key:
- * @sctx: Current #SeahorseContext
- *
- * Returns: the secret key that's the default key
- *
- * Deprecated: No replacement
- */
-SeahorseObject*
-seahorse_context_get_default_key (SeahorseContext *sctx)
-{
-    SeahorseObject *sobj = NULL;
-    gchar *id;
-    
-    if (!sctx)
-        sctx = seahorse_context_for_app ();
-    g_return_val_if_fail (SEAHORSE_IS_CONTEXT (sctx), NULL);
-
-    /* TODO: All of this needs to take multiple key types into account */
-    
-    id = seahorse_gconf_get_string (SEAHORSE_DEFAULT_KEY);
-    if (id != NULL && id[0]) {
-        GQuark keyid = g_quark_from_string (id);
-        sobj = seahorse_context_find_object (sctx, keyid, SEAHORSE_LOCATION_LOCAL);
-    }
-    
-    g_free (id);
-    
-    return sobj;
-}
-
 /**
  * seahorse_context_refresh_auto:
  * @sctx: A #SeahorseContext (can be NULL)
@@ -1067,68 +1024,6 @@ seahorse_context_refresh_auto (SeahorseContext *sctx)
 	}
 	
 	g_signal_emit (sctx, signals[REFRESHING], 0, sctx->pv->refresh_ops);
-}
-
-/**
- * seahorse_context_search_remote:
- * @sctx: A #SeahorseContext (can be NULL)
- * @search: a keyword (name, email address...) to search for
- *
- * Searches for the key matching @search o the remote servers
- *
- * Returns: The created search operation
- */
-SeahorseOperation*
-seahorse_context_search_remote (SeahorseContext *sctx, const gchar *search)
-{
-    SeahorseSource *ks;
-    SeahorseMultiOperation *mop = NULL;
-    SeahorseOperation *op = NULL;
-    GSList *l, *names;
-    GHashTable *servers = NULL;
-    gchar *uri;
-
-    if (!sctx)
-        sctx = seahorse_context_for_app ();
-    g_return_val_if_fail (SEAHORSE_IS_CONTEXT (sctx), NULL);
-
-    /* Get a list of all selected key servers */
-    names = seahorse_gconf_get_string_list (LASTSERVERS_KEY);
-    if (names) {
-        servers = g_hash_table_new (g_str_hash, g_str_equal);
-        for (l = names; l; l = g_slist_next (l))
-            g_hash_table_insert (servers, l->data, GINT_TO_POINTER (TRUE));
-    }
-
-    for (l = sctx->pv->sources; l; l = g_slist_next (l)) {
-        ks = SEAHORSE_SOURCE (l->data);
-
-        if (seahorse_source_get_location (ks) != SEAHORSE_LOCATION_REMOTE)
-            continue;
-
-        if (servers) {
-            g_object_get (ks, "uri", &uri, NULL);
-            if (!g_hash_table_lookup (servers, uri)) {
-                g_free (uri);
-                continue;
-            }
-
-            g_free (uri);
-        }
-
-        if (mop == NULL && op != NULL) {
-            mop = seahorse_multi_operation_new ();
-            seahorse_multi_operation_take (mop, op);
-        }
-
-        op = seahorse_source_search (ks, search);
-
-        if (mop != NULL)
-            seahorse_multi_operation_take (mop, op);
-    }
-
-    seahorse_util_string_slist_free (names);
-    return mop ? SEAHORSE_OPERATION (mop) : op;
 }
 
 /**
@@ -1361,14 +1256,6 @@ seahorse_context_discover_objects (SeahorseContext *sctx, GQuark ktype,
         op = seahorse_context_transfer_objects (sctx, toimport, NULL);
 
         g_list_free (toimport);
-
-        /* Running operations ref themselves */
-        g_object_unref (op);
-    }
-
-    /* Start a discover process on all todiscover */
-    if (seahorse_gconf_get_boolean (AUTORETRIEVE_KEY) && todiscover) {
-        op = seahorse_context_retrieve_objects (sctx, ktype, todiscover, NULL);
 
         /* Running operations ref themselves */
         g_object_unref (op);

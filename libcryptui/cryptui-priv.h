@@ -22,9 +22,6 @@
 #ifndef __CRYPTUI_PRIV_H__
 #define __CRYPTUI_PRIV_H__
 
-#include <gconf/gconf.h>
-#include <gconf/gconf-client.h>
-
 /* 
  * Used internally by libcryptui. 
  */
@@ -33,28 +30,8 @@
 #error "This header shouldn't be included outside of the libcryptui build."
 #endif
 
-#include <gconf/gconf.h>
-
 #include "cryptui.h"
 #include "cryptui-defines.h"
-
-/* cryptui.c ---------------------------------------------------------------- */
-
-gboolean        _cryptui_gconf_get_boolean          (const char *key);
-
-gchar*          _cryptui_gconf_get_string           (const char *key);
-
-void            _cryptui_gconf_set_string           (const char *key, const char *value);
-
-guint           _cryptui_gconf_notify               (const char *key, 
-                                                     GConfClientNotifyFunc notification_callback,
-                                                     gpointer callback_data);
-
-void            _cryptui_gconf_notify_lazy          (const char *key, 
-                                                     GConfClientNotifyFunc notification_callback,
-                                                     gpointer callback_data, gpointer lifetime);
-                                                     
-void            _cryptui_gconf_unnotify             (guint notification_id);
 
 /* cryptui-keyset.c --------------------------------------------------------- */
 

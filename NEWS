@@ -1,2 +1,6 @@
+libcryptui 3.1.91:
+ * Port to GSettings instead of GConf
+ * Build fixes
+
 libcryptui 3.1.4:
  * Initial release of libcryptui as a separate module

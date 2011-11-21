@@ -1,3 +1,6 @@
+libcryptui 3.2.2:
+ * Fix GSettings conversion
+
 libcryptui 3.2.0:
  * Initial stable release
 

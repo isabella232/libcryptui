@@ -12,3 +12,5 @@
 /*.service
 /seahorse-daemon.desktop
 /seahorse-daemon.desktop.in
+/seahorse-marshal.[ch]
+

@@ -50,6 +50,8 @@ AC_SUBST(GTK_LIBS)
 
 PKG_CHECK_MODULES(SEAHORSE, gmodule-2.0 gio-2.0 gthread-2.0 gtk+-3.0 >= $GTK_REQUIRED)
 
+PKG_CHECK_MODULES(SM, sm ice)
+
 GLIB_GSETTINGS
 
 AC_MSG_CHECKING([for some Win32 platform])

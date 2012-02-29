@@ -19,11 +19,11 @@ libeggsmclient_la_INCLUDES = -DEGG_SM_CLIENT_BACKEND_XSMP \
                              -DG_LOG_DOMAIN=\""EggSMClient"\"
 
 libeggsmclient_la_CFLAGS = $(EGG_CFLAGS) \
-                           $(EGG_SMCLIENT_CFLAGS) 
-                             
+                           $(EGG_SMCLIENT_CFLAGS) \
+                           $(SM_CFLAGS)
 libeggsmclient_la_LIBADD = $(EGG_SMCLIENT_LIBS) \
                            $(GTK_LIBS) \
-                           libeggdesktopfile.la -lSM -lICE
+                           $(SM_LIBS)
 libeggsmclient_la_SOURCES = eggsmclient.c \
                             eggsmclient.h \
                             eggsmclient-private.h \

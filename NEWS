@@ -1,3 +1,6 @@
+libcryptui 3.3.91:
+ * Add dependency on libSM and libICE, needed for XSMP client
+
 libcryptui 3.3.5:
  * Updated translations
 

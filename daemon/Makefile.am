@@ -1,3 +1,4 @@
+include $(top_srcdir)/Makefile.decl
 
 localedir = $(datadir)/locale
 pixmapsdir = $(datadir)/pixmaps/cryptui/
@@ -107,10 +108,6 @@ seahorse-service-crypto-bindings.h: seahorse-service-crypto.xml
 servicedir = $(datadir)/dbus-1/services/
 service_in_files = org.gnome.seahorse.service.in
 service_DATA = $(service_in_files:.service.in=.service)
-
-# Rule to make the service file with bindir expanded
-$(service_DATA): $(service_in_files) Makefile
-	@sed -e "s|\@bindir\@|$(bindir)|" $< > $@
 
 seahorse-marshal.h: seahorse-marshal.list $(GLIB_GENMARSHAL)
 	$(GLIB_GENMARSHAL) $< --header --prefix=seahorse_marshal > $@

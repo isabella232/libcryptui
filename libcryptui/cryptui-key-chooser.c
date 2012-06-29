@@ -194,6 +194,7 @@ construct_recipients (CryptUIKeyChooser *chooser, GtkBox *box)
                                                     CRYPTUI_KEY_LIST_CHECKS);
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (chooser->priv->keylist), FALSE);
     scroll = gtk_scrolled_window_new (NULL, NULL);
+    gtk_widget_set_size_request (scroll, 500, 300);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scroll), 
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_ALWAYS);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll), GTK_SHADOW_IN);

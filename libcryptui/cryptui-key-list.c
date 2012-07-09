@@ -151,7 +151,6 @@ cryptui_key_list_setup (GtkTreeView *view, CryptUIKeyStore *ckstore,
     gtk_tree_view_column_set_min_width (col, width);
     
     gtk_tree_view_set_rules_hint (view, TRUE);
-    gtk_widget_set_size_request (GTK_WIDGET (view), 500, 250);
 }
 
 /**

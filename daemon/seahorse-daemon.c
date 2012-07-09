@@ -228,8 +228,6 @@ int main(int argc, char* argv[])
     GOptionContext *octx = NULL;
     GError *error = NULL;
 
-    g_thread_init (NULL);
-    
     seahorse_secure_memory_init ();
     
     octx = g_option_context_new ("");

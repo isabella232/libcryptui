@@ -145,8 +145,8 @@ construct_recipients (CryptUIKeyChooser *chooser, GtkBox *box)
     GtkWidget *hbox;
 
     /* Top filter box */
-    hbox = gtk_hbox_new (FALSE, 12);
-    
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+
     /* Filter Combo */
     chooser->priv->filtermode = GTK_COMBO_BOX (gtk_combo_box_text_new ());
     gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (chooser->priv->filtermode), _("All Keys"));
@@ -252,8 +252,8 @@ construct_signer (CryptUIKeyChooser *chooser, GtkBox *box)
         g_list_free (keys);
     } else if (count > 1) {
         /* Top filter box */
-        hbox = gtk_hbox_new (FALSE, 12);
-        
+        hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+
         /* Sign Label */
         label = gtk_label_new (_("_Sign message as:"));
         gtk_label_set_use_underline (GTK_LABEL (label), TRUE);

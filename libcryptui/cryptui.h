@@ -38,7 +38,7 @@ G_BEGIN_DECLS
  * @CRYPTUI_ENCTYPE_SYMMETRIC: the key's type is symmetric
  * @CRYPTUI_ENCTYPE_PUBLIC: the key's type is public
  * @CRYPTUI_ENCTYPE_PRIVATE: the key's type is private
- * @_CRYPTUI_ENCTYPE_MAXVALUE: for internal use only
+ * @CRYPTUI_ENCTYPE_MAXVALUE: for internal use only
  *
  * Used in key properties to indicate what kind of key it is
  *

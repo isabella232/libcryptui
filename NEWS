@@ -1,3 +1,8 @@
+libcryptui 3.5.4:
+ * Make the default key chooser window size bigger
+ * Bump dependency versions, and fix deprecetions
+ * Documentation fixes
+
 libcryptui 3.4.1:
  * Build fixes
 

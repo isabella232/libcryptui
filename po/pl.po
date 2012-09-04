@@ -4,12 +4,18 @@
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Artur Flinta <aflinta@at.kernel.pl>, 2003-2006.
+# Andrzej Polatyński <andrzej@datatel.net.pl>, 2007.
+# Tomasz Dominikowski <dominikowski@gmail.com>, 2007-2009.
+# Piotr Zaryk <pzaryk@aviary.pl>, 2009.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2012.
+# Aviary.pl <gnomepl@aviary.pl>, 2007-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: libcryptui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-05 17:13+0200\n"
-"PO-Revision-Date: 2011-09-05 17:15+0200\n"
+"POT-Creation-Date: 2012-09-04 18:24+0200\n"
+"PO-Revision-Date: 2012-09-04 18:25+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -33,7 +39,7 @@ msgstr "nie można uruchomić nowego procesu"
 msgid "couldn't create new process group"
 msgstr "nie można utworzyć nowej grupy procesów"
 
-#: ../daemon/seahorse-daemon.c:239
+#: ../daemon/seahorse-daemon.c:237
 msgid "Encryption Daemon (Seahorse)"
 msgstr "Usługa szyfrowania (Seahorse)"
 
@@ -203,56 +209,56 @@ msgid "Confirm:"
 msgstr "Potwierdzenie:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:1
-msgid "<b>_Advanced key options</b>"
-msgstr "<b>_Zaawansowane opcje klucza</b>"
-
-#: ../daemon/seahorse-pgp-generate.xml.h:2
-msgid "A PGP key allows you to encrypt email or files to other people."
-msgstr "Klucz PGP umożliwia szyfrowanie poczty i plików."
-
-#: ../daemon/seahorse-pgp-generate.xml.h:3
 msgid "Algorithms here"
 msgstr "Algorytmy"
 
+#: ../daemon/seahorse-pgp-generate.xml.h:2
+msgid "New PGP Key"
+msgstr "Nowy klucz PGP"
+
+#: ../daemon/seahorse-pgp-generate.xml.h:3
+msgid "A PGP key allows you to encrypt email or files to other people."
+msgstr "Klucz PGP umożliwia szyfrowanie poczty i plików."
+
 #: ../daemon/seahorse-pgp-generate.xml.h:4
-msgid "C_reate"
-msgstr "_Utwórz"
-
-#: ../daemon/seahorse-pgp-generate.xml.h:5
-msgid "E_xpiration Date:"
-msgstr "Data _wygaśnięcia:"
-
-#: ../daemon/seahorse-pgp-generate.xml.h:6
-msgid "Encryption _Type:"
-msgstr "Typ _szyfrowania:"
-
-#: ../daemon/seahorse-pgp-generate.xml.h:7
 msgid "Full _Name:"
 msgstr "Imię i _nazwisko:"
 
+#: ../daemon/seahorse-pgp-generate.xml.h:5
+msgid "_Email Address:"
+msgstr "Adres _e-mail:"
+
+#: ../daemon/seahorse-pgp-generate.xml.h:6
+msgid "_Comment:"
+msgstr "_Komentarz:"
+
+#: ../daemon/seahorse-pgp-generate.xml.h:7
+msgid "Ne_ver Expires"
+msgstr "_Nie wygasa"
+
 #: ../daemon/seahorse-pgp-generate.xml.h:8
-msgid "Generate a new key"
-msgstr "Tworzy nowy klucz"
+msgid "Encryption _Type:"
+msgstr "Typ _szyfrowania:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:9
 msgid "Key _Strength (bits):"
 msgstr "_Długość klucza (w bitach):"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:10
-msgid "Ne_ver Expires"
-msgstr "_Nie wygasa"
+msgid "E_xpiration Date:"
+msgstr "Data _wygaśnięcia:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:11
-msgid "New PGP Key"
-msgstr "Nowy klucz PGP"
+msgid "<b>_Advanced key options</b>"
+msgstr "<b>_Zaawansowane opcje klucza</b>"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:12
-msgid "_Comment:"
-msgstr "_Komentarz:"
+msgid "Generate a new key"
+msgstr "Tworzy nowy klucz"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:13
-msgid "_Email Address:"
-msgstr "Adres _e-mail:"
+msgid "C_reate"
+msgstr "_Utwórz"
 
 #: ../daemon/seahorse-pgp-key.c:179
 msgid "Private PGP Key"
@@ -531,17 +537,17 @@ msgstr "Wyniki wyszukiwania"
 msgid "Search _for:"
 msgstr "_Wyszukiwanie:"
 
-#: ../libcryptui/cryptui-key-chooser.c:222
+#: ../libcryptui/cryptui-key-chooser.c:223
 msgid "None (Don't Sign)"
 msgstr "Brak (bez podpisywania)"
 
-#: ../libcryptui/cryptui-key-chooser.c:235
+#: ../libcryptui/cryptui-key-chooser.c:236
 #, c-format
 msgid "Sign this message as %s"
 msgstr "Podpisanie wiadomości jako %s"
 
 #. Sign Label
-#: ../libcryptui/cryptui-key-chooser.c:257
+#: ../libcryptui/cryptui-key-chooser.c:258
 msgid "_Sign message as:"
 msgstr "_Podpisywanie jako:"
 
@@ -855,7 +861,7 @@ msgstr "Wyłącza połączenia z menedżerem sesji"
 
 #: ../libegg/eggsmclient.c:228
 msgid "Specify file containing saved configuration"
-msgstr "Proszę podać plik zawierający zapisaną konfigurację"
+msgstr "Podaje plik zawierający zapisaną konfigurację"
 
 #: ../libegg/eggsmclient.c:228
 msgid "FILE"
@@ -863,7 +869,7 @@ msgstr "PLIK"
 
 #: ../libegg/eggsmclient.c:231
 msgid "Specify session management ID"
-msgstr "Proszę określić identyfikator zarządzania sesją"
+msgstr "Podaje identyfikator zarządzania sesją"
 
 #: ../libegg/eggsmclient.c:231
 msgid "ID"

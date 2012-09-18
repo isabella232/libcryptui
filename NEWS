@@ -1,3 +1,6 @@
+libcryptui 3.5.92:
+ * Updated translations
+
 libcryptui 3.5.4:
  * Make the default key chooser window size bigger
  * Bump dependency versions, and fix deprecetions

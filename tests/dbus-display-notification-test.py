@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import dbus
 
@@ -6,7 +6,7 @@ bus = dbus.SessionBus()
 proxy_obj = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
 dbus_iface = dbus.Interface(proxy_obj, 'org.freedesktop.DBus')
 
-print "\n\nSEAHORSE DBUS CALL ------------------------------------"
+print("\n\nSEAHORSE DBUS CALL ------------------------------------")
 proxy_obj = bus.get_object('org.gnome.seahorse', '/org/gnome/seahorse/keys')
 service = dbus.Interface(proxy_obj, 'org.gnome.seahorse.KeyService')
 

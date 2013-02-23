@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import gobject 
 import dbus
@@ -11,16 +11,16 @@ service = dbus.Interface(proxy_obj, 'org.gnome.seahorse.Keys')
 
 
 def signal_callback(interface, signal_name, service, path, message):
-    print "Received signal %s from %s" % (signal_name, interface)
+    print("Received signal %s from %s" % (signal_name, interface))
 
 def key_changed(id):
-    print "Changed: ", id
+    print("Changed: ", id)
 
 def key_added(id):
-    print "Added: ", id
+    print("Added: ", id)
 
 def key_removed(id):
-    print "Removed: ", id
+    print("Removed: ", id)
 
 service.connect_to_signal ('KeyChanged', key_changed)
 service.connect_to_signal ('KeyAdded', key_added)

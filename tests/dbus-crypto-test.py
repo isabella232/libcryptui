@@ -25,4 +25,12 @@ print "Signed: ", signed
 print "Verified: ", verified
 print "Signer: ", signer
 
+# Symmetric encryption
+FLAG_SYMMETRIC = 0x02
 
+encrypted = service.EncryptText([], "", FLAG_SYMMETRIC, "cleartext")
+print "Encrypted: ", encrypted
+
+(decrypted, signer) = service.DecryptText("openpgp", 0, encrypted)
+print "Decrypted: ", decrypted
+print "Signer: ", signer

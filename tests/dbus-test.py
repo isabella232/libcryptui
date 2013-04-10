@@ -21,7 +21,7 @@ if not len(types):
     print "No key types found"
     sys.exit(0)
 
-path = service.GetKeyset(types[1])
+path = service.GetKeyset(types[0])
 print "GetKeySet(): ", path
 
 proxy_obj = bus.get_object('org.gnome.seahorse', path)
@@ -36,4 +36,4 @@ if not len(keys):
 print keys[0]
 print keyset.GetKeyField(keys[0], "display-name")
 print keyset.GetKeyFields(keys[0], [ "display-name", "raw-id", "fingerprint" ])
-print service.ExportKeys("openssh", [ keys[0] ])
+print service.ExportKeys("openpgp", [ keys[0] ])

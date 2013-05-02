@@ -27,10 +27,11 @@
 #include "cryptui-keyset.h"
 
 typedef enum _CryptUIKeyChooserMode {
-    CRYPTUI_KEY_CHOOSER_RECIPIENTS =    0x0001,
-    CRYPTUI_KEY_CHOOSER_SIGNER =        0x0002,
+    CRYPTUI_KEY_CHOOSER_RECIPIENTS =         0x0001,
+    CRYPTUI_KEY_CHOOSER_SIGNER =             0x0002,
+    CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC =  0x0004,
     
-    CRYPTUI_KEY_CHOOSER_MUSTSIGN =      0x0010
+    CRYPTUI_KEY_CHOOSER_MUSTSIGN =           0x0010
 } CryptUIKeyChooserMode;
 
 #define CRYPTUI_TYPE_KEY_CHOOSER             (cryptui_key_chooser_get_type ())
@@ -82,6 +83,11 @@ const gchar*        cryptui_key_chooser_get_signer          (CryptUIKeyChooser *
 
 void                cryptui_key_chooser_set_signer          (CryptUIKeyChooser *chooser,
                                                              const gchar *key);
+
+gboolean            cryptui_key_chooser_get_symmetric       (CryptUIKeyChooser *chooser);
+
+void                cryptui_key_chooser_set_symmetric       (CryptUIKeyChooser *chooser,
+                                                             gboolean symmetric);
 
 CryptUIKeyChooserMode
                     cryptui_key_chooser_get_mode            (CryptUIKeyChooser *chooser);

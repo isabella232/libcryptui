@@ -146,29 +146,35 @@ cryptui_display_notification (const gchar *title, const gchar *body, const gchar
  * QUICK PROMPTS
  */
 
-static void 
+static void
 selection_changed (CryptUIKeyChooser *chooser, GtkWidget *dialog)
 {
-    gtk_dialog_set_response_sensitive (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT, 
-                                       cryptui_key_chooser_have_recipients (chooser));
+	gboolean sensitive;
+
+	sensitive = cryptui_key_chooser_have_recipients (chooser) ||
+	            cryptui_key_chooser_get_symmetric (chooser);
+	gtk_dialog_set_response_sensitive (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT,
+	                                   sensitive);
 }
 
 /**
- * cryptui_prompt_recipients:
+ * cryptui_prompt_recipients_with_symmetric:
  * @keyset: CryptUIKeyset to select keys to present to the user from
  * @title: Window title for presented GtkWindow
  * @signer: Variable in which to store the key of the signer if one is selected
+ * @symmetric: Variable in which to store if symmetric encryption is requested.
+ *             Set to NULL to disable symmetric encryption.
  *
  * This function prompts the user to select one or more keys from the keyset to
  * use to encrypt to.  It also allows the user to select a private key from the
  * keyset to sign with. 
  *
- * Returns: the selected key
+ * Returns: the selected key or NULL in case of symmetric encryption
  */
- 
 gchar**
-cryptui_prompt_recipients (CryptUIKeyset *keyset, const gchar *title, 
-                           gchar **signer)
+cryptui_prompt_recipients_with_symmetric (CryptUIKeyset *keyset,
+                                          const gchar *title,
+                                          gchar **signer, gboolean *symmetric)
 {
     CryptUIKeyChooser *chooser;
     GtkWidget *dialog;
@@ -181,6 +187,10 @@ cryptui_prompt_recipients (CryptUIKeyset *keyset, const gchar *title,
     if (signer) {
         *signer = NULL;
         mode |= CRYPTUI_KEY_CHOOSER_SIGNER;
+    }
+    if (symmetric) {
+        *symmetric = FALSE;
+        mode |= CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC;
     }
     
     dialog = gtk_dialog_new_with_buttons (title, NULL, GTK_DIALOG_MODAL, 
@@ -199,12 +209,17 @@ cryptui_prompt_recipients (CryptUIKeyset *keyset, const gchar *title,
     gtk_widget_show_all (dialog);
     
     if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT) {
+        if (symmetric != NULL) {
+            *symmetric = cryptui_key_chooser_get_symmetric (chooser);
+        }
         
-        recipients = cryptui_key_chooser_get_recipients (chooser);
-        keys = g_new0(gchar*, g_list_length (recipients) + 1);
-        for (l = recipients, i = 0; l; l = g_list_next (l), i++)
-            keys[i] = g_strdup (l->data);
-        g_list_free (recipients);
+        if (symmetric != NULL && !*symmetric) {
+            recipients = cryptui_key_chooser_get_recipients (chooser);
+            keys = g_new0(gchar*, g_list_length (recipients) + 1);
+            for (l = recipients, i = 0; l; l = g_list_next (l), i++)
+                keys[i] = g_strdup (l->data);
+            g_list_free (recipients);
+        }
         
         if (signer) {
             t = cryptui_key_chooser_get_signer (chooser);
@@ -215,6 +230,27 @@ cryptui_prompt_recipients (CryptUIKeyset *keyset, const gchar *title,
     gtk_widget_destroy (dialog);
     return keys;
 }
+
+/**
+ * cryptui_prompt_recipients:
+ * @keyset: CryptUIKeyset to select keys to present to the user from
+ * @title: Window title for presented GtkWindow
+ * @signer: Variable in which to store the key of the signer if one is selected
+ *
+ * This function prompts the user to select one or more keys from the keyset to
+ * use to encrypt to.  It also allows the user to select a private key from the
+ * keyset to sign with.
+ *
+ * Returns: the selected key
+ */
+gchar**
+cryptui_prompt_recipients (CryptUIKeyset *keyset, const gchar *title,
+                           gchar **signer)
+{
+	return cryptui_prompt_recipients_with_symmetric (keyset, title,
+	                                                 signer, NULL);
+}
+
 
 /**
  * cryptui_prompt_signer:

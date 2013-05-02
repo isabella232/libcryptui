@@ -147,6 +147,10 @@ CryptUIEncType      cryptui_key_get_enctype (const gchar *key);
 void                cryptui_display_notification (const gchar *title, const gchar *body,
                                                   const gchar *icon, gboolean urgent);
 
+gchar**             cryptui_prompt_recipients_with_symmetric (CryptUIKeyset *keyset,
+                                                              const gchar *title,
+                                                              gchar **signer,
+                                                              gboolean *symmetric);
 gchar**             cryptui_prompt_recipients (CryptUIKeyset *keyset, 
                                                const gchar *title, gchar **signer);
 

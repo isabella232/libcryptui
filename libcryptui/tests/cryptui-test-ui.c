@@ -62,12 +62,14 @@ show_ui_dialog (CryptUIKeyset *keyset)
 }
 
 static void
-show_chooser_dialog (CryptUIKeyset *keyset)
+show_chooser_dialog (CryptUIKeyset *keyset, gboolean support_symmetric)
 {
     gchar **recipients, **k;
     gchar *signer;
+    gboolean symmetric;
     
-    recipients = cryptui_prompt_recipients (keyset, "Choose Recipients", &signer);
+    recipients = cryptui_prompt_recipients_with_symmetric (keyset, "Choose Recipients", &signer,
+                                            support_symmetric ? &symmetric : NULL);
     
     if (recipients) {
         for (k = recipients; *k; k++)
@@ -76,6 +78,8 @@ show_chooser_dialog (CryptUIKeyset *keyset)
         g_print ("SIGNER: %s\n", signer);
         g_free (signer);
     }
+    if (support_symmetric)
+        g_print ("SYMMETRIC: %s\n", symmetric ? "true" : "false");
 }
 
 static void
@@ -124,7 +128,9 @@ main (int argc, char **argv)
     if (g_ascii_strcasecmp (arg, "plain") == 0) 
 	    show_ui_dialog (keyset);
     else if (g_ascii_strcasecmp (arg, "normal") == 0)
-	    show_chooser_dialog (keyset);
+	    show_chooser_dialog (keyset, FALSE);
+    else if (g_ascii_strcasecmp (arg, "symmetric") == 0)
+	    show_chooser_dialog (keyset, TRUE);
     else if (g_ascii_strcasecmp (arg, "keyset") == 0)
 	    print_keyset (keyset);
     else

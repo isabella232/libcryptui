@@ -32,7 +32,8 @@ enum {
     PROP_0,
     PROP_KEYSET,
     PROP_MODE,
-    PROP_ENFORCE_PREFS
+    PROP_ENFORCE_PREFS,
+    PROP_SYMMETRIC
 };
 
 enum {
@@ -44,6 +45,7 @@ enum {
 struct _CryptUIKeyChooserPriv {
     guint                   mode;
     gboolean                initialized : 1;
+    gboolean                symmetric : 1;
     
     CryptUIKeyset           *ckset;
     CryptUIKeyStore         *ckstore;
@@ -136,6 +138,19 @@ signer_toggled (GtkWidget *widget, CryptUIKeyChooser *chooser)
 	g_signal_emit (chooser, signals[CHANGED], 0);
 }
 
+static void encryption_mode_changed (GtkToggleButton * button, CryptUIKeyChooser *chooser)
+{
+	gboolean use_public_key_encryption;
+
+	use_public_key_encryption = gtk_toggle_button_get_active (button);
+	chooser->priv->symmetric = !use_public_key_encryption;
+	gtk_widget_set_sensitive (GTK_WIDGET (chooser->priv->filtermode), use_public_key_encryption);
+	gtk_widget_set_sensitive (GTK_WIDGET (chooser->priv->filtertext), use_public_key_encryption);
+	gtk_widget_set_sensitive (GTK_WIDGET (chooser->priv->keylist), use_public_key_encryption);
+
+	g_signal_emit (chooser, signals[CHANGED], 0);
+}
+
 static void
 construct_recipients (CryptUIKeyChooser *chooser, GtkBox *box)
 {
@@ -143,6 +158,16 @@ construct_recipients (CryptUIKeyChooser *chooser, GtkBox *box)
     GtkWidget *scroll;
     GtkWidget *label;
     GtkWidget *hbox;
+    GtkWidget *vbox;
+    GtkWidget *radio_public_key;
+    GtkWidget *radio_symmetric;
+    gboolean support_symmetric;
+    gint indicator_size = 0;
+    gint indicator_spacing = 0;
+    gint focus_width = 0;
+    gint focus_pad = 0;
+
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
 
     /* Top filter box */
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
@@ -181,9 +206,9 @@ construct_recipients (CryptUIKeyChooser *chooser, GtkBox *box)
                                 FALSE, TRUE, 0, GTK_PACK_START);
 
     /* Add Filter box */
-    gtk_container_add (GTK_CONTAINER (box), hbox);
-    gtk_box_set_child_packing (GTK_BOX (box), hbox, 
-                                FALSE, TRUE, 0, GTK_PACK_START);
+    gtk_container_add (GTK_CONTAINER (vbox), hbox);
+    gtk_box_set_child_packing (GTK_BOX (vbox), hbox,
+                               FALSE, TRUE, 0, GTK_PACK_START);
 
     chooser->priv->ckstore = cryptui_key_store_new (chooser->priv->ckset, TRUE, NULL);
     cryptui_key_store_set_sortable (chooser->priv->ckstore, TRUE);
@@ -199,8 +224,47 @@ construct_recipients (CryptUIKeyChooser *chooser, GtkBox *box)
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_ALWAYS);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scroll), GTK_SHADOW_IN);
     gtk_container_add (GTK_CONTAINER (scroll), GTK_WIDGET (chooser->priv->keylist));
-    gtk_container_add (GTK_CONTAINER (box), scroll);
-    gtk_box_set_child_packing (box, scroll, TRUE, TRUE, 0, GTK_PACK_START);
+    gtk_container_add (GTK_CONTAINER (vbox), scroll);
+    gtk_box_set_child_packing (GTK_BOX (vbox), scroll,
+                               TRUE, TRUE, 0, GTK_PACK_START);
+
+    support_symmetric = (chooser->priv->mode & CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC) == CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC;
+
+    if (support_symmetric) {
+        radio_symmetric = gtk_radio_button_new (NULL /* first of the group */);
+        label = gtk_label_new (_("Use passphrase only"));
+        gtk_container_add (GTK_CONTAINER (radio_symmetric), label);
+        gtk_container_add (GTK_CONTAINER (box), radio_symmetric);
+        gtk_box_set_child_packing (GTK_BOX (box), radio_symmetric,
+                                   FALSE, TRUE, 0, GTK_PACK_START);
+
+        radio_public_key = gtk_radio_button_new_from_widget (GTK_RADIO_BUTTON (radio_symmetric));
+        g_signal_connect (radio_public_key, "toggled",
+                          G_CALLBACK (encryption_mode_changed), chooser);
+        label = gtk_label_new (_("Choose a set of recipients:"));
+        gtk_container_add (GTK_CONTAINER (radio_public_key), label);
+        gtk_container_add (GTK_CONTAINER (box), radio_public_key);
+        gtk_box_set_child_packing (GTK_BOX (box), radio_public_key,
+                                   FALSE, TRUE, 0, GTK_PACK_START);
+        gtk_widget_style_get (GTK_WIDGET (radio_public_key),
+                              "indicator-size", &indicator_size,
+                              "indicator-spacing", &indicator_spacing,
+                              NULL);
+        gtk_widget_style_get (GTK_WIDGET (radio_public_key),
+                              "focus-line-width", &focus_width,
+                              "focus-padding", &focus_pad,
+                              NULL);
+
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON (radio_public_key),
+                                     !cryptui_key_chooser_get_symmetric (chooser));
+
+        gtk_widget_set_margin_left (vbox, indicator_size + 2 * indicator_spacing +
+                                          focus_width + focus_pad);
+    }
+    gtk_container_add (GTK_CONTAINER (box), vbox);
+    gtk_box_set_child_packing (GTK_BOX (box), vbox,
+                               TRUE, TRUE, 0, GTK_PACK_START);
+
     selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (chooser->priv->keylist));
     g_signal_connect (selection, "changed", G_CALLBACK (recipients_changed), chooser);
 }
@@ -212,10 +276,13 @@ construct_signer (CryptUIKeyChooser *chooser, GtkBox *box)
     CryptUIKeyStore *ckstore;
     GtkWidget *hbox;
     GtkWidget *label;
+    GtkWidget *separator;
     guint count;
     GList *keys;
     gchar *keyname, *labelstr;
+    gboolean support_symmetric;
 
+    support_symmetric = (chooser->priv->mode & CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC) == CRYPTUI_KEY_CHOOSER_SUPPORT_SYMMETRIC;
     
     /* TODO: HIG and beautification */
         
@@ -243,6 +310,11 @@ construct_signer (CryptUIKeyChooser *chooser, GtkBox *box)
         g_signal_connect (chooser->priv->signercheck , "toggled", G_CALLBACK (signer_toggled), chooser);
 
         /* Add it in */
+        if (support_symmetric) {
+            separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+            gtk_container_add (GTK_CONTAINER (box), separator);
+            gtk_box_set_child_packing (box, separator, FALSE, TRUE, 0, GTK_PACK_START);
+        }
         gtk_container_add (GTK_CONTAINER (box), GTK_WIDGET (chooser->priv->signercheck));
         gtk_box_set_child_packing (box, GTK_WIDGET (chooser->priv->signercheck), FALSE, TRUE, 0, GTK_PACK_START);
 
@@ -268,6 +340,11 @@ construct_signer (CryptUIKeyChooser *chooser, GtkBox *box)
                                    TRUE, TRUE, 0, GTK_PACK_START);
                                                               
         /* Add it in */
+        if (support_symmetric) {
+            separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+            gtk_container_add (GTK_CONTAINER (box), separator);
+            gtk_box_set_child_packing (box, separator, FALSE, TRUE, 0, GTK_PACK_START);
+        }
         gtk_container_add (GTK_CONTAINER (box), hbox);
         gtk_box_set_child_packing (box, hbox, FALSE, TRUE, 0, GTK_PACK_START);
     }
@@ -382,6 +459,9 @@ cryptui_key_chooser_set_property (GObject *gobject, guint prop_id,
         }
         break;
 
+    case PROP_SYMMETRIC:
+        chooser->priv->symmetric = g_value_get_boolean (value);
+
     default:
         break;
     }
@@ -405,6 +485,10 @@ cryptui_key_chooser_get_property (GObject *gobject, guint prop_id,
     case PROP_ENFORCE_PREFS:
         g_value_set_boolean (value, chooser->priv->settings != NULL);
         break;
+
+    case PROP_SYMMETRIC:
+        g_value_set_boolean (value, chooser->priv->symmetric);
+
     
     default:
         break;
@@ -436,6 +520,10 @@ cryptui_key_chooser_class_init (CryptUIKeyChooserClass *klass)
     g_object_class_install_property (gclass, PROP_ENFORCE_PREFS,
         g_param_spec_boolean ("enforce-prefs", "Enforce User Preferences", "Enforce user preferences",
                               TRUE, G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+
+    g_object_class_install_property (gclass, PROP_SYMMETRIC,
+        g_param_spec_boolean ("symmetric", "Use symmetric encryption", "Use symmetric encryption",
+                              FALSE, G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
     
     signals[CHANGED] = g_signal_new ("changed", CRYPTUI_TYPE_KEY_CHOOSER, 
                 G_SIGNAL_RUN_FIRST, G_STRUCT_OFFSET (CryptUIKeyChooserClass, changed),
@@ -627,6 +715,37 @@ cryptui_key_chooser_set_signer (CryptUIKeyChooser *chooser, const gchar *key)
     g_return_if_fail (chooser->priv->keycombo != NULL);
     cryptui_key_combo_set_key (chooser->priv->keycombo, key);
 }
+
+/**
+ * cryptui_key_chooser_get_symmetric:
+ * @chooser: the chooser widget to get symmetric setting from
+ *
+ * Gets if symmetric encryption was selected.
+ *
+ * Returns: TRUE if symmetric encrypted was selected, FALSE otherwise.
+ */
+gboolean
+cryptui_key_chooser_get_symmetric (CryptUIKeyChooser *chooser)
+{
+	gboolean symmetric = FALSE;
+
+	g_object_get (chooser, "symmetric", &symmetric, NULL);
+	return symmetric;
+}
+
+/**
+ * cryptui_key_chooser_set_symmetric:
+ * @chooser: the chooser to set the signer on
+ * @key: the signer key to set
+ *
+ * Sets the signer in the chooser to the provided key.
+ */
+void
+cryptui_key_chooser_set_symmetric (CryptUIKeyChooser *chooser, gboolean symmetric)
+{
+	g_object_set (chooser, "symmetric", symmetric, NULL);
+}
+
 
 /**
  * cryptui_key_chooser_get_mode:

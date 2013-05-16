@@ -568,9 +568,13 @@ cryptui_key_chooser_get_recipients (CryptUIKeyChooser *chooser)
         g_list_free (keys);
     }
 
-    if (!key)
+    if (!key) {
         g_warning ("Encrypt to self is set, but no personal keys can be found");
-    else
+        return recipients;
+    }
+
+    /* Only prepend the key if it's not already in the recipients. */
+    if (!g_list_find (recipients, key))
         recipients = g_list_prepend (recipients, (gpointer)key);
 
     return recipients;

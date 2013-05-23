@@ -242,8 +242,7 @@ int main(int argc, char* argv[])
     }
      	 
 	g_signal_connect (egg_sm_client_get (), "quit", G_CALLBACK (smclient_quit), NULL);
-    egg_set_desktop_file(AUTOSTARTDIR "/seahorse-daemon.desktop");
-    
+
     /*
      * All functions after this point have to print messages
      * nicely and not just called exit()

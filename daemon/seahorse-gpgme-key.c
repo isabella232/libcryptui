@@ -166,6 +166,7 @@ realize_uids (SeahorseGpgmeKey *self)
 	SeahorseGpgmeUid *uid;
 	GList *results = NULL;
 	gboolean changed = FALSE;
+	SeahorseSource *source;
 	GList *uids;
 
 	uids = self->pv->uids;
@@ -189,10 +190,12 @@ realize_uids (SeahorseGpgmeKey *self)
 	}
 
 	/* Add new UIDs */
+	source = seahorse_object_get_source (SEAHORSE_OBJECT (self));
 	while (guid != NULL) {
 		uid = seahorse_gpgme_uid_new (self->pv->pubkey, guid);
 		changed = TRUE;
 		results = seahorse_object_list_append (results, uid);
+		g_object_set (uid, "source", source, NULL);
 		g_object_unref (uid);
 		guid = guid->next;
 	}

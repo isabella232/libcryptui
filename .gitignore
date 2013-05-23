@@ -4,6 +4,8 @@
 *.la
 *.stamp
 *.bak
+*.gcda
+*.gcno
 *.tmp
 .tm*
 ~*

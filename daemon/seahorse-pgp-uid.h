@@ -50,8 +50,6 @@ struct _SeahorsePgpUidClass {
 
 GType             seahorse_pgp_uid_get_type             (void);
 
-SeahorsePgpUid*   seahorse_pgp_uid_new                  (const gchar *uid_string);
-
 GList*            seahorse_pgp_uid_get_signatures       (SeahorsePgpUid *self);
 
 void              seahorse_pgp_uid_set_signatures       (SeahorsePgpUid *self,

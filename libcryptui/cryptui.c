@@ -276,3 +276,39 @@ cryptui_need_to_get_keys ()
         g_spawn_async (NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
     }
 }
+
+/**
+ * cryptui_need_to_get_keys_or_symmetric:
+ *
+ * This function is called when seahorse needs to be launched to generate a
+ * key or keys or import a key or keys to perform the requested operation.
+ *
+ * It returns TRUE if symmetric encrypting should be used instead of public key
+ * encryption.
+ */
+gboolean
+cryptui_need_to_get_keys_or_symmetric (void)
+{
+    GtkWidget *dialog;
+    gchar *argv[2] = {"seahorse", NULL};
+    gint response;
+
+    dialog = gtk_message_dialog_new_with_markup (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_NONE,
+                                                 _("No encryption keys were found. In order to perform public key encryption, the <b>Passwords and Encryption Keys</b> program can be started to create or import a public key. It is also possible to use a shared passphrase instead."));
+    gtk_dialog_add_buttons (GTK_DIALOG(dialog),
+                            GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                            _("Use a shared passphrase"), GTK_RESPONSE_REJECT,
+                            _("Create or import a key"), GTK_RESPONSE_ACCEPT,
+                            NULL);
+
+    response = gtk_dialog_run (GTK_DIALOG (dialog));
+    gtk_widget_destroy (dialog);
+    if (response == GTK_RESPONSE_ACCEPT) {
+        g_spawn_async (NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
+        return FALSE;
+    }
+    if (response == GTK_RESPONSE_REJECT) {
+        return TRUE;
+    }
+    return FALSE;
+}

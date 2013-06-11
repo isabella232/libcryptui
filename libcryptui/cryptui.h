@@ -162,6 +162,8 @@ gchar*              cryptui_prompt_signer (CryptUIKeyset *keyset, const gchar *t
  */
 void                cryptui_need_to_get_keys ();
 
+gboolean            cryptui_need_to_get_keys_or_symmetric (void);
+
 G_END_DECLS
 
 #endif /* __CRYPT_UI_H__ */

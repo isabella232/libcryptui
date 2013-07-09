@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: libcryptui\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libcryptui&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-23 07:34+0000\n"
-"PO-Revision-Date: 2013-06-08 10:53+0200\n"
+"POT-Creation-Date: 2013-07-09 08:26+0000\n"
+"PO-Revision-Date: 2013-07-09 18:53+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../daemon/seahorse-daemon.c:53
 msgid "Do not run seahorse-daemon as a daemon"
-msgstr "Nespouštět seahorse-daemon jako démon"
+msgstr "Nespouštět seahorse-daemon jako démona"
 
 #: ../daemon/seahorse-daemon.c:83
 msgid "couldn't fork process"
@@ -515,7 +515,7 @@ msgstr "Odvolaný"
 msgid "Could not display help: %s"
 msgstr "Nebylo možno zobrazit nápovědu: %s"
 
-#: ../libcryptui/cryptui.c:271
+#: ../libcryptui/cryptui.c:307
 msgid ""
 "No encryption keys were found with which to perform the operation you "
 "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
@@ -525,34 +525,62 @@ msgstr ""
 "operace. Bude spuštěn program <b>Hesla a šifrovací klíče</b>, ve kterém "
 "můžete klíč buď vytvořit nebo importovat."
 
-#: ../libcryptui/cryptui-key-chooser.c:152
+#: ../libcryptui/cryptui.c:333
+msgid ""
+"No encryption keys were found. In order to perform public key encryption, "
+"the <b>Passwords and Encryption Keys</b> program can be started to create or "
+"import a public key. It is also possible to use a shared passphrase instead."
+msgstr ""
+"Nebyly nalezeny žádné šifrovací klíče. Abyste mohli provádět šifrování "
+"pomocí veřejného klíče, může být být spuštěn program <b>Hesla a šifrovací "
+"klíče</b>, který veřejný klíč vytvoří nebo naimportuje. Jinou možností je "
+"použít sdílenou heslovou frázi."
+
+#: ../libcryptui/cryptui.c:336
+msgid "Use a shared passphrase"
+msgstr "Použít sdílenou heslovou frázi"
+
+#: ../libcryptui/cryptui.c:337
+msgid "Create or import a key"
+msgstr "Vytvořit nebo importovat klíč"
+
+#: ../libcryptui/cryptui-key-chooser.c:177
 msgid "All Keys"
 msgstr "Všechny klíče"
 
-#: ../libcryptui/cryptui-key-chooser.c:153
+#: ../libcryptui/cryptui-key-chooser.c:178
 msgid "Selected Recipients"
 msgstr "Zvolení příjemci"
 
-#: ../libcryptui/cryptui-key-chooser.c:154
+#: ../libcryptui/cryptui-key-chooser.c:179
 msgid "Search Results"
 msgstr "Výsledky hledání"
 
 #. Filter Label
-#: ../libcryptui/cryptui-key-chooser.c:164
+#: ../libcryptui/cryptui-key-chooser.c:189
 msgid "Search _for:"
 msgstr "_Hledat:"
 
-#: ../libcryptui/cryptui-key-chooser.c:223
+#. first of the group
+#: ../libcryptui/cryptui-key-chooser.c:235
+msgid "Use passphrase only"
+msgstr "Použít jen heslovou frázi"
+
+#: ../libcryptui/cryptui-key-chooser.c:244
+msgid "Choose a set of recipients:"
+msgstr "Zvolte sadu příjemců:"
+
+#: ../libcryptui/cryptui-key-chooser.c:290
 msgid "None (Don't Sign)"
 msgstr "Žádný (nepodepisovat)"
 
-#: ../libcryptui/cryptui-key-chooser.c:236
+#: ../libcryptui/cryptui-key-chooser.c:303
 #, c-format
 msgid "Sign this message as %s"
 msgstr "Podepsat zprávu jako %s"
 
 #. Sign Label
-#: ../libcryptui/cryptui-key-chooser.c:258
+#: ../libcryptui/cryptui-key-chooser.c:330
 msgid "_Sign message as:"
 msgstr "Podep_sat zprávu jako:"
 

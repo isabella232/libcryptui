@@ -251,17 +251,6 @@ if test "$enable_fatal_messages" = "yes" && test "$enable_debug" = "yes"; then
     echo "enabling fatal runtime messages"
 fi
 
-# Build Tests
-AC_ARG_ENABLE(tests,
-        AC_HELP_STRING([--enable-tests],
-        [Compile Test Programs]))
-        
-if test "$enable_tests" != "yes"; then
-    enable_tests="no"
-fi
-
-AM_CONDITIONAL(WITH_TESTS, test "$enable_tests" = "yes")
-
 dnl ****************************************************************************
 dnl GNOME-KEYRING
 dnl ****************************************************************************

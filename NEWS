@@ -1,3 +1,13 @@
+libcryptui 3.9.90:
+ * Add symmetric encryption as a choice in "choose recipients" dialog [#325803]
+ * Add support for symmetric encryption [#699161]
+ * Add cryptui_need_to_get_keys_or_symmetric() [#325803]
+ * Avoid repeating the self encryption key in cryptui_key_chooser_ge [#701987]
+ * Fix warning on startup about missing seahorse-daemon.desktop file
+ * Set the source on UID objects
+ * Build fixes
+ * Updated translations
+
 libcryptui 3.8.0:
  (no changes from previous release)
 

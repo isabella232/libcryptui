@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libcryptui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-19 10:30+0200\n"
-"PO-Revision-Date: 2013-06-19 10:29+0200\n"
+"POT-Creation-Date: 2013-08-26 09:53+0200\n"
+"PO-Revision-Date: 2013-08-26 09:52+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -508,7 +508,7 @@ msgstr "Revocata"
 msgid "Could not display help: %s"
 msgstr "Impossibile visualizzare l'aiuto: %s"
 
-#: ../libcryptui/cryptui.c:271
+#: ../libcryptui/cryptui.c:307
 msgid ""
 "No encryption keys were found with which to perform the operation you "
 "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
@@ -518,34 +518,62 @@ msgstr ""
 "l'operazione richiesta. Il programma <b>Password e chiavi di cifratura</b> "
 "verrà avviato in modo tale da poter creare o importare una chiave."
 
-#: ../libcryptui/cryptui-key-chooser.c:152
+#: ../libcryptui/cryptui.c:333
+msgid ""
+"No encryption keys were found. In order to perform public key encryption, "
+"the <b>Passwords and Encryption Keys</b> program can be started to create or "
+"import a public key. It is also possible to use a shared passphrase instead."
+msgstr ""
+"Non è stata trovata alcuna chiave di cifratura. Per poter eseguire cifrature "
+"a chiave pubblica, il programma <b>Password e chiavi di cifratura</b> può "
+"essere avviato per creare o importare una chiave pubblica. È inoltre anche "
+"possibile utilizzare una passphrase condivisa."
+
+#: ../libcryptui/cryptui.c:336
+msgid "Use a shared passphrase"
+msgstr "Usare una passphrase condivisa"
+
+#: ../libcryptui/cryptui.c:337
+msgid "Create or import a key"
+msgstr "Crea o importa una chiave"
+
+#: ../libcryptui/cryptui-key-chooser.c:177
 msgid "All Keys"
 msgstr "Tutte le chiavi"
 
-#: ../libcryptui/cryptui-key-chooser.c:153
+#: ../libcryptui/cryptui-key-chooser.c:178
 msgid "Selected Recipients"
 msgstr "Destinatari selezionati"
 
-#: ../libcryptui/cryptui-key-chooser.c:154
+#: ../libcryptui/cryptui-key-chooser.c:179
 msgid "Search Results"
 msgstr "Risultati ricerca"
 
 #. Filter Label
-#: ../libcryptui/cryptui-key-chooser.c:164
+#: ../libcryptui/cryptui-key-chooser.c:189
 msgid "Search _for:"
 msgstr "C_erca:"
 
-#: ../libcryptui/cryptui-key-chooser.c:223
+#. first of the group
+#: ../libcryptui/cryptui-key-chooser.c:235
+msgid "Use passphrase only"
+msgstr "Usare solo passphrase"
+
+#: ../libcryptui/cryptui-key-chooser.c:244
+msgid "Choose a set of recipients:"
+msgstr "Scegliere i destinatari:"
+
+#: ../libcryptui/cryptui-key-chooser.c:290
 msgid "None (Don't Sign)"
 msgstr "Nessuno (non firmare)"
 
-#: ../libcryptui/cryptui-key-chooser.c:236
+#: ../libcryptui/cryptui-key-chooser.c:303
 #, c-format
 msgid "Sign this message as %s"
 msgstr "Firmare questo messaggio come %s"
 
 #. Sign Label
-#: ../libcryptui/cryptui-key-chooser.c:258
+#: ../libcryptui/cryptui-key-chooser.c:330
 msgid "_Sign message as:"
 msgstr "_Firma messaggio come:"
 

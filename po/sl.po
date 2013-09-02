@@ -1,24 +1,25 @@
-# Slovenian translations for seahorse.
+# Slovenian translations for libcryptui.
 # Copyright (C) 2005-2006 Free Software Foundation, Inc.
-# This file is distributed under the same license as the seahorse package.
+# This file is distributed under the same license as the libcryptui package.
 #
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2000.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2013.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: seahorse\n"
+"Project-Id-Version: libcryptui master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libcryptui&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-23 07:34+0000\n"
-"PO-Revision-Date: 2013-05-25 21:39+0100\n"
+"POT-Creation-Date: 2013-08-26 16:16+0000\n"
+"PO-Revision-Date: 2013-09-02 22:58+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
@@ -512,7 +513,7 @@ msgstr "Preklicano"
 msgid "Could not display help: %s"
 msgstr "Pomoči ni mogoče prikazati: %s"
 
-#: ../libcryptui/cryptui.c:271
+#: ../libcryptui/cryptui.c:307
 msgid ""
 "No encryption keys were found with which to perform the operation you "
 "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
@@ -522,34 +523,61 @@ msgstr ""
 "<b>Gesla in šifrirni ključi</b> bo zagnan zato, da boste lahko ustvarili ali "
 "naložili ustrezen ključ."
 
-#: ../libcryptui/cryptui-key-chooser.c:152
+#: ../libcryptui/cryptui.c:333
+msgid ""
+"No encryption keys were found. In order to perform public key encryption, "
+"the <b>Passwords and Encryption Keys</b> program can be started to create or "
+"import a public key. It is also possible to use a shared passphrase instead."
+msgstr ""
+"Ni najdenih šifrirnih ključev, ki bi izvedli zahtevano nalogo. Treba je "
+"zagnati program <b>Gesla in šifrirni ključi</b> za ustvarjanje ali uvoz "
+"javnega ključa. Mogoče je uporabiti tudi šifrirno geslo v souporabi."
+
+#: ../libcryptui/cryptui.c:336
+msgid "Use a shared passphrase"
+msgstr "Uporabite šifrirno geslo v souporabi"
+
+#: ../libcryptui/cryptui.c:337
+msgid "Create or import a key"
+msgstr "Ustvari ali uvozi ključ"
+
+#: ../libcryptui/cryptui-key-chooser.c:177
 msgid "All Keys"
 msgstr "Vsi ključi"
 
-#: ../libcryptui/cryptui-key-chooser.c:153
+#: ../libcryptui/cryptui-key-chooser.c:178
 msgid "Selected Recipients"
 msgstr "Izbor prejemnikov"
 
-#: ../libcryptui/cryptui-key-chooser.c:154
+#: ../libcryptui/cryptui-key-chooser.c:179
 msgid "Search Results"
 msgstr "Rezultati iskanja"
 
 #. Filter Label
-#: ../libcryptui/cryptui-key-chooser.c:164
+#: ../libcryptui/cryptui-key-chooser.c:189
 msgid "Search _for:"
 msgstr "_Poišči:"
 
-#: ../libcryptui/cryptui-key-chooser.c:223
+#. first of the group
+#: ../libcryptui/cryptui-key-chooser.c:235
+msgid "Use passphrase only"
+msgstr "Uporabi le šifrirno geslo"
+
+#: ../libcryptui/cryptui-key-chooser.c:244
+msgid "Choose a set of recipients:"
+msgstr "Izbor prejemnikov sporočila:"
+
+#: ../libcryptui/cryptui-key-chooser.c:290
 msgid "None (Don't Sign)"
 msgstr "Brez (ne podpiši)"
 
-#: ../libcryptui/cryptui-key-chooser.c:236
+#: ../libcryptui/cryptui-key-chooser.c:303
 #, c-format
 msgid "Sign this message as %s"
 msgstr "Podpiši sporočilo kot %s"
 
 #. Sign Label
-#: ../libcryptui/cryptui-key-chooser.c:258
+#: ../libcryptui/cryptui-key-chooser.c:330
 msgid "_Sign message as:"
 msgstr "_Podpiši sporočilo kot:"
 
@@ -1974,9 +2002,6 @@ msgstr "Pokaži možnosti upravljanja seje"
 #~ msgstr[1] "Izbran %d ključ"
 #~ msgstr[2] "Izbrana %d ključa"
 #~ msgstr[3] "Izbrani %d ključi"
-
-#~ msgid "Couldn't import keys"
-#~ msgstr "Ni mogoče uvoziti ključev"
 
 #~ msgid "Imported keys"
 #~ msgstr "Uvoženi ključi"

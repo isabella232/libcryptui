@@ -1,3 +1,7 @@
+libcryptui 3.10.0:
+ * Updated translations
+ * Build fix
+
 libcryptui 3.9.90:
  * Add symmetric encryption as a choice in "choose recipients" dialog [#325803]
  * Add support for symmetric encryption [#699161]

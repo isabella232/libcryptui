@@ -96,6 +96,7 @@ CryptUI-@LIBCRYPTUI_MAJOR@.gir: $(INTROSPECTION_SCANNER) libcryptui.la
 	--namespace CryptUI --nsversion=@LIBCRYPTUI_MAJOR@ \
 	$(INCLUDES) \
 	--include=Gtk-3.0 \
+	--libtool="$(LIBTOOL)" \
 	--library=libcryptui.la \
 	--pkg gtk+-3.0 \
 	--output $@ \

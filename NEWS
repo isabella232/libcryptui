@@ -1,3 +1,7 @@
+libcryptui 3.12.2:
+ * Updated translations
+ * Build fix on FreeBSD [#727196]
+ 
 libcryptui 3.10.1:
  * Updated translations
 

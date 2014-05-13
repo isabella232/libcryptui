@@ -5,7 +5,7 @@ AC_PREREQ(2.52)
 dnl ****************************************************************************
 dnl MAIN SEAHORSE VERSION (update after release)
 
-AC_INIT(libcryptui, 3.10.1)
+AC_INIT(libcryptui, 3.12.2)
 
 dnl ****************************************************************************
 dnl LIBCRYPTUI libtool versioning

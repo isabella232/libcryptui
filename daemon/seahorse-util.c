@@ -1512,7 +1512,7 @@ seahorse_util_string_trim_whitespace (gchar *text)
     g_assert (e >= b);
 
     *e = 0;
-    g_memmove (text, b, (e + 1) - b);
+    memmove (text, b, (e + 1) - b);
 }
 
 /**

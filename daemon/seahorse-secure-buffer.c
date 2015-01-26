@@ -97,7 +97,7 @@ seahorse_secure_buffer_real_insert_text (GtkEntryBuffer *buffer, guint position,
 
 	/* Actual text insertion */
 	at = g_utf8_offset_to_pointer (pv->text, position) - pv->text;
-	g_memmove (pv->text + at + n_bytes, pv->text + at, pv->text_bytes - at);
+	memmove (pv->text + at + n_bytes, pv->text + at, pv->text_bytes - at);
 	memcpy (pv->text + at, chars, n_bytes);
 
 	/* Book keeping */
@@ -125,7 +125,7 @@ seahorse_secure_buffer_real_delete_text (GtkEntryBuffer *buffer, guint position,
 		start = g_utf8_offset_to_pointer (pv->text, position) - pv->text;
 		end = g_utf8_offset_to_pointer (pv->text, position + n_chars) - pv->text;
 
-		g_memmove (pv->text + start, pv->text + end, pv->text_bytes + 1 - end);
+		memmove (pv->text + start, pv->text + end, pv->text_bytes + 1 - end);
 		pv->text_chars -= n_chars;
 		pv->text_bytes -= (end - start);
 

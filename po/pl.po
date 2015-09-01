@@ -8,14 +8,14 @@
 # Andrzej Polatyński <andrzej@datatel.net.pl>, 2007.
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2007-2009.
 # Piotr Zaryk <pzaryk@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2013.
-# Aviary.pl <gnomepl@aviary.pl>, 2007-2013.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2015.
+# Aviary.pl <gnomepl@aviary.pl>, 2007-2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: libcryptui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-20 23:46+0200\n"
-"PO-Revision-Date: 2013-08-20 23:47+0200\n"
+"POT-Creation-Date: 2015-09-01 03:42+0200\n"
+"PO-Revision-Date: 2015-09-01 03:44+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -27,30 +27,30 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../daemon/seahorse-daemon.c:53
+#: ../daemon/seahorse-daemon.c:50
 msgid "Do not run seahorse-daemon as a daemon"
 msgstr "Uruchamia seahorse-daemon bez przechodzenia do pracy w tle"
 
-#: ../daemon/seahorse-daemon.c:83
+#: ../daemon/seahorse-daemon.c:80
 msgid "couldn't fork process"
-msgstr "nie można uruchomić nowego procesu"
+msgstr "nie można rozdzielić procesu"
 
-#: ../daemon/seahorse-daemon.c:89
+#: ../daemon/seahorse-daemon.c:86
 msgid "couldn't create new process group"
 msgstr "nie można utworzyć nowej grupy procesów"
 
-#: ../daemon/seahorse-daemon.c:237
+#: ../daemon/seahorse-daemon.c:234
 msgid "Encryption Daemon (Seahorse)"
 msgstr "Usługa szyfrowania (Seahorse)"
 
-#: ../daemon/seahorse-notification.c:576 ../daemon/seahorse-notification.c:604
+#: ../daemon/seahorse-notification.c:573 ../daemon/seahorse-notification.c:601
 msgid "Key Imported"
 msgid_plural "Keys Imported"
 msgstr[0] "Zaimportowano klucz"
 msgstr[1] "Zaimportowano klucze"
 msgstr[2] "Zaimportowano klucze"
 
-#: ../daemon/seahorse-notification.c:580 ../daemon/seahorse-notification.c:603
+#: ../daemon/seahorse-notification.c:577 ../daemon/seahorse-notification.c:600
 #, c-format
 msgid "Imported %i key"
 msgid_plural "Imported %i keys"
@@ -58,7 +58,7 @@ msgstr[0] "Zaimportowano %i klucz"
 msgstr[1] "Zaimportowano %i klucze"
 msgstr[2] "Zaimportowano %i kluczy"
 
-#: ../daemon/seahorse-notification.c:582
+#: ../daemon/seahorse-notification.c:579
 #, c-format
 msgid "Imported a key for"
 msgid_plural "Imported keys for"
@@ -66,72 +66,72 @@ msgstr[0] "Zaimportowano klucz dla"
 msgstr[1] "Zaimportowano klucze dla"
 msgstr[2] "Zaimportowano klucze dla"
 
-#: ../daemon/seahorse-gpgme.c:72
+#: ../daemon/seahorse-gpgme.c:70
 msgid "Decryption failed. You probably do not have the decryption key."
 msgstr ""
-"Deszyfrowanie nie powiodło się. Prawdopodobnie brak klucza deszyfrującego."
+"Rozszyfrowanie się nie powiodło. Prawdopodobnie brak klucza deszyfrującego."
 
-#: ../daemon/seahorse-gpgme-generate.c:62
+#: ../daemon/seahorse-gpgme-generate.c:59
 msgid "RSA"
 msgstr "RSA"
 
-#: ../daemon/seahorse-gpgme-generate.c:63
+#: ../daemon/seahorse-gpgme-generate.c:60
 msgid "DSA Elgamal"
 msgstr "DSA ElGamal"
 
-#: ../daemon/seahorse-gpgme-generate.c:64
+#: ../daemon/seahorse-gpgme-generate.c:61
 msgid "DSA (sign only)"
 msgstr "DSA (tylko podpisywanie)"
 
-#: ../daemon/seahorse-gpgme-generate.c:65
+#: ../daemon/seahorse-gpgme-generate.c:62
 msgid "RSA (sign only)"
 msgstr "RSA (tylko podpisywanie)"
 
-#: ../daemon/seahorse-gpgme-generate.c:81
+#: ../daemon/seahorse-gpgme-generate.c:78
 msgid "Couldn't generate PGP key"
 msgstr "Nie można wygenerować klucza PGP"
 
-#: ../daemon/seahorse-gpgme-generate.c:141
+#: ../daemon/seahorse-gpgme-generate.c:138
 msgid "Passphrase for New PGP Key"
 msgstr "Hasło dla nowego klucza PGP"
 
-#: ../daemon/seahorse-gpgme-generate.c:142
+#: ../daemon/seahorse-gpgme-generate.c:139
 msgid "Enter the passphrase for your new key twice."
 msgstr "Należy dwukrotnie wpisać hasło dla nowego klucza."
 
-#: ../daemon/seahorse-gpgme-generate.c:151
+#: ../daemon/seahorse-gpgme-generate.c:148
 msgid "Couldn't generate key"
 msgstr "Nie można wygenerować klucza"
 
-#: ../daemon/seahorse-gpgme-generate.c:153
+#: ../daemon/seahorse-gpgme-generate.c:150
 msgid "Generating key"
 msgstr "Generowanie klucza"
 
-#: ../daemon/seahorse-gpgme-source.c:98
+#: ../daemon/seahorse-gpgme-source.c:95
 #, c-format
 msgid "Wrong passphrase."
 msgstr "Błędne hasło."
 
-#: ../daemon/seahorse-gpgme-source.c:102
+#: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
 msgid "Enter new passphrase for '%s'"
-msgstr "Nowe hasło dla \"%s\""
+msgstr "Nowe hasło dla „%s”"
 
-#: ../daemon/seahorse-gpgme-source.c:104
+#: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
 msgid "Enter passphrase for '%s'"
-msgstr "Hasło dla \"%s\""
+msgstr "Hasło dla „%s”"
 
-#: ../daemon/seahorse-gpgme-source.c:107
+#: ../daemon/seahorse-gpgme-source.c:104
 msgid "Enter new passphrase"
 msgstr "Nowe hasło"
 
-#: ../daemon/seahorse-gpgme-source.c:109
+#: ../daemon/seahorse-gpgme-source.c:106
 msgid "Enter passphrase"
 msgstr "Hasło"
 
 #. TODO: We can use the GPGME progress to make this more accurate
-#: ../daemon/seahorse-gpgme-source.c:712
+#: ../daemon/seahorse-gpgme-source.c:709
 #, c-format
 msgid "Loaded %d key"
 msgid_plural "Loaded %d keys"
@@ -139,11 +139,11 @@ msgstr[0] "Wczytano %d klucz"
 msgstr[1] "Wczytano %d klucze"
 msgstr[2] "Wczytano %d kluczy"
 
-#: ../daemon/seahorse-gpgme-source.c:765
+#: ../daemon/seahorse-gpgme-source.c:762
 msgid "Loading Keys..."
-msgstr "Wczytywanie kluczy..."
+msgstr "Wczytywanie kluczy…"
 
-#: ../daemon/seahorse-gpgme-source.c:808
+#: ../daemon/seahorse-gpgme-source.c:805
 msgid ""
 "Invalid key data (missing UIDs). This may be due to a computer with a date "
 "set in the future or a missing self-signature."
@@ -151,19 +151,19 @@ msgstr ""
 "Nieprawidłowe dane klucza (brakujące UID). Przyczyną tego może być "
 "nieprawidłowo ustawiona data w systemie lub brak podpisu własnego."
 
-#: ../daemon/seahorse-gpgme-source.c:898
+#: ../daemon/seahorse-gpgme-source.c:895
 msgid "Importing Keys"
 msgstr "Importowanie kluczy"
 
-#: ../daemon/seahorse-gpgme-source.c:931
+#: ../daemon/seahorse-gpgme-source.c:928
 msgid "Exporting Keys"
 msgstr "Eksportowanie kluczy"
 
-#: ../daemon/seahorse-gpgme-subkey.c:197 ../daemon/seahorse-validity.c:40
+#: ../daemon/seahorse-gpgme-subkey.c:194 ../daemon/seahorse-validity.c:37
 msgid "Unknown"
 msgstr "Nieznane"
 
-#: ../daemon/seahorse-gpgme-subkey.c:199
+#: ../daemon/seahorse-gpgme-subkey.c:196
 msgid "ElGamal"
 msgstr "ElGamal"
 
@@ -171,19 +171,19 @@ msgstr "ElGamal"
 msgid "Notification Messages"
 msgstr "Wiadomości powiadomienia"
 
-#: ../daemon/seahorse-object.c:317
+#: ../daemon/seahorse-object.c:315
 msgid "Symmetric Key"
 msgstr "Klucz symetryczny"
 
-#: ../daemon/seahorse-object.c:320
+#: ../daemon/seahorse-object.c:318
 msgid "Public Key"
 msgstr "Klucz publiczny"
 
-#: ../daemon/seahorse-object.c:323
+#: ../daemon/seahorse-object.c:321
 msgid "Private Key"
 msgstr "Klucz prywatny"
 
-#: ../daemon/seahorse-object.c:326
+#: ../daemon/seahorse-object.c:324
 msgid "Credentials"
 msgstr "Dane uwierzytelniające"
 
@@ -191,20 +191,20 @@ msgstr "Dane uwierzytelniające"
 #. * Translators: "This object is a means of storing items such as
 #. * name, email address, etc. that make up one's digital identity.
 #.
-#: ../daemon/seahorse-object.c:333
+#: ../daemon/seahorse-object.c:331
 msgid "Identity"
 msgstr "Tożsamość"
 
-#: ../daemon/seahorse-passphrase.c:196
+#: ../daemon/seahorse-passphrase.c:193
 msgid "Passphrase"
 msgstr "Hasło"
 
-#: ../daemon/seahorse-passphrase.c:199
+#: ../daemon/seahorse-passphrase.c:196
 msgid "Password:"
 msgstr "Hasło:"
 
 #. The second and main entry
-#: ../daemon/seahorse-passphrase.c:263
+#: ../daemon/seahorse-passphrase.c:260
 msgid "Confirm:"
 msgstr "Potwierdzenie:"
 
@@ -260,23 +260,23 @@ msgstr "Tworzy nowy klucz"
 msgid "C_reate"
 msgstr "_Utwórz"
 
-#: ../daemon/seahorse-pgp-key.c:179
+#: ../daemon/seahorse-pgp-key.c:176
 msgid "Private PGP Key"
 msgstr "Prywatny klucz PGP"
 
-#: ../daemon/seahorse-pgp-key.c:182
+#: ../daemon/seahorse-pgp-key.c:179
 msgid "Public PGP Key"
 msgstr "Publiczny klucz PGP"
 
-#: ../daemon/seahorse-pgp-key.c:527
+#: ../daemon/seahorse-pgp-key.c:524
 msgid "Expired"
 msgstr "Wygasł"
 
-#: ../daemon/seahorse-pgp-subkey.c:366
+#: ../daemon/seahorse-pgp-subkey.c:363
 msgid "Key"
 msgstr "Klucz"
 
-#: ../daemon/seahorse-pgp-subkey.c:371
+#: ../daemon/seahorse-pgp-subkey.c:368
 #, c-format
 msgid "Subkey %d of %s"
 msgstr "Podklucz %d klucza %s"
@@ -285,193 +285,193 @@ msgstr "Podklucz %d klucza %s"
 msgid "Progress Title"
 msgstr "Tytuł postępu"
 
-#: ../daemon/seahorse-service.c:161 ../daemon/seahorse-service.c:267
+#: ../daemon/seahorse-service.c:158 ../daemon/seahorse-service.c:264
 #, c-format
 msgid "Invalid or unrecognized key type: %s"
 msgstr "Nieprawidłowy lub nierozpoznany typ klucza: %s"
 
-#: ../daemon/seahorse-service.c:229
+#: ../daemon/seahorse-service.c:226
 #, c-format
 msgid "This keytype is not supported: %s"
 msgstr "Ten typ kluczy nie jest obsługiwany: %s"
 
-#: ../daemon/seahorse-service.c:331 ../daemon/seahorse-service-keyset.c:180
-#: ../daemon/seahorse-service-keyset.c:223
+#: ../daemon/seahorse-service.c:328 ../daemon/seahorse-service-keyset.c:177
+#: ../daemon/seahorse-service-keyset.c:220
 #, c-format
 msgid "Invalid or unrecognized key: %s"
 msgstr "Nieprawidłowy lub nierozpoznany klucz: %s"
 
 #. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
-#: ../daemon/seahorse-service-crypto.c:204
+#: ../daemon/seahorse-service-crypto.c:201
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>expired</b></i> on %s."
 msgstr "Podpisany przez <i><key id='%s'/> <b>wygasł</b></i> dnia %s."
 
-#: ../daemon/seahorse-service-crypto.c:205
+#: ../daemon/seahorse-service-crypto.c:202
 msgid "Invalid Signature"
 msgstr "Nieprawidłowy podpis"
 
-#: ../daemon/seahorse-service-crypto.c:211
+#: ../daemon/seahorse-service-crypto.c:208
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
 msgstr "Podpisany przez <i><key id='%s'/></i> dnia %s <b>Wygasł</b>."
 
-#: ../daemon/seahorse-service-crypto.c:212
+#: ../daemon/seahorse-service-crypto.c:209
 msgid "Expired Signature"
 msgstr "Wygasły podpis"
 
-#: ../daemon/seahorse-service-crypto.c:218
+#: ../daemon/seahorse-service-crypto.c:215
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
 msgstr "Podpisany przez <i><key id='%s'/> <b>Unieważniony</b></i> dnia %s."
 
-#: ../daemon/seahorse-service-crypto.c:219
+#: ../daemon/seahorse-service-crypto.c:216
 msgid "Revoked Signature"
 msgstr "Podpis nieważny"
 
 #. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
-#: ../daemon/seahorse-service-crypto.c:225
+#: ../daemon/seahorse-service-crypto.c:222
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s."
 msgstr "Podpisany przez <i><key id='%s'/></i> dnia %s."
 
-#: ../daemon/seahorse-service-crypto.c:226
+#: ../daemon/seahorse-service-crypto.c:223
 msgid "Good Signature"
 msgstr "Podpis prawidłowy"
 
-#: ../daemon/seahorse-service-crypto.c:231
+#: ../daemon/seahorse-service-crypto.c:228
 msgid "Signing key not in keyring."
 msgstr "Klucz podpisujący nie jest w bazie kluczy."
 
-#: ../daemon/seahorse-service-crypto.c:232
+#: ../daemon/seahorse-service-crypto.c:229
 msgid "Unknown Signature"
 msgstr "Nieznany podpis"
 
-#: ../daemon/seahorse-service-crypto.c:236
+#: ../daemon/seahorse-service-crypto.c:233
 msgid "Bad or forged signature. The signed data was modified."
 msgstr ""
 "Nieprawidłowy lub podrobiony podpis. Podpisane dane zostały zmodyfikowane."
 
-#: ../daemon/seahorse-service-crypto.c:237
+#: ../daemon/seahorse-service-crypto.c:234
 msgid "Bad Signature"
 msgstr "Błędny podpis"
 
-#: ../daemon/seahorse-service-crypto.c:245
+#: ../daemon/seahorse-service-crypto.c:242
 msgid "Couldn't verify signature."
 msgstr "Nie można zweryfikować podpisu."
 
-#: ../daemon/seahorse-service-crypto.c:317
+#: ../daemon/seahorse-service-crypto.c:314
 #, c-format
 msgid "Recipients specified for symmetric encryption"
 msgstr "Określono odbiorców dla szyfrowania symetrycznego"
 
-#: ../daemon/seahorse-service-crypto.c:326
-#: ../daemon/seahorse-service-crypto.c:673
+#: ../daemon/seahorse-service-crypto.c:323
+#: ../daemon/seahorse-service-crypto.c:670
 #, c-format
 msgid "Invalid or unrecognized signer: %s"
 msgstr "Nieprawidłowa lub nierozpoznana osoba podpisująca: %s"
 
-#: ../daemon/seahorse-service-crypto.c:333
-#: ../daemon/seahorse-service-crypto.c:680
+#: ../daemon/seahorse-service-crypto.c:330
+#: ../daemon/seahorse-service-crypto.c:677
 #, c-format
 msgid "Key is not valid for signing: %s"
 msgstr "Klucz nie jest przeznaczony do podpisywania: %s"
 
-#: ../daemon/seahorse-service-crypto.c:346
+#: ../daemon/seahorse-service-crypto.c:343
 #, c-format
 msgid "Invalid or unrecognized recipient: %s"
 msgstr "Nieprawidłowy lub nierozpoznany odbiorca: %s"
 
-#: ../daemon/seahorse-service-crypto.c:354
+#: ../daemon/seahorse-service-crypto.c:351
 #, c-format
 msgid "Key is not a valid recipient for encryption: %s"
 msgstr "Klucz nie jest prawidłowym odbiorcą do szyfrowania: %s"
 
-#: ../daemon/seahorse-service-crypto.c:363
+#: ../daemon/seahorse-service-crypto.c:360
 #, c-format
 msgid "No recipients specified"
 msgstr "Nie określono odbiorców"
 
-#: ../daemon/seahorse-service-crypto.c:460
+#: ../daemon/seahorse-service-crypto.c:457
 #, c-format
 msgid "Invalid key type for decryption: %s"
 msgstr "Nieprawidłowy klucz deszyfrujący: %s"
 
-#: ../daemon/seahorse-service-crypto.c:575
-#: ../daemon/seahorse-service-crypto.c:773
+#: ../daemon/seahorse-service-crypto.c:572
+#: ../daemon/seahorse-service-crypto.c:770
 #, c-format
 msgid "Please set clearuri"
-msgstr "Proszę ustawić \"clearuri\""
+msgstr "Proszę ustawić „clearuri”"
 
-#: ../daemon/seahorse-service-crypto.c:581
-#: ../daemon/seahorse-service-crypto.c:779
+#: ../daemon/seahorse-service-crypto.c:578
+#: ../daemon/seahorse-service-crypto.c:776
 #, c-format
 msgid "Please set crypturi"
-msgstr "Proszę ustawić \"crypturi\""
+msgstr "Proszę ustawić „crypturi”"
 
-#: ../daemon/seahorse-service-crypto.c:591
+#: ../daemon/seahorse-service-crypto.c:588
 #, c-format
 msgid "Error opening clearuri"
-msgstr "Błąd podczas otwierania \"clearuri\""
+msgstr "Błąd podczas otwierania „clearuri”"
 
-#: ../daemon/seahorse-service-crypto.c:668
+#: ../daemon/seahorse-service-crypto.c:665
 #, c-format
 msgid "No signer specified"
 msgstr "Nie określono osoby podpisującej"
 
-#: ../daemon/seahorse-service-crypto.c:857
+#: ../daemon/seahorse-service-crypto.c:854
 #, c-format
 msgid "Invalid key type for verifying: %s"
 msgstr "Nieprawidłowy klucz do weryfikowania: %s"
 
-#: ../daemon/seahorse-service-keyset.c:273
+#: ../daemon/seahorse-service-keyset.c:270
 #, c-format
 msgid "Invalid key id: %s"
 msgstr "Nieprawidłowy identyfikator klucza: %s"
 
-#: ../daemon/seahorse-unknown.c:58
+#: ../daemon/seahorse-unknown.c:55
 msgid "Unavailable"
 msgstr "Niedostępny"
 
-#: ../daemon/seahorse-util.c:231
+#: ../daemon/seahorse-util.c:228
 msgid "%Y-%m-%d"
 msgstr "%d-%m-%Y"
 
-#: ../daemon/seahorse-util.c:510
+#: ../daemon/seahorse-util.c:507
 msgid "Key Data"
 msgstr "Dane klucza"
 
-#: ../daemon/seahorse-util.c:512
+#: ../daemon/seahorse-util.c:509
 msgid "Multiple Keys"
 msgstr "Wiele kluczy"
 
-#: ../daemon/seahorse-util.c:768
+#: ../daemon/seahorse-util.c:765
 msgid "Couldn't run file-roller"
 msgstr "Nie można uruchomić programu file-roller"
 
-#: ../daemon/seahorse-util.c:774
+#: ../daemon/seahorse-util.c:771
 msgid "Couldn't package files"
 msgstr "Nie można zarchiwizować plików"
 
-#: ../daemon/seahorse-util.c:775
+#: ../daemon/seahorse-util.c:772
 msgid "The file-roller process did not complete successfully"
 msgstr "Proces file-roller nie zakończył się powodzeniem"
 
 #. Filter for PGP keys. We also include *.asc, as in many
 #. cases that extension is associated with text/plain
-#: ../daemon/seahorse-util.c:944
+#: ../daemon/seahorse-util.c:941
 msgid "All key files"
 msgstr "Wszystkie pliki kluczy"
 
-#: ../daemon/seahorse-util.c:951 ../daemon/seahorse-util.c:999
+#: ../daemon/seahorse-util.c:948 ../daemon/seahorse-util.c:996
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: ../daemon/seahorse-util.c:992
+#: ../daemon/seahorse-util.c:989
 msgid "Archive files"
 msgstr "Pliki archiwów"
 
-#: ../daemon/seahorse-util.c:1062
+#: ../daemon/seahorse-util.c:1059
 msgid ""
 "<b>A file already exists with this name.</b>\n"
 "\n"
@@ -481,41 +481,41 @@ msgstr ""
 "\n"
 "Zastąpić go nowym plikiem?"
 
-#: ../daemon/seahorse-util.c:1065
+#: ../daemon/seahorse-util.c:1062
 msgid "_Replace"
 msgstr "_Zastąp"
 
-#: ../daemon/seahorse-validity.c:42
+#: ../daemon/seahorse-validity.c:39
 msgctxt "Validity"
 msgid "Never"
 msgstr "Nigdy"
 
-#: ../daemon/seahorse-validity.c:44
+#: ../daemon/seahorse-validity.c:41
 msgid "Marginal"
 msgstr "Niewielkie"
 
-#: ../daemon/seahorse-validity.c:46
+#: ../daemon/seahorse-validity.c:43
 msgid "Full"
 msgstr "Pełne"
 
-#: ../daemon/seahorse-validity.c:48
+#: ../daemon/seahorse-validity.c:45
 msgid "Ultimate"
 msgstr "Ostateczne"
 
-#: ../daemon/seahorse-validity.c:50
+#: ../daemon/seahorse-validity.c:47
 msgid "Disabled"
 msgstr "Niedostępny"
 
-#: ../daemon/seahorse-validity.c:52
+#: ../daemon/seahorse-validity.c:49
 msgid "Revoked"
 msgstr "Unieważniony"
 
-#: ../daemon/seahorse-widget.c:433
+#: ../daemon/seahorse-widget.c:430
 #, c-format
 msgid "Could not display help: %s"
 msgstr "Nie można wyświetlić pomocy: %s"
 
-#: ../libcryptui/cryptui.c:307
+#: ../libcryptui/cryptui.c:305
 msgid ""
 "No encryption keys were found with which to perform the operation you "
 "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
@@ -525,7 +525,7 @@ msgstr ""
 "<b>Hasła i klucze szyfrujące</b> zostanie teraz uruchomiony, aby można było "
 "utworzyć lub zaimportować klucz."
 
-#: ../libcryptui/cryptui.c:333
+#: ../libcryptui/cryptui.c:331
 msgid ""
 "No encryption keys were found. In order to perform public key encryption, "
 "the <b>Passwords and Encryption Keys</b> program can be started to create or "
@@ -536,222 +536,222 @@ msgstr ""
 "utworzyć lub zaimportować klucz. Można także zamiast tego użyć hasła "
 "współdzielonego."
 
-#: ../libcryptui/cryptui.c:336
+#: ../libcryptui/cryptui.c:334
 msgid "Use a shared passphrase"
 msgstr "Użyj hasła współdzielonego"
 
-#: ../libcryptui/cryptui.c:337
+#: ../libcryptui/cryptui.c:335
 msgid "Create or import a key"
 msgstr "Utwórz lub zaimportuj klucz"
 
-#: ../libcryptui/cryptui-key-chooser.c:177
+#: ../libcryptui/cryptui-key-chooser.c:175
 msgid "All Keys"
 msgstr "Wszystkie klucze"
 
-#: ../libcryptui/cryptui-key-chooser.c:178
+#: ../libcryptui/cryptui-key-chooser.c:176
 msgid "Selected Recipients"
 msgstr "Zaznaczeni odbiorcy"
 
-#: ../libcryptui/cryptui-key-chooser.c:179
+#: ../libcryptui/cryptui-key-chooser.c:177
 msgid "Search Results"
 msgstr "Wyniki wyszukiwania"
 
 #. Filter Label
-#: ../libcryptui/cryptui-key-chooser.c:189
+#: ../libcryptui/cryptui-key-chooser.c:187
 msgid "Search _for:"
 msgstr "_Wyszukiwanie:"
 
 #. first of the group
-#: ../libcryptui/cryptui-key-chooser.c:235
+#: ../libcryptui/cryptui-key-chooser.c:233
 msgid "Use passphrase only"
 msgstr "Używanie tylko hasła"
 
-#: ../libcryptui/cryptui-key-chooser.c:244
+#: ../libcryptui/cryptui-key-chooser.c:242
 msgid "Choose a set of recipients:"
 msgstr "Proszę wybrać zestaw odbiorców:"
 
-#: ../libcryptui/cryptui-key-chooser.c:290
+#: ../libcryptui/cryptui-key-chooser.c:288
 msgid "None (Don't Sign)"
 msgstr "Brak (bez podpisywania)"
 
-#: ../libcryptui/cryptui-key-chooser.c:303
+#: ../libcryptui/cryptui-key-chooser.c:301
 #, c-format
 msgid "Sign this message as %s"
 msgstr "Podpisanie wiadomości jako %s"
 
 #. Sign Label
-#: ../libcryptui/cryptui-key-chooser.c:330
+#: ../libcryptui/cryptui-key-chooser.c:328
 msgid "_Sign message as:"
 msgstr "_Podpisywanie jako:"
 
 #. TODO: Icons
 #. The name column
-#: ../libcryptui/cryptui-key-list.c:140
+#: ../libcryptui/cryptui-key-list.c:138
 msgid "Name"
 msgstr "Nazwa"
 
 #. The keyid column
-#: ../libcryptui/cryptui-key-list.c:145
+#: ../libcryptui/cryptui-key-list.c:143
 msgid "Key ID"
 msgstr "Identyfikator klucza"
 
-#: ../libegg/egg-datetime.c:317
+#: ../libegg/egg-datetime.c:315
 msgid "Display flags"
 msgstr "Wyświetlanie flag"
 
-#: ../libegg/egg-datetime.c:318
+#: ../libegg/egg-datetime.c:316
 msgid "Displayed date and/or time properties"
 msgstr "Wyświetlanie daty i/lub właściwości czasu"
 
-#: ../libegg/egg-datetime.c:323
+#: ../libegg/egg-datetime.c:321
 msgid "Lazy mode"
 msgstr "Tryb leniwy"
 
-#: ../libegg/egg-datetime.c:324
+#: ../libegg/egg-datetime.c:322
 msgid "Lazy mode doesn't normalize entered date and time values"
 msgstr "Tryb leniwy nie normalizuje wprowadzonych wartości dat i czasu"
 
-#: ../libegg/egg-datetime.c:329
+#: ../libegg/egg-datetime.c:327
 msgid "Year"
 msgstr "Rok"
 
-#: ../libegg/egg-datetime.c:330
+#: ../libegg/egg-datetime.c:328
 msgid "Displayed year"
 msgstr "Wyświetlany rok"
 
-#: ../libegg/egg-datetime.c:335
+#: ../libegg/egg-datetime.c:333
 msgid "Month"
 msgstr "Miesiąc"
 
-#: ../libegg/egg-datetime.c:336
+#: ../libegg/egg-datetime.c:334
 msgid "Displayed month"
 msgstr "Wyświetlany miesiąc"
 
-#: ../libegg/egg-datetime.c:341
+#: ../libegg/egg-datetime.c:339
 msgid "Day"
 msgstr "Dzień"
 
-#: ../libegg/egg-datetime.c:342
+#: ../libegg/egg-datetime.c:340
 msgid "Displayed day of month"
 msgstr "Wyświetlany dzień miesiąca"
 
-#: ../libegg/egg-datetime.c:347
+#: ../libegg/egg-datetime.c:345
 msgid "Hour"
 msgstr "Godzina"
 
-#: ../libegg/egg-datetime.c:348
+#: ../libegg/egg-datetime.c:346
 msgid "Displayed hour"
 msgstr "Wyświetlana godzina"
 
-#: ../libegg/egg-datetime.c:353
+#: ../libegg/egg-datetime.c:351
 msgid "Minute"
 msgstr "Minuta"
 
-#: ../libegg/egg-datetime.c:354
+#: ../libegg/egg-datetime.c:352
 msgid "Displayed minute"
 msgstr "Wyświetlana minuta"
 
-#: ../libegg/egg-datetime.c:359
+#: ../libegg/egg-datetime.c:357
 msgid "Second"
 msgstr "Sekunda"
 
-#: ../libegg/egg-datetime.c:360
+#: ../libegg/egg-datetime.c:358
 msgid "Displayed second"
 msgstr "Wyświetlana sekunda"
 
-#: ../libegg/egg-datetime.c:365
+#: ../libegg/egg-datetime.c:363
 msgid "Lower limit year"
 msgstr "Dolny limit roczny"
 
-#: ../libegg/egg-datetime.c:366
+#: ../libegg/egg-datetime.c:364
 msgid "Year part of the lower date limit"
 msgstr "Część roczna o dolnym limicie daty"
 
-#: ../libegg/egg-datetime.c:371
+#: ../libegg/egg-datetime.c:369
 msgid "Upper limit year"
 msgstr "Górny limit roczny"
 
-#: ../libegg/egg-datetime.c:372
+#: ../libegg/egg-datetime.c:370
 msgid "Year part of the upper date limit"
 msgstr "Część roczna o górnym limicie daty"
 
-#: ../libegg/egg-datetime.c:377
+#: ../libegg/egg-datetime.c:375
 msgid "Lower limit month"
 msgstr "Dolny limit miesięczny"
 
-#: ../libegg/egg-datetime.c:378
+#: ../libegg/egg-datetime.c:376
 msgid "Month part of the lower date limit"
 msgstr "Część miesięczna o dolnym limicie daty"
 
-#: ../libegg/egg-datetime.c:383
+#: ../libegg/egg-datetime.c:381
 msgid "Upper limit month"
 msgstr "Górny limit miesięczny"
 
-#: ../libegg/egg-datetime.c:384
+#: ../libegg/egg-datetime.c:382
 msgid "Month part of the upper date limit"
 msgstr "Część miesięczna o górnym limicie daty"
 
-#: ../libegg/egg-datetime.c:389
+#: ../libegg/egg-datetime.c:387
 msgid "Lower limit day"
 msgstr "Dolny limit dzienny"
 
-#: ../libegg/egg-datetime.c:390
+#: ../libegg/egg-datetime.c:388
 msgid "Day of month part of the lower date limit"
 msgstr "Część dzienna miesiąca o dolnym limicie daty"
 
-#: ../libegg/egg-datetime.c:395
+#: ../libegg/egg-datetime.c:393
 msgid "Upper limit day"
 msgstr "Górny limit dzienny"
 
-#: ../libegg/egg-datetime.c:396
+#: ../libegg/egg-datetime.c:394
 msgid "Day of month part of the upper date limit"
 msgstr "Część dzienna miesiąca o górnym limicie daty"
 
-#: ../libegg/egg-datetime.c:401
+#: ../libegg/egg-datetime.c:399
 msgid "Lower limit hour"
 msgstr "Dolny limit godzinny"
 
-#: ../libegg/egg-datetime.c:402
+#: ../libegg/egg-datetime.c:400
 msgid "Hour part of the lower time limit"
 msgstr "Część godzinna o dolnym limicie czasu"
 
-#: ../libegg/egg-datetime.c:407
+#: ../libegg/egg-datetime.c:405
 msgid "Upper limit hour"
 msgstr "Górny limit godzinny"
 
-#: ../libegg/egg-datetime.c:408
+#: ../libegg/egg-datetime.c:406
 msgid "Hour part of the upper time limit"
 msgstr "Część godzinna górnego limitu czasu"
 
-#: ../libegg/egg-datetime.c:413
+#: ../libegg/egg-datetime.c:411
 msgid "Lower limit minute"
 msgstr "Dolny limit minutowy"
 
-#: ../libegg/egg-datetime.c:414
+#: ../libegg/egg-datetime.c:412
 msgid "Minute part of the lower time limit"
 msgstr "Część minutowa dolnego limitu czasu"
 
-#: ../libegg/egg-datetime.c:419
+#: ../libegg/egg-datetime.c:417
 msgid "Upper limit minute"
 msgstr "Górny limit minutowy"
 
-#: ../libegg/egg-datetime.c:420
+#: ../libegg/egg-datetime.c:418
 msgid "Minute part of the upper time limit"
 msgstr "Cześć minutowa górnego limitu czasu"
 
-#: ../libegg/egg-datetime.c:425
+#: ../libegg/egg-datetime.c:423
 msgid "Lower limit second"
 msgstr "Dolny limit sekundowy"
 
-#: ../libegg/egg-datetime.c:426
+#: ../libegg/egg-datetime.c:424
 msgid "Second part of the lower time limit"
 msgstr "Część sekundowa dolnego limitu czasu"
 
-#: ../libegg/egg-datetime.c:431
+#: ../libegg/egg-datetime.c:429
 msgid "Upper limit second"
 msgstr "Górny limit sekundowy"
 
-#: ../libegg/egg-datetime.c:432
+#: ../libegg/egg-datetime.c:430
 msgid "Second part of the upper time limit"
 msgstr "Część sekundowa górnego limitu czasu"
 
@@ -760,158 +760,157 @@ msgstr "Część sekundowa górnego limitu czasu"
 #. * Do *not* translate it to anything else, if it isn't calendar:week_start:1
 #. * or calendar:week_start:0 it will not work.
 #.
-#: ../libegg/egg-datetime.c:474
+#: ../libegg/egg-datetime.c:472
 msgid "calendar:week_start:0"
 msgstr "calendar:week_start:1"
 
-#: ../libegg/egg-datetime.c:496
+#: ../libegg/egg-datetime.c:494
 msgid "Date"
 msgstr "Data"
 
-#: ../libegg/egg-datetime.c:496
+#: ../libegg/egg-datetime.c:494
 msgid "Enter the date directly"
 msgstr "Proszę wprowadzić datę bezpośrednio"
 
-#: ../libegg/egg-datetime.c:503
+#: ../libegg/egg-datetime.c:501
 msgid "Select Date"
 msgstr "Wybór daty"
 
-#: ../libegg/egg-datetime.c:503
+#: ../libegg/egg-datetime.c:501
 msgid "Select the date from a calendar"
 msgstr "Wybór daty z kalendarza"
 
-#: ../libegg/egg-datetime.c:521 ../libegg/egg-datetime.c:2196
+#: ../libegg/egg-datetime.c:519 ../libegg/egg-datetime.c:2194
 msgid "Time"
 msgstr "Czas"
 
-#: ../libegg/egg-datetime.c:521
+#: ../libegg/egg-datetime.c:519
 msgid "Enter the time directly"
 msgstr "Proszę wprowadzić czas bezpośrednio"
 
-#: ../libegg/egg-datetime.c:528
+#: ../libegg/egg-datetime.c:526
 msgid "Select Time"
 msgstr "Wybór czasu"
 
-#: ../libegg/egg-datetime.c:528
+#: ../libegg/egg-datetime.c:526
 msgid "Select the time from a list"
 msgstr "Wybór czasu z listy"
 
 #. Translators: set this to anything else if you want to use a
 #. * 24 hour clock.
 #.
-#: ../libegg/egg-datetime.c:793
+#: ../libegg/egg-datetime.c:791
 msgid "24hr: no"
 msgstr "24hr: yes"
 
-#: ../libegg/egg-datetime.c:797 ../libegg/egg-datetime.c:1257
-#: ../libegg/egg-datetime.c:1261
+#: ../libegg/egg-datetime.c:795 ../libegg/egg-datetime.c:1255
+#: ../libegg/egg-datetime.c:1259
 msgid "AM"
 msgstr "AM"
 
-#: ../libegg/egg-datetime.c:799 ../libegg/egg-datetime.c:1258
-#: ../libegg/egg-datetime.c:1265
+#: ../libegg/egg-datetime.c:797 ../libegg/egg-datetime.c:1256
+#: ../libegg/egg-datetime.c:1263
 msgid "PM"
 msgstr "PM"
 
 #. Translators: This is hh:mm:ss AM/PM.
-#: ../libegg/egg-datetime.c:807
+#: ../libegg/egg-datetime.c:805
 #, c-format
 msgid "%02d:%02d:%02d %s"
 msgstr "%02d∶%02d∶%02d %s"
 
 #. Translators: This is hh:mm AM/PM.
-#: ../libegg/egg-datetime.c:810
+#: ../libegg/egg-datetime.c:808
 #, c-format
 msgid "%02d:%02d %s"
 msgstr "%02d∶%02d %s"
 
 #. Translators: This is hh:mm:ss.
-#: ../libegg/egg-datetime.c:814
+#: ../libegg/egg-datetime.c:812
 #, c-format
 msgid "%02d:%02d:%02d"
 msgstr "%02d∶%02d∶%02d"
 
 #. Translators: This is hh:mm.
-#: ../libegg/egg-datetime.c:817
+#: ../libegg/egg-datetime.c:815
 #, c-format
 msgid "%02d:%02d"
 msgstr "%02d∶%02d"
 
 #. TODO: should handle other display modes as well...
 #. Translators: This is YYYY-MM-DD
-#: ../libegg/egg-datetime.c:1173
+#: ../libegg/egg-datetime.c:1171
 #, c-format
 msgid "%04d-%02d-%02d"
-msgstr "%02d-%02d-%04d"
+msgstr "%04d-%02d-%02d"
 
 #. Translators: This is hh:mm:ss.
-#: ../libegg/egg-datetime.c:1238
+#: ../libegg/egg-datetime.c:1236
 #, c-format
 msgid "%u:%u:%u"
 msgstr "%u∶%u∶%u"
 
-#: ../libegg/eggdesktopfile.c:165
+#: ../libegg/eggdesktopfile.c:164
 #, c-format
 msgid "File is not a valid .desktop file"
 msgstr "Nieprawidłowy plik .desktop"
 
-#: ../libegg/eggdesktopfile.c:188
+#: ../libegg/eggdesktopfile.c:187
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "Nierozpoznana wersja pliku .desktop \"%s\""
+msgstr "Nierozpoznana wersja pliku .desktop „%s”"
 
-# dwukropek, żeby pominąć problem z niemożnością odmiany zawartości %s
-#: ../libegg/eggdesktopfile.c:968
+#: ../libegg/eggdesktopfile.c:967
 #, c-format
 msgid "Starting %s"
-msgstr "Uruchamianie: %s"
+msgstr "Uruchamianie: „%s”"
 
-#: ../libegg/eggdesktopfile.c:1110
+#: ../libegg/eggdesktopfile.c:1109
 #, c-format
 msgid "Application does not accept documents on command line"
 msgstr "Program nie przyjmuje dokumentów w wierszu poleceń"
 
-#: ../libegg/eggdesktopfile.c:1178
+#: ../libegg/eggdesktopfile.c:1177
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Nierozpoznana opcja uruchamiania: %d"
 
-#: ../libegg/eggdesktopfile.c:1383
+#: ../libegg/eggdesktopfile.c:1382
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
 "Nie można przekazać adresów URI dokumentów do pozycji pliku .desktop "
-"\"Type=Link\""
+"„Type=Link”"
 
-#: ../libegg/eggdesktopfile.c:1404
+#: ../libegg/eggdesktopfile.c:1403
 #, c-format
 msgid "Not a launchable item"
 msgstr "Tego elementu nie można uruchomić"
 
-#: ../libegg/eggsmclient.c:225
+#: ../libegg/eggsmclient.c:223
 msgid "Disable connection to session manager"
 msgstr "Wyłącza połączenia z menedżerem sesji"
 
-#: ../libegg/eggsmclient.c:228
+#: ../libegg/eggsmclient.c:226
 msgid "Specify file containing saved configuration"
 msgstr "Podaje plik zawierający zapisaną konfigurację"
 
-#: ../libegg/eggsmclient.c:228
+#: ../libegg/eggsmclient.c:226
 msgid "FILE"
 msgstr "PLIK"
 
-#: ../libegg/eggsmclient.c:231
+#: ../libegg/eggsmclient.c:229
 msgid "Specify session management ID"
 msgstr "Podaje identyfikator zarządzania sesją"
 
-#: ../libegg/eggsmclient.c:231
+#: ../libegg/eggsmclient.c:229
 msgid "ID"
 msgstr "Identyfikator"
 
-#: ../libegg/eggsmclient.c:252
+#: ../libegg/eggsmclient.c:250
 msgid "Session management options:"
 msgstr "Opcje zarządzania sesją:"
 
-#: ../libegg/eggsmclient.c:253
+#: ../libegg/eggsmclient.c:251
 msgid "Show session management options"
 msgstr "Wyświetla opcje zarządzania sesją"

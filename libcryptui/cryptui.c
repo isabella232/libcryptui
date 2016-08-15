@@ -211,7 +211,7 @@ cryptui_prompt_recipients_with_symmetric (CryptUIKeyset *keyset,
             *symmetric = cryptui_key_chooser_get_symmetric (chooser);
         }
         
-        if (symmetric != NULL && !*symmetric) {
+        if (symmetric == NULL || *symmetric == FALSE) {
             recipients = cryptui_key_chooser_get_recipients (chooser);
             keys = g_new0(gchar*, g_list_length (recipients) + 1);
             for (l = recipients, i = 0; l; l = g_list_next (l), i++)

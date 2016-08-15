@@ -24,9 +24,9 @@
 /* seahorse-dbus-server.c --------------------------------------------------- */
 
 
-gboolean            seahorse_dbus_server_init ();
+void                seahorse_dbus_server_init ();
 
-gboolean            seahorse_dbus_server_cleanup ();
+void                seahorse_dbus_server_cleanup ();
 
 DBusGConnection*    seahorse_dbus_server_get_connection ();
 

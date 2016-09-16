@@ -20,7 +20,8 @@
 #include "config.h"
 
 #include "seahorse-secure-buffer.h"
-#include <gnome-keyring-memory.h>
+#define GCR_API_SUBJECT_TO_CHANGE 1
+#include <gcr/gcr.h>
 
 #include <string.h>
 
@@ -92,7 +93,7 @@ seahorse_secure_buffer_real_insert_text (GtkEntryBuffer *buffer, guint position,
 			}
 		}
 
-		pv->text = gnome_keyring_memory_realloc (pv->text, pv->text_size);
+		pv->text = gcr_secure_memory_realloc (pv->text, pv->text_size);
 	}
 
 	/* Actual text insertion */
@@ -158,7 +159,7 @@ seahorse_secure_buffer_finalize (GObject *obj)
 	SeahorseSecureBufferPrivate *pv = self->priv;
 
 	if (pv->text) {
-		gnome_keyring_memory_free (pv->text);
+		gcr_secure_memory_free (pv->text);
 		pv->text = NULL;
 		pv->text_bytes = pv->text_size = 0;
 		pv->text_chars = 0;

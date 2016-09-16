@@ -252,18 +252,18 @@ if test "$enable_fatal_messages" = "yes" && test "$enable_debug" = "yes"; then
 fi
 
 dnl ****************************************************************************
-dnl GNOME-KEYRING
+dnl GCR
 dnl ****************************************************************************
 
-PKG_CHECK_MODULES([GNOME_KEYRING], gnome-keyring-1 >= 2.25.5,
-                  [enable_gnome_keyring=yes],[enable_gnome_keyring=no])
+PKG_CHECK_MODULES([GCR], gcr-3,
+                  [enable_gcr=yes],[enable_gcr=no])
 
-if test "$enable_gnome_keyring" = "no"; then
-	AC_MSG_ERROR([gnome-keyring library or headers not found.])
+if test "$enable_gcr" = "no"; then
+	AC_MSG_ERROR([gcr library or headers not found.])
 fi
 
-SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GNOME_KEYRING_CFLAGS"
-SEAHORSE_LIBS="$SEAHORSE_LIBS $GNOME_KEYRING_LIBS"
+SEAHORSE_CFLAGS="$SEAHORSE_CFLAGS $GCR_CFLAGS"
+SEAHORSE_LIBS="$SEAHORSE_LIBS $GCR_LIBS"
 
 dnl ****************************************************************************
 dnl LIBCRYPTUI

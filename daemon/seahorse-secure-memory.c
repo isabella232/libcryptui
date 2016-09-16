@@ -23,7 +23,8 @@
   
 #include <glib.h>
   
-#include <gnome-keyring-memory.h>
+#define GCR_API_SUBJECT_TO_CHANGE 1
+#include <gcr/gcr.h>
   
 #include "seahorse-secure-memory.h"
   
@@ -47,7 +48,7 @@ switch_malloc (gsize size)
     if (size == 0)
         return NULL;
     if (seahorse_use_secure_mem)
-        p = gnome_keyring_memory_try_alloc (size);
+        p = gcr_secure_memory_try_alloc (size);
     else
         p = malloc (size);
     return p;
@@ -71,7 +72,7 @@ switch_calloc (gsize num, gsize size)
     if (size == 0 || num == 0)
         return NULL;
     if (seahorse_use_secure_mem)
-        p = gnome_keyring_memory_try_alloc (size * num);
+        p = gcr_secure_memory_try_alloc (size * num);
     else
         p = calloc (num, size);
     return p;
@@ -99,11 +100,11 @@ switch_realloc (gpointer mem, gsize size)
 
     if (!mem) {
         if (seahorse_use_secure_mem)
-            p = gnome_keyring_memory_alloc (size);
+            p = gcr_secure_memory_alloc (size);
         else
             p = malloc (size);
-    } else if (gnome_keyring_memory_is_secure (mem))
-        p = gnome_keyring_memory_try_realloc (mem, size);
+    } else if (gcr_secure_memory_is_secure (mem))
+        p = gcr_secure_memory_try_realloc (mem, size);
     else
         p = realloc (mem, size);
     return p;
@@ -120,8 +121,8 @@ static void
 switch_free (gpointer mem)
 {
     if (mem) {
-        if (gnome_keyring_memory_is_secure (mem))
-            gnome_keyring_memory_free (mem);
+        if (gcr_secure_memory_is_secure (mem))
+            gcr_secure_memory_free (mem);
         else
             free (mem);
     }
@@ -138,9 +139,9 @@ seahorse_try_gk_secure_memory ()
 {
     gpointer p;
 
-    p = gnome_keyring_memory_try_alloc (10);
+    p = gcr_secure_memory_try_alloc (10);
     if (p != NULL) {
-        gnome_keyring_memory_free (p);
+        gcr_secure_memory_free (p);
         return TRUE;
     }
 

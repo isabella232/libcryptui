@@ -1,35 +1,31 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aviary.pl
-# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
-# gnomepl@aviary.pl
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Polish translation for libcryptui.
+# Copyright © 2003-2016 the libcryptui authors.
+# This file is distributed under the same license as the libcryptui package.
 # Artur Flinta <aflinta@at.kernel.pl>, 2003-2006.
 # Andrzej Polatyński <andrzej@datatel.net.pl>, 2007.
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2007-2009.
 # Piotr Zaryk <pzaryk@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2015.
-# Aviary.pl <gnomepl@aviary.pl>, 2007-2015.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
+# Aviary.pl <community-poland@mozilla.org>, 2007-2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libcryptui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-01 03:42+0200\n"
-"PO-Revision-Date: 2015-09-01 03:44+0200\n"
+"POT-Creation-Date: 2016-10-05 20:32+0200\n"
+"PO-Revision-Date: 2016-10-05 20:33+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
 #: ../daemon/seahorse-daemon.c:50
 msgid "Do not run seahorse-daemon as a daemon"
-msgstr "Uruchamia seahorse-daemon bez przechodzenia do pracy w tle"
+msgstr "Uruchamia seahorse-daemon bez przechodzenia do działania w tle"
 
 #: ../daemon/seahorse-daemon.c:80
 msgid "couldn't fork process"
@@ -149,7 +145,7 @@ msgid ""
 "set in the future or a missing self-signature."
 msgstr ""
 "Nieprawidłowe dane klucza (brakujące UID). Przyczyną tego może być "
-"nieprawidłowo ustawiona data w systemie lub brak podpisu własnego."
+"nieprawidłowo ustawiona data w systemie lub brak podpisu własnego."
 
 #: ../daemon/seahorse-gpgme-source.c:895
 msgid "Importing Keys"
@@ -218,11 +214,11 @@ msgstr "Nowy klucz PGP"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:3
 msgid "A PGP key allows you to encrypt email or files to other people."
-msgstr "Klucz PGP umożliwia szyfrowanie poczty i plików."
+msgstr "Klucz PGP umożliwia szyfrowanie poczty i plików."
 
 #: ../daemon/seahorse-pgp-generate.xml.h:4
 msgid "Full _Name:"
-msgstr "Imię i _nazwisko:"
+msgstr "Imię i _nazwisko:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:5
 msgid "_Email Address:"
@@ -242,7 +238,7 @@ msgstr "Typ _szyfrowania:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:9
 msgid "Key _Strength (bits):"
-msgstr "_Długość klucza (w bitach):"
+msgstr "_Długość klucza (w bitach):"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:10
 msgid "E_xpiration Date:"
@@ -341,7 +337,7 @@ msgstr "Podpis prawidłowy"
 
 #: ../daemon/seahorse-service-crypto.c:228
 msgid "Signing key not in keyring."
-msgstr "Klucz podpisujący nie jest w bazie kluczy."
+msgstr "Klucz podpisujący nie jest w bazie kluczy."
 
 #: ../daemon/seahorse-service-crypto.c:229
 msgid "Unknown Signature"
@@ -477,7 +473,7 @@ msgid ""
 "\n"
 "Do you want to replace it with a new file?"
 msgstr ""
-"<b>Plik o tej nazwie już istnieje.</b>\n"
+"<b>Plik o tej nazwie już istnieje.</b>\n"
 "\n"
 "Zastąpić go nowym plikiem?"
 
@@ -522,7 +518,7 @@ msgid ""
 "started so that you may either create a key or import one."
 msgstr ""
 "Nie odnaleziono kluczy szyfrujących do wykonania żądanego działania. Program "
-"<b>Hasła i klucze szyfrujące</b> zostanie teraz uruchomiony, aby można było "
+"<b>Hasła i klucze szyfrujące</b> zostanie teraz uruchomiony, aby można było "
 "utworzyć lub zaimportować klucz."
 
 #: ../libcryptui/cryptui.c:331
@@ -532,8 +528,8 @@ msgid ""
 "import a public key. It is also possible to use a shared passphrase instead."
 msgstr ""
 "Nie odnaleziono kluczy szyfrujących. Aby wykonać szyfrowanie kluczem "
-"publicznym, można uruchomić program <b>Hasła i klucze szyfrujące</b> i "
-"utworzyć lub zaimportować klucz. Można także zamiast tego użyć hasła "
+"publicznym, można uruchomić program <b>Hasła i klucze szyfrujące</b> "
+"i utworzyć lub zaimportować klucz. Można także zamiast tego użyć hasła "
 "współdzielonego."
 
 #: ../libcryptui/cryptui.c:334
@@ -609,7 +605,7 @@ msgstr "Tryb leniwy"
 
 #: ../libegg/egg-datetime.c:322
 msgid "Lazy mode doesn't normalize entered date and time values"
-msgstr "Tryb leniwy nie normalizuje wprowadzonych wartości dat i czasu"
+msgstr "Tryb leniwy nie normalizuje wprowadzonych wartości dat i czasu"
 
 #: ../libegg/egg-datetime.c:327
 msgid "Year"
@@ -665,7 +661,7 @@ msgstr "Dolny limit roczny"
 
 #: ../libegg/egg-datetime.c:364
 msgid "Year part of the lower date limit"
-msgstr "Część roczna o dolnym limicie daty"
+msgstr "Część roczna o dolnym limicie daty"
 
 #: ../libegg/egg-datetime.c:369
 msgid "Upper limit year"
@@ -673,7 +669,7 @@ msgstr "Górny limit roczny"
 
 #: ../libegg/egg-datetime.c:370
 msgid "Year part of the upper date limit"
-msgstr "Część roczna o górnym limicie daty"
+msgstr "Część roczna o górnym limicie daty"
 
 #: ../libegg/egg-datetime.c:375
 msgid "Lower limit month"
@@ -681,7 +677,7 @@ msgstr "Dolny limit miesięczny"
 
 #: ../libegg/egg-datetime.c:376
 msgid "Month part of the lower date limit"
-msgstr "Część miesięczna o dolnym limicie daty"
+msgstr "Część miesięczna o dolnym limicie daty"
 
 #: ../libegg/egg-datetime.c:381
 msgid "Upper limit month"
@@ -689,7 +685,7 @@ msgstr "Górny limit miesięczny"
 
 #: ../libegg/egg-datetime.c:382
 msgid "Month part of the upper date limit"
-msgstr "Część miesięczna o górnym limicie daty"
+msgstr "Część miesięczna o górnym limicie daty"
 
 #: ../libegg/egg-datetime.c:387
 msgid "Lower limit day"
@@ -697,7 +693,7 @@ msgstr "Dolny limit dzienny"
 
 #: ../libegg/egg-datetime.c:388
 msgid "Day of month part of the lower date limit"
-msgstr "Część dzienna miesiąca o dolnym limicie daty"
+msgstr "Część dzienna miesiąca o dolnym limicie daty"
 
 #: ../libegg/egg-datetime.c:393
 msgid "Upper limit day"
@@ -705,7 +701,7 @@ msgstr "Górny limit dzienny"
 
 #: ../libegg/egg-datetime.c:394
 msgid "Day of month part of the upper date limit"
-msgstr "Część dzienna miesiąca o górnym limicie daty"
+msgstr "Część dzienna miesiąca o górnym limicie daty"
 
 #: ../libegg/egg-datetime.c:399
 msgid "Lower limit hour"
@@ -713,7 +709,7 @@ msgstr "Dolny limit godzinny"
 
 #: ../libegg/egg-datetime.c:400
 msgid "Hour part of the lower time limit"
-msgstr "Część godzinna o dolnym limicie czasu"
+msgstr "Część godzinna o dolnym limicie czasu"
 
 #: ../libegg/egg-datetime.c:405
 msgid "Upper limit hour"
@@ -778,7 +774,7 @@ msgstr "Wybór daty"
 
 #: ../libegg/egg-datetime.c:501
 msgid "Select the date from a calendar"
-msgstr "Wybór daty z kalendarza"
+msgstr "Wybór daty z kalendarza"
 
 #: ../libegg/egg-datetime.c:519 ../libegg/egg-datetime.c:2194
 msgid "Time"
@@ -794,7 +790,7 @@ msgstr "Wybór czasu"
 
 #: ../libegg/egg-datetime.c:526
 msgid "Select the time from a list"
-msgstr "Wybór czasu z listy"
+msgstr "Wybór czasu z listy"
 
 #. Translators: set this to anything else if you want to use a
 #. * 24 hour clock.
@@ -868,7 +864,7 @@ msgstr "Uruchamianie: „%s”"
 #: ../libegg/eggdesktopfile.c:1109
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "Program nie przyjmuje dokumentów w wierszu poleceń"
+msgstr "Program nie przyjmuje dokumentów w wierszu poleceń"
 
 #: ../libegg/eggdesktopfile.c:1177
 #, c-format
@@ -889,7 +885,7 @@ msgstr "Tego elementu nie można uruchomić"
 
 #: ../libegg/eggsmclient.c:223
 msgid "Disable connection to session manager"
-msgstr "Wyłącza połączenia z menedżerem sesji"
+msgstr "Wyłącza połączenia z menedżerem sesji"
 
 #: ../libegg/eggsmclient.c:226
 msgid "Specify file containing saved configuration"

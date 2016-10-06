@@ -75,7 +75,7 @@ completion_handler (SeahorseOperation *op, gpointer data)
     GError *error = NULL;
     if (!seahorse_operation_is_successful (op)) {
         seahorse_operation_copy_error (op, &error);
-        seahorse_util_handle_error (error, _("Couldn't generate PGP key"));
+        seahorse_util_handle_error (error, _("Couldn’t generate PGP key"));
         g_clear_error (&error);
     }
 }
@@ -145,7 +145,7 @@ void seahorse_gpgme_generate_key (SeahorseGpgmeSource *sksrc, const gchar *name,
                                              pass, type, bits, expires, &gerr);
 
         if (!GPG_IS_OK (gerr)) {
-            seahorse_gpgme_handle_error (gerr, _("Couldn't generate key"));
+            seahorse_gpgme_handle_error (gerr, _("Couldn’t generate key"));
         } else {
             seahorse_progress_show (op, _("Generating key"), TRUE);
             seahorse_operation_watch (op, (SeahorseDoneFunc)completion_handler, NULL, NULL, NULL);

@@ -285,7 +285,7 @@ construct_signer (CryptUIKeyChooser *chooser, GtkBox *box)
     /* TODO: HIG and beautification */
         
     if (!(chooser->priv->mode & CRYPTUI_KEY_CHOOSER_MUSTSIGN))
-        none_option = _("None (Don't Sign)");
+        none_option = _("None (Don’t Sign)");
 
     /* The Sign combo */
     ckstore = cryptui_key_store_new (chooser->priv->ckset, TRUE, none_option);

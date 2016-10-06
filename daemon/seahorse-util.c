@@ -762,13 +762,13 @@ seahorse_util_uris_package (const gchar* package, const char** uris)
     }
     
     if (!r) {
-        seahorse_util_handle_error (err, _("Couldn't run file-roller"));
+        seahorse_util_handle_error (err, _("Couldn’t run file-roller"));
         g_clear_error (&err);
         return FALSE;
     }
     
     if(!(WIFEXITED(status) && WEXITSTATUS(status) == 0)) {
-        seahorse_util_show_error(NULL, _("Couldn't package files"), 
+        seahorse_util_show_error(NULL, _("Couldn’t package files"), 
                                  _("The file-roller process did not complete successfully"));
         return FALSE;
     }

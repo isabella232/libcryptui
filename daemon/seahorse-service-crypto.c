@@ -239,7 +239,7 @@ notify_signatures (const gchar* data, gpgme_verify_result_t status)
 	default:
 		if (!GPG_IS_OK (status->signatures->status))
 			seahorse_gpgme_handle_error (status->signatures->status, 
-			                             _("Couldn't verify signature."));
+			                             _("Couldn’t verify signature."));
 		return;
 	};
 

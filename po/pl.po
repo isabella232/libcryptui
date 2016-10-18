@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libcryptui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-05 20:32+0200\n"
-"PO-Revision-Date: 2016-10-05 20:33+0200\n"
+"POT-Creation-Date: 2016-10-18 20:39+0200\n"
+"PO-Revision-Date: 2016-10-18 20:40+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -84,7 +84,7 @@ msgid "RSA (sign only)"
 msgstr "RSA (tylko podpisywanie)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-msgid "Couldn't generate PGP key"
+msgid "Couldn’t generate PGP key"
 msgstr "Nie można wygenerować klucza PGP"
 
 #: ../daemon/seahorse-gpgme-generate.c:138
@@ -96,7 +96,7 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "Należy dwukrotnie wpisać hasło dla nowego klucza."
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-msgid "Couldn't generate key"
+msgid "Couldn’t generate key"
 msgstr "Nie można wygenerować klucza"
 
 #: ../daemon/seahorse-gpgme-generate.c:150
@@ -110,12 +110,12 @@ msgstr "Błędne hasło."
 
 #: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
-msgid "Enter new passphrase for '%s'"
+msgid "Enter new passphrase for “%s”"
 msgstr "Nowe hasło dla „%s”"
 
 #: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
-msgid "Enter passphrase for '%s'"
+msgid "Enter passphrase for “%s”"
 msgstr "Hasło dla „%s”"
 
 #: ../daemon/seahorse-gpgme-source.c:104
@@ -136,7 +136,7 @@ msgstr[1] "Wczytano %d klucze"
 msgstr[2] "Wczytano %d kluczy"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-msgid "Loading Keys..."
+msgid "Loading Keys…"
 msgstr "Wczytywanie kluczy…"
 
 #: ../daemon/seahorse-gpgme-source.c:805
@@ -353,7 +353,7 @@ msgid "Bad Signature"
 msgstr "Błędny podpis"
 
 #: ../daemon/seahorse-service-crypto.c:242
-msgid "Couldn't verify signature."
+msgid "Couldn’t verify signature."
 msgstr "Nie można zweryfikować podpisu."
 
 #: ../daemon/seahorse-service-crypto.c:314
@@ -442,11 +442,11 @@ msgid "Multiple Keys"
 msgstr "Wiele kluczy"
 
 #: ../daemon/seahorse-util.c:765
-msgid "Couldn't run file-roller"
+msgid "Couldn’t run file-roller"
 msgstr "Nie można uruchomić programu file-roller"
 
 #: ../daemon/seahorse-util.c:771
-msgid "Couldn't package files"
+msgid "Couldn’t package files"
 msgstr "Nie można zarchiwizować plików"
 
 #: ../daemon/seahorse-util.c:772
@@ -567,7 +567,7 @@ msgid "Choose a set of recipients:"
 msgstr "Proszę wybrać zestaw odbiorców:"
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-msgid "None (Don't Sign)"
+msgid "None (Don’t Sign)"
 msgstr "Brak (bez podpisywania)"
 
 #: ../libcryptui/cryptui-key-chooser.c:301
@@ -604,7 +604,7 @@ msgid "Lazy mode"
 msgstr "Tryb leniwy"
 
 #: ../libegg/egg-datetime.c:322
-msgid "Lazy mode doesn't normalize entered date and time values"
+msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr "Tryb leniwy nie normalizuje wprowadzonych wartości dat i czasu"
 
 #: ../libegg/egg-datetime.c:327
@@ -853,7 +853,7 @@ msgstr "Nieprawidłowy plik .desktop"
 
 #: ../libegg/eggdesktopfile.c:187
 #, c-format
-msgid "Unrecognized desktop file Version '%s'"
+msgid "Unrecognized desktop file Version “%s”"
 msgstr "Nierozpoznana wersja pliku .desktop „%s”"
 
 #: ../libegg/eggdesktopfile.c:967
@@ -873,7 +873,7 @@ msgstr "Nierozpoznana opcja uruchamiania: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
 #, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
 msgstr ""
 "Nie można przekazać adresów URI dokumentów do pozycji pliku .desktop "
 "„Type=Link”"

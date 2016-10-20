@@ -1,16 +1,16 @@
 # Swedish messages for seahorse.
-# Copyright © 2001-2015 Free Software Foundation, Inc.
+# Copyright © 2001-2016 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2001, 2003, 2004.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: seahorse\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libcryptui&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-14 10:38+0000\n"
-"PO-Revision-Date: 2015-03-15 23:36+0100\n"
+"product=seahorse&keywords=I18N+L10N&component=libcryptui\n"
+"POT-Creation-Date: 2016-10-18 09:30+0000\n"
+"PO-Revision-Date: 2016-10-20 23:52+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: ../daemon/seahorse-daemon.c:50
 msgid "Do not run seahorse-daemon as a daemon"
@@ -77,7 +77,7 @@ msgid "RSA (sign only)"
 msgstr "RSA (endast signering)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-msgid "Couldn't generate PGP key"
+msgid "Couldn’t generate PGP key"
 msgstr "Kunde inte generera PGP-nyckel"
 
 #: ../daemon/seahorse-gpgme-generate.c:138
@@ -89,7 +89,7 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "Ange lösenfrasen för din nya nyckel två gånger."
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-msgid "Couldn't generate key"
+msgid "Couldn’t generate key"
 msgstr "Kunde inte generera nyckel"
 
 #: ../daemon/seahorse-gpgme-generate.c:150
@@ -103,12 +103,12 @@ msgstr "Felaktig lösenfras."
 
 #: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
-msgid "Enter new passphrase for '%s'"
+msgid "Enter new passphrase for “%s”"
 msgstr "Ange ny lösenfras för ”%s”"
 
 #: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
-msgid "Enter passphrase for '%s'"
+msgid "Enter passphrase for “%s”"
 msgstr "Ange lösenfras för ”%s”"
 
 #: ../daemon/seahorse-gpgme-source.c:104
@@ -128,7 +128,7 @@ msgstr[0] "Läste in %d nyckel"
 msgstr[1] "Läste in %d nycklar"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-msgid "Loading Keys..."
+msgid "Loading Keys…"
 msgstr "Läser in nycklar…"
 
 #: ../daemon/seahorse-gpgme-source.c:805
@@ -345,7 +345,7 @@ msgid "Bad Signature"
 msgstr "Felaktig signatur"
 
 #: ../daemon/seahorse-service-crypto.c:242
-msgid "Couldn't verify signature."
+msgid "Couldn’t verify signature."
 msgstr "Kunde inte validera signatur."
 
 #: ../daemon/seahorse-service-crypto.c:314
@@ -434,11 +434,11 @@ msgid "Multiple Keys"
 msgstr "Flera nycklar"
 
 #: ../daemon/seahorse-util.c:765
-msgid "Couldn't run file-roller"
+msgid "Couldn’t run file-roller"
 msgstr "Kunde inte köra file-roller"
 
 #: ../daemon/seahorse-util.c:771
-msgid "Couldn't package files"
+msgid "Couldn’t package files"
 msgstr "Kunde inte paketera filer"
 
 #: ../daemon/seahorse-util.c:772
@@ -559,7 +559,7 @@ msgid "Choose a set of recipients:"
 msgstr "Välj en uppsättning mottagare:"
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-msgid "None (Don't Sign)"
+msgid "None (Don’t Sign)"
 msgstr "Ingen (Signera inte)"
 
 #: ../libcryptui/cryptui-key-chooser.c:301
@@ -596,7 +596,7 @@ msgid "Lazy mode"
 msgstr "Avslappnat läge"
 
 #: ../libegg/egg-datetime.c:322
-msgid "Lazy mode doesn't normalize entered date and time values"
+msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr "Avslappnat läge normaliserar inte angivna värden för datum och tid"
 
 #: ../libegg/egg-datetime.c:327
@@ -845,7 +845,7 @@ msgstr "Filen är inte en giltig .desktop-fil"
 
 #: ../libegg/eggdesktopfile.c:187
 #, c-format
-msgid "Unrecognized desktop file Version '%s'"
+msgid "Unrecognized desktop file Version “%s”"
 msgstr "Okänd Version ”%s” i desktop-fil"
 
 #: ../libegg/eggdesktopfile.c:967
@@ -865,8 +865,8 @@ msgstr "Okänt startalternativ: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
 #, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "Kan inte skicka dokument-URI:er till en \"Type=Link\"-skrivbordspost"
+msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
+msgstr "Kan inte skicka dokument-URI:er till en ”Type=Link”-skrivbordspost"
 
 #: ../libegg/eggdesktopfile.c:1403
 #, c-format

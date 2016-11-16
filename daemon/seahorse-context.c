@@ -850,6 +850,13 @@ seahorse_context_get_objects (SeahorseContext *self, SeahorseSource *source)
 	return seahorse_context_find_objects_full (self, &pred);
 }
 
+static gboolean
+predicate_pgp_subkey (SeahorseObject *obj, void *user_data)
+{
+    return (SEAHORSE_IS_PGP_KEY (obj) &&
+            seahorse_pgp_key_has_keyid ((SeahorsePgpKey *) obj, user_data));
+}
+
 /**
  * seahorse_context_find_object:
  * @sctx: The #SeahorseContext to work with (can be NULL)
@@ -871,6 +878,25 @@ seahorse_context_find_object (SeahorseContext *sctx, GQuark id, SeahorseLocation
     g_return_val_if_fail (SEAHORSE_IS_CONTEXT (sctx), NULL);
 
     sobj = (SeahorseObject*)g_hash_table_lookup (sctx->pv->objects_by_type, GUINT_TO_POINTER (id));
+    /* FIXME: hack for PGP subkeys: we just search all PGP keys and look for a
+     * matching subkey.  Ugly, but meh. */
+    if (! sobj) {
+        SeahorseObjectPredicate pred = { 0 };
+
+        pred.custom = predicate_pgp_subkey;
+        pred.custom_target = (gpointer) g_quark_to_string (id);
+        if (g_str_has_prefix (pred.custom_target, "openpgp:")) {
+            GList *objects;
+
+            pred.custom_target += 8; /* strip "openpgp:" prefix */
+            objects = seahorse_context_find_objects_full (sctx, &pred);
+            if (objects) {
+                sobj = objects->data;
+                g_warn_if_fail (objects->next == NULL);
+                g_list_free (objects);
+            }
+        }
+    }
     while (sobj) {
         
         /* If at the end and no more objects in list, return */

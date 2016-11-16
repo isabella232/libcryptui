@@ -77,18 +77,18 @@ G_DEFINE_TYPE (SeahorseNotification, seahorse_notification, G_TYPE_OBJECT);
 /* Forward Declaration */
 static void object_notify (SeahorseObject *sobj, GParamSpec *spec, SeahorseNotification *snotif);
 
-static void
+static gboolean
 insert_key_field (GString *res, const gchar *id, const gchar *field)
 {
     SeahorseObject *sobj;
     GValue value;
     GValue svalue;
-    gchar *str;
+    gchar *str = NULL;
     
     sobj = seahorse_context_object_from_dbus (SCTX_APP (), id);
     if (!sobj || !SEAHORSE_IS_OBJECT (sobj)) {
         g_warning ("key '%s' in key text does not exist", id);
-        return;
+        return FALSE;
     }
     
     /* A default field */
@@ -108,6 +108,8 @@ insert_key_field (GString *res, const gchar *id, const gchar *field)
         g_value_unset (&svalue);
         g_value_unset (&value);
     }
+
+    return str != NULL;
 }
 
 static void
@@ -133,12 +135,21 @@ format_start_element (GMarkupParseContext *ctx, const gchar *element_name,
                 field = *attribute_values;
         }
         
-        if (!key)
+        if (!key) {
             g_warning ("key text <key> element requires the following attributes\n"
                        "     <key id=\"xxxxx\" field=\"xxxxx\"/>");
-        else 
-            insert_key_field (res, key, field);
-        
+	} else if (!insert_key_field (res, key, field)) {
+            gchar *str;
+            const gchar *p = strchr (key, ':');
+
+            if (p && p[1])
+                key = &p[1];
+
+            str = g_markup_escape_text (key, -1);
+            g_string_append (res, str);
+            g_free (str);
+        }
+
         return;
     }
 

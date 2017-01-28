@@ -203,15 +203,15 @@ notify_signatures (const gchar* data, gpgme_verify_result_t status)
 		icon = ICON_PREFIX "seahorse-sign-bad.png";
 		sig = TRUE;
 		break;
-		/* TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate. */
 	case GPG_ERR_SIG_EXPIRED:
+		/* TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate. */
 		body  = _("Signed by <i><key id='%s'/></i> on %s <b>Expired</b>.");
 		title = _("Expired Signature");
 		icon = ICON_PREFIX "seahorse-sign-bad.png";
 		sig = TRUE;
 		break;
-		/* TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate. */
 	case GPG_ERR_CERT_REVOKED:
+		/* TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate. */
 		body = _("Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s.");
 		title = _("Revoked Signature");
 		icon = ICON_PREFIX "seahorse-sign-bad.png";

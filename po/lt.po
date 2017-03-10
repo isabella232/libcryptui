@@ -7,15 +7,15 @@
 # Vytautas Liuolia <vytautas.liuolia@gmail.com>, 2008.
 # Rimas Kudelis <rq@akl.lt>, 2009.
 # Žygimantas Beručka <zygis@gnome.org>, 2010.
-# Aurimas Černius <aurisc4@gmail.com>, 2013.
+# Aurimas Černius <aurisc4@gmail.com>, 2013, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: seahorse master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libcryptui&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-08 12:48+0000\n"
-"PO-Revision-Date: 2016-01-08 17:17+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=seahorse&keywords=I18N+L10N&component=libcryptui\n"
+"POT-Creation-Date: 2017-03-05 21:40+0000\n"
+"PO-Revision-Date: 2017-03-10 22:37+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../daemon/seahorse-daemon.c:50
@@ -43,14 +43,14 @@ msgstr "nepavyko sukurti naujos proceso grupės"
 msgid "Encryption Daemon (Seahorse)"
 msgstr "Šifravimo tarnyba (Seahorse)"
 
-#: ../daemon/seahorse-notification.c:573 ../daemon/seahorse-notification.c:601
+#: ../daemon/seahorse-notification.c:584 ../daemon/seahorse-notification.c:612
 msgid "Key Imported"
 msgid_plural "Keys Imported"
 msgstr[0] "Raktas importuotas"
 msgstr[1] "Raktai importuoti"
 msgstr[2] "Raktų importuota"
 
-#: ../daemon/seahorse-notification.c:577 ../daemon/seahorse-notification.c:600
+#: ../daemon/seahorse-notification.c:588 ../daemon/seahorse-notification.c:611
 #, c-format
 msgid "Imported %i key"
 msgid_plural "Imported %i keys"
@@ -58,7 +58,7 @@ msgstr[0] "Importuotas %i raktas"
 msgstr[1] "Importuoti %i raktai"
 msgstr[2] "Importuota %i raktų"
 
-#: ../daemon/seahorse-notification.c:579
+#: ../daemon/seahorse-notification.c:590
 #, c-format
 msgid "Imported a key for"
 msgid_plural "Imported keys for"
@@ -87,7 +87,8 @@ msgid "RSA (sign only)"
 msgstr "RSA (tik pasirašymui)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-msgid "Couldn't generate PGP key"
+#| msgid "Couldn't generate PGP key"
+msgid "Couldn’t generate PGP key"
 msgstr "Nepavyko sukurti PGP rakto"
 
 #: ../daemon/seahorse-gpgme-generate.c:138
@@ -99,7 +100,8 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "Dukart įveskite naujojo rakto slaptažodį."
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-msgid "Couldn't generate key"
+#| msgid "Couldn't generate key"
+msgid "Couldn’t generate key"
 msgstr "Nepavyko sukurti rakto"
 
 #: ../daemon/seahorse-gpgme-generate.c:150
@@ -113,12 +115,14 @@ msgstr "Neteisingas slaptažodis."
 
 #: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
-msgid "Enter new passphrase for '%s'"
+#| msgid "Enter new passphrase for '%s'"
+msgid "Enter new passphrase for “%s”"
 msgstr "Įveskite naują rakto „%s“ slaptažodį"
 
 #: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
-msgid "Enter passphrase for '%s'"
+#| msgid "Enter passphrase for '%s'"
+msgid "Enter passphrase for “%s”"
 msgstr "Įveskite rakto „%s“ slaptažodį"
 
 #: ../daemon/seahorse-gpgme-source.c:104
@@ -139,8 +143,9 @@ msgstr[1] "Įkelti %d raktai"
 msgstr[2] "Įkelta %d raktų"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-msgid "Loading Keys..."
-msgstr "Įkeliami raktai..."
+#| msgid "Loading Keys..."
+msgid "Loading Keys…"
+msgstr "Įkeliami raktai…"
 
 #: ../daemon/seahorse-gpgme-source.c:805
 msgid ""
@@ -310,6 +315,7 @@ msgstr "Pasirašė <i><key id='%s'/>, <b>galiojimas baigėsi:</b></i> %s."
 msgid "Invalid Signature"
 msgstr "Netinkamas parašas"
 
+#. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
 #: ../daemon/seahorse-service-crypto.c:208
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
@@ -321,6 +327,7 @@ msgstr ""
 msgid "Expired Signature"
 msgstr "Nebegaliojantis parašas"
 
+#. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
 #: ../daemon/seahorse-service-crypto.c:215
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
@@ -357,7 +364,8 @@ msgid "Bad Signature"
 msgstr "Blogas parašas"
 
 #: ../daemon/seahorse-service-crypto.c:242
-msgid "Couldn't verify signature."
+#| msgid "Couldn't verify signature."
+msgid "Couldn’t verify signature."
 msgstr "Parašo nepavyko patikrinti."
 
 #: ../daemon/seahorse-service-crypto.c:314
@@ -446,11 +454,13 @@ msgid "Multiple Keys"
 msgstr "Keli raktai"
 
 #: ../daemon/seahorse-util.c:765
-msgid "Couldn't run file-roller"
+#| msgid "Couldn't run file-roller"
+msgid "Couldn’t run file-roller"
 msgstr "Nepavyko paleisti file-roller"
 
 #: ../daemon/seahorse-util.c:771
-msgid "Couldn't package files"
+#| msgid "Couldn't package files"
+msgid "Couldn’t package files"
 msgstr "Nepavyko supakuoti failų"
 
 #: ../daemon/seahorse-util.c:772
@@ -570,8 +580,9 @@ msgid "Choose a set of recipients:"
 msgstr "Pasirinkite gavėjus:"
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-msgid "None (Don't Sign)"
-msgstr "Nepasirašyti"
+#| msgid "None (Don't Sign)"
+msgid "None (Don’t Sign)"
+msgstr "Nėra (nepasirašyti)"
 
 #: ../libcryptui/cryptui-key-chooser.c:301
 #, c-format
@@ -607,7 +618,8 @@ msgid "Lazy mode"
 msgstr "Supaprastinta veiksena"
 
 #: ../libegg/egg-datetime.c:322
-msgid "Lazy mode doesn't normalize entered date and time values"
+#| msgid "Lazy mode doesn't normalize entered date and time values"
+msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr ""
 "Supaprastintoje veiksenoje įvestos datos ir laiko reikšmės nėra "
 "normalizuojamos"
@@ -858,7 +870,8 @@ msgstr "Šis failas nėra taisyklingas .desktop failas"
 
 #: ../libegg/eggdesktopfile.c:187
 #, c-format
-msgid "Unrecognized desktop file Version '%s'"
+#| msgid "Unrecognized desktop file Version '%s'"
+msgid "Unrecognized desktop file Version “%s”"
 msgstr "Neatpažinta darbalaukio failo versija „%s“"
 
 #: ../libegg/eggdesktopfile.c:967
@@ -878,7 +891,8 @@ msgstr "Neatpažintas paleidimo parametras: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
 #, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+#| msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
 msgstr "Negalima perduoti dokumento URI „Type=Link“ darbalaukio elementui"
 
 #: ../libegg/eggdesktopfile.c:1403

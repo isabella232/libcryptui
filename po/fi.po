@@ -9,10 +9,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: seahorse\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libcryptui&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-07 11:04+0000\n"
-"PO-Revision-Date: 2015-10-07 16:57+0300\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=seahorse&keywords=I18N+L10N&component=libcryptui\n"
+"POT-Creation-Date: 2017-09-11 12:31+0000\n"
+"PO-Revision-Date: 2018-02-10 19:18+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../daemon/seahorse-daemon.c:50
 msgid "Do not run seahorse-daemon as a daemon"
@@ -38,20 +38,20 @@ msgstr "uutta prosessiryhmää ei voi luoda"
 msgid "Encryption Daemon (Seahorse)"
 msgstr "Salauspalvelin (Seahorse)"
 
-#: ../daemon/seahorse-notification.c:573 ../daemon/seahorse-notification.c:601
+#: ../daemon/seahorse-notification.c:584 ../daemon/seahorse-notification.c:612
 msgid "Key Imported"
 msgid_plural "Keys Imported"
 msgstr[0] "Tuotiin avain"
 msgstr[1] "Tuotiin avaimia"
 
-#: ../daemon/seahorse-notification.c:577 ../daemon/seahorse-notification.c:600
+#: ../daemon/seahorse-notification.c:588 ../daemon/seahorse-notification.c:611
 #, c-format
 msgid "Imported %i key"
 msgid_plural "Imported %i keys"
 msgstr[0] "Tuotiin %d avain"
 msgstr[1] "Tuotiin %d avainta"
 
-#: ../daemon/seahorse-notification.c:579
+#: ../daemon/seahorse-notification.c:590
 #, c-format
 msgid "Imported a key for"
 msgid_plural "Imported keys for"
@@ -79,7 +79,7 @@ msgid "RSA (sign only)"
 msgstr "RSA (vain allekirjoitus)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-msgid "Couldn't generate PGP key"
+msgid "Couldn’t generate PGP key"
 msgstr "PGP-avainta ei voitu luoda"
 
 #: ../daemon/seahorse-gpgme-generate.c:138
@@ -91,7 +91,7 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "Syötä uuden avaimesi tunnuslause kahdesti."
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-msgid "Couldn't generate key"
+msgid "Couldn’t generate key"
 msgstr "Avainta ei voitu luoda"
 
 #: ../daemon/seahorse-gpgme-generate.c:150
@@ -105,13 +105,13 @@ msgstr "Väärä tunnuslause."
 
 #: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
-msgid "Enter new passphrase for '%s'"
-msgstr "Anna uusi tunnuslause avaimelle ”%s”"
+msgid "Enter new passphrase for “%s”"
+msgstr "Anna uusi tunnuslause avaimelle “%s”"
 
 #: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
-msgid "Enter passphrase for '%s'"
-msgstr "Anna tunnuslause avaimelle ”%s”"
+msgid "Enter passphrase for “%s”"
+msgstr "Anna tunnuslause avaimelle “%s”"
 
 #: ../daemon/seahorse-gpgme-source.c:104
 msgid "Enter new passphrase"
@@ -130,7 +130,7 @@ msgstr[0] "Ladattiin %d avain"
 msgstr[1] "Ladattiin %d avainta"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-msgid "Loading Keys..."
+msgid "Loading Keys…"
 msgstr "Ladataan avaimia…"
 
 #: ../daemon/seahorse-gpgme-source.c:805
@@ -235,7 +235,7 @@ msgstr "Salaus_tyyppi:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:9
 msgid "Key _Strength (bits):"
-msgstr "Avaimen vahvuus (bittejä):"
+msgstr "Avaimen vahvuus (_bittejä):"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:10
 msgid "E_xpiration Date:"
@@ -243,7 +243,7 @@ msgstr "Vanh_enemispäivä:"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:11
 msgid "<b>_Advanced key options</b>"
-msgstr "<b>Avaimen lisäasetukset</b>"
+msgstr "<b>Avaimen lis_äasetukset</b>"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:12
 msgid "Generate a new key"
@@ -304,6 +304,7 @@ msgstr "Allekirjoittanut <i><key id='%s'/> <b>vanhentunut</b></i> %s."
 msgid "Invalid Signature"
 msgstr "Virheellinen allekirjoitus"
 
+#. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
 #: ../daemon/seahorse-service-crypto.c:208
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
@@ -314,6 +315,7 @@ msgstr ""
 msgid "Expired Signature"
 msgstr "Vanhentunut allekirjoitus"
 
+#. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
 #: ../daemon/seahorse-service-crypto.c:215
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
@@ -351,8 +353,8 @@ msgid "Bad Signature"
 msgstr "Väärä allekirjoitus"
 
 #: ../daemon/seahorse-service-crypto.c:242
-msgid "Couldn't verify signature."
-msgstr "Allekirjoitusta ei voitu varmistaa"
+msgid "Couldn’t verify signature."
+msgstr "Allekirjoitusta ei voitu varmistaa."
 
 #: ../daemon/seahorse-service-crypto.c:314
 #, c-format
@@ -440,11 +442,11 @@ msgid "Multiple Keys"
 msgstr "Useita avaimia"
 
 #: ../daemon/seahorse-util.c:765
-msgid "Couldn't run file-roller"
+msgid "Couldn’t run file-roller"
 msgstr "Ohjelmaa file-roller ei voitu suorittaa"
 
 #: ../daemon/seahorse-util.c:771
-msgid "Couldn't package files"
+msgid "Couldn’t package files"
 msgstr "Tiedostoja ei voitu paketoida"
 
 #: ../daemon/seahorse-util.c:772
@@ -520,28 +522,21 @@ msgstr ""
 "b>, jonka avulla voit luoda avaimia tai tuoda olemassaolevia avaimia."
 
 #: ../libcryptui/cryptui.c:331
-#, fuzzy
-#| msgid ""
-#| "No encryption keys were found with which to perform the operation you "
-#| "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
-#| "started so that you may either create a key or import one."
 msgid ""
 "No encryption keys were found. In order to perform public key encryption, "
 "the <b>Passwords and Encryption Keys</b> program can be started to create or "
 "import a public key. It is also possible to use a shared passphrase instead."
 msgstr ""
-"Yhtäkään salausavainta ei löytynyt, joilla pyytämäsi toimienpide voidaan "
-"suorittaa. Seuraavaksi käynnistetään ohjelma <b>Salasanat ja salausavaimet</"
-"b>, jonka avulla voit luoda avaimia tai tuoda olemassaolevia avaimia."
+"Salausavaimia ei löytynyt. Jotta voit suorittaa julkisen avaimen "
+"salaustoimenpiteen, <b>Salasanat ja salausavaimet</b> -sovellus voidaan "
+"käynnistää. Sen avulla voit luoda avaimia tai tuoda olemassa olevan julkisen "
+"avaimen. Voit myös sen sijaan käyttää jaettua tunnuslausetta."
 
 #: ../libcryptui/cryptui.c:334
-#, fuzzy
-#| msgid "Enter passphrase"
 msgid "Use a shared passphrase"
-msgstr "Anna tunnuslause"
+msgstr "Käytä jaettua tunnuslausetta"
 
 #: ../libcryptui/cryptui.c:335
-#| msgid "Couldn't import keys"
 msgid "Create or import a key"
 msgstr "Luo tai tuo avain"
 
@@ -564,7 +559,6 @@ msgstr "Etsi _avainta:"
 
 #. first of the group
 #: ../libcryptui/cryptui-key-chooser.c:233
-#| msgid "Enter passphrase"
 msgid "Use passphrase only"
 msgstr "Käytä vain tunnuslausetta"
 
@@ -573,7 +567,7 @@ msgid "Choose a set of recipients:"
 msgstr ""
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-msgid "None (Don't Sign)"
+msgid "None (Don’t Sign)"
 msgstr "Ei mitään (älä allekirjoita)"
 
 #: ../libcryptui/cryptui-key-chooser.c:301
@@ -610,7 +604,9 @@ msgid "Lazy mode"
 msgstr "Laiska tila"
 
 #: ../libegg/egg-datetime.c:322
-msgid "Lazy mode doesn't normalize entered date and time values"
+#, fuzzy
+#| msgid "Lazy mode doesn't normalize entered date and time values"
+msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr "Laiska tila ei muotoile syötettyjä päiväyksiä tai aikoja"
 
 #: ../libegg/egg-datetime.c:327
@@ -859,8 +855,8 @@ msgstr "Tiedosto ei ole kelvollinen .desktop-tiedosto"
 
 #: ../libegg/eggdesktopfile.c:187
 #, c-format
-msgid "Unrecognized desktop file Version '%s'"
-msgstr "Tuntematon työpöytätiedoston versio: ”%s”"
+msgid "Unrecognized desktop file Version “%s”"
+msgstr "Tuntematon työpöytätiedoston versio “%s” "
 
 #: ../libegg/eggdesktopfile.c:967
 #, c-format
@@ -878,8 +874,9 @@ msgid "Unrecognized launch option: %d"
 msgstr "Tuntematon käynnistysvalitsin: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
-#, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+#, fuzzy, c-format
+#| msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
 msgstr "Asiakirjojen URI:a ei voi välittää 'Type=Link'-työpöytälinkille"
 
 #: ../libegg/eggdesktopfile.c:1403

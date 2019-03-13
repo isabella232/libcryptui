@@ -11,18 +11,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: seahorse\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libcryptui&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-15 22:36+0000\n"
-"PO-Revision-Date: 2015-02-16 15:34+0200\n"
-"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libcryptui/issues\n"
+"POT-Creation-Date: 2018-12-16 01:06+0000\n"
+"PO-Revision-Date: 2019-02-10 10:54+0200\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-POOTLE-MTIME: 1423951859.000000\n"
 
 #: ../daemon/seahorse-daemon.c:50
@@ -41,18 +40,18 @@ msgstr "yeni süreç grubu oluşturulamadı"
 msgid "Encryption Daemon (Seahorse)"
 msgstr "Şifreleme Servisi (Seahorse)"
 
-#: ../daemon/seahorse-notification.c:573 ../daemon/seahorse-notification.c:601
+#: ../daemon/seahorse-notification.c:584 ../daemon/seahorse-notification.c:612
 msgid "Key Imported"
 msgid_plural "Keys Imported"
 msgstr[0] "Anahtar içe aktarıldı"
 
-#: ../daemon/seahorse-notification.c:577 ../daemon/seahorse-notification.c:600
+#: ../daemon/seahorse-notification.c:588 ../daemon/seahorse-notification.c:611
 #, c-format
 msgid "Imported %i key"
 msgid_plural "Imported %i keys"
 msgstr[0] "%d anahtar içe aktarıldı"
 
-#: ../daemon/seahorse-notification.c:579
+#: ../daemon/seahorse-notification.c:590
 #, c-format
 msgid "Imported a key for"
 msgid_plural "Imported keys for"
@@ -81,7 +80,7 @@ msgid "RSA (sign only)"
 msgstr "RSA (sadece imzalama)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-msgid "Couldn't generate PGP key"
+msgid "Couldn’t generate PGP key"
 msgstr "PGP Anahtarı oluşturulamadı"
 
 #: ../daemon/seahorse-gpgme-generate.c:138
@@ -93,7 +92,7 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "Yeni anahtarınız için paro metnini iki kez girin."
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-msgid "Couldn't generate key"
+msgid "Couldn’t generate key"
 msgstr "Anahtar oluşturulamadı"
 
 #: ../daemon/seahorse-gpgme-generate.c:150
@@ -107,13 +106,13 @@ msgstr "Yanlış parola metni."
 
 #: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
-msgid "Enter new passphrase for '%s'"
-msgstr "'%s' için yeni parola metni girin"
+msgid "Enter new passphrase for “%s”"
+msgstr "“%s” için yeni parola metni girin"
 
 #: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
-msgid "Enter passphrase for '%s'"
-msgstr "'%s' için parola metni girin"
+msgid "Enter passphrase for “%s”"
+msgstr "“%s” için parola metni girin"
 
 #: ../daemon/seahorse-gpgme-source.c:104
 msgid "Enter new passphrase"
@@ -131,7 +130,7 @@ msgid_plural "Loaded %d keys"
 msgstr[0] "%d anahtar yüklendi"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-msgid "Loading Keys..."
+msgid "Loading Keys…"
 msgstr "Anahtarlar Yükleniyor..."
 
 #: ../daemon/seahorse-gpgme-source.c:805
@@ -305,6 +304,7 @@ msgstr ""
 msgid "Invalid Signature"
 msgstr "Geçersiz İmza"
 
+#. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
 #: ../daemon/seahorse-service-crypto.c:208
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
@@ -316,6 +316,7 @@ msgstr ""
 msgid "Expired Signature"
 msgstr "Süresi Dolmuş İmza"
 
+#. TRANSLATORS: <key id='xxx'> is a custom markup tag, do not translate.
 #: ../daemon/seahorse-service-crypto.c:215
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
@@ -353,7 +354,7 @@ msgid "Bad Signature"
 msgstr "Kötü İmza"
 
 #: ../daemon/seahorse-service-crypto.c:242
-msgid "Couldn't verify signature."
+msgid "Couldn’t verify signature."
 msgstr "İmza doğrulanamadı."
 
 #: ../daemon/seahorse-service-crypto.c:314
@@ -442,11 +443,11 @@ msgid "Multiple Keys"
 msgstr "Birden Çok Anahtar"
 
 #: ../daemon/seahorse-util.c:765
-msgid "Couldn't run file-roller"
+msgid "Couldn’t run file-roller"
 msgstr "Arşiv Yöneticisi başlatılamadı"
 
 #: ../daemon/seahorse-util.c:771
-msgid "Couldn't package files"
+msgid "Couldn’t package files"
 msgstr "Dosyalar paketlenemedi"
 
 #: ../daemon/seahorse-util.c:772
@@ -567,7 +568,7 @@ msgid "Choose a set of recipients:"
 msgstr "Bir alıcı grubu seçin:"
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-msgid "None (Don't Sign)"
+msgid "None (Don’t Sign)"
 msgstr "Hiçbiri (İmzalama)"
 
 #: ../libcryptui/cryptui-key-chooser.c:301
@@ -604,7 +605,7 @@ msgid "Lazy mode"
 msgstr "Tembel kip"
 
 #: ../libegg/egg-datetime.c:322
-msgid "Lazy mode doesn't normalize entered date and time values"
+msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr "Tembel kip girilen tarihi ve zaman değerlerini normalleştirmez"
 
 #: ../libegg/egg-datetime.c:327
@@ -853,8 +854,8 @@ msgstr "Dosya geçerli .desktop dosyası değil"
 
 #: ../libegg/eggdesktopfile.c:187
 #, c-format
-msgid "Unrecognized desktop file Version '%s'"
-msgstr "Tanınmayan masaüstü dosyası Sürüm '%s'"
+msgid "Unrecognized desktop file Version “%s”"
+msgstr "Tanınmayan masaüstü dosyası Sürüm “%s”"
 
 #: ../libegg/eggdesktopfile.c:967
 #, c-format
@@ -873,8 +874,8 @@ msgstr "Tanınmayan başlatma seçeneği: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
 #, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "Bir 'Type=Link' masaüstü girişi belge URI'lerine geçilemiyor"
+msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
+msgstr "Bir “Type=Link” masaüstü girişi belge adreslerine geçilemiyor"
 
 #: ../libegg/eggdesktopfile.c:1403
 #, c-format

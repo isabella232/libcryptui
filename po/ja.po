@@ -1,17 +1,18 @@
 # Seahorse ja.po.
-# Copyright (C) 1999-2011 seahorse's COPYRIGHT HOLDER
+# Copyright (C) 1999-2011, 2020 seahorse's COPYRIGHT HOLDER
 # Anthony Mulcahy <anthony@kcn.ne.jp>, 1999-2000.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2000-2009.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2009-2011.
 # Hideki Yamane (Debian-JP) <henrich@debian.or.jp>, 2010.
+# sicklylife <translation@sicklylife.jp>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: seahorse master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libcryptui/issues\n"
 "POT-Creation-Date: 2018-06-10 17:44+0000\n"
-"PO-Revision-Date: 2011-04-25 02:40+0900\n"
-"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
+"PO-Revision-Date: 2020-01-08 00:00+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -73,8 +74,6 @@ msgid "RSA (sign only)"
 msgstr "RSA (署名のみ)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-#, fuzzy
-#| msgid "Couldn't generate PGP key"
 msgid "Couldn’t generate PGP key"
 msgstr "PGP 鍵を生成できませんでした"
 
@@ -87,8 +86,6 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "新しい鍵のパスフレーズを二回入力してください:"
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-#, fuzzy
-#| msgid "Couldn't generate key"
 msgid "Couldn’t generate key"
 msgstr "鍵を生成できませんでした"
 
@@ -102,16 +99,14 @@ msgid "Wrong passphrase."
 msgstr "パスフレーズが間違っています"
 
 #: ../daemon/seahorse-gpgme-source.c:99
-#, fuzzy, c-format
-#| msgid "Enter new passphrase for '%s'"
+#, c-format
 msgid "Enter new passphrase for “%s”"
-msgstr "'%s' の新しいパスフレーズを入力してください"
+msgstr "“%s”の新しいパスフレーズを入力してください"
 
 #: ../daemon/seahorse-gpgme-source.c:101
-#, fuzzy, c-format
-#| msgid "Enter passphrase for '%s'"
+#, c-format
 msgid "Enter passphrase for “%s”"
-msgstr "'%s' のパスフレーズを入力してください"
+msgstr "“%s”のパスフレーズを入力してください"
 
 #: ../daemon/seahorse-gpgme-source.c:104
 msgid "Enter new passphrase"
@@ -129,10 +124,8 @@ msgid_plural "Loaded %d keys"
 msgstr[0] " %d個の鍵を読み込みました"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-#, fuzzy
-#| msgid "Loading Keys..."
 msgid "Loading Keys…"
-msgstr "鍵の読み込み中..."
+msgstr "鍵の読み込み中…"
 
 #: ../daemon/seahorse-gpgme-source.c:805
 msgid ""
@@ -352,8 +345,6 @@ msgid "Bad Signature"
 msgstr "おかしな署名です"
 
 #: ../daemon/seahorse-service-crypto.c:242
-#, fuzzy
-#| msgid "Couldn't verify signature."
 msgid "Couldn’t verify signature."
 msgstr "署名を解読できませんでした"
 
@@ -443,14 +434,10 @@ msgid "Multiple Keys"
 msgstr "複数の鍵"
 
 #: ../daemon/seahorse-util.c:765
-#, fuzzy
-#| msgid "Couldn't run file-roller"
 msgid "Couldn’t run file-roller"
 msgstr "'file-roller' を起動できませんでした"
 
 #: ../daemon/seahorse-util.c:771
-#, fuzzy
-#| msgid "Couldn't package files"
 msgid "Couldn’t package files"
 msgstr "ファイルを書庫に格納できませんでした"
 
@@ -528,31 +515,19 @@ msgstr ""
 "ことはできません。"
 
 #: ../libcryptui/cryptui.c:331
-#, fuzzy
-#| msgid ""
-#| "No encryption keys were found with which to perform the operation you "
-#| "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
-#| "started so that you may either create a key or import one."
 msgid ""
 "No encryption keys were found. In order to perform public key encryption, "
 "the <b>Passwords and Encryption Keys</b> program can be started to create or "
 "import a public key. It is also possible to use a shared passphrase instead."
 msgstr ""
-"要求した操作を実行する際に必要となる暗号鍵が見つかりませんでした。<b>パスワー"
-"ドと暗号鍵</b>というプログラムを起動できないので鍵を生成したりインポートする"
-"ことはできません。"
 
 #: ../libcryptui/cryptui.c:334
-#, fuzzy
-#| msgid "Enter passphrase"
 msgid "Use a shared passphrase"
-msgstr "パスフレーズを入力してください"
+msgstr "共有パスフレーズを使う"
 
 #: ../libcryptui/cryptui.c:335
-#, fuzzy
-#| msgid "Couldn't import keys"
 msgid "Create or import a key"
-msgstr "鍵をインポートできませんでした"
+msgstr "鍵を作成またはインポート"
 
 #: ../libcryptui/cryptui-key-chooser.c:175
 msgid "All Keys"
@@ -573,18 +548,14 @@ msgstr "検索(_F):"
 
 #. first of the group
 #: ../libcryptui/cryptui-key-chooser.c:233
-#, fuzzy
-#| msgid "Enter passphrase"
 msgid "Use passphrase only"
-msgstr "パスフレーズを入力してください"
+msgstr "パスフレーズのみ使う"
 
 #: ../libcryptui/cryptui-key-chooser.c:242
 msgid "Choose a set of recipients:"
-msgstr ""
+msgstr "受取人を選ぶ:"
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-#, fuzzy
-#| msgid "None (Don't Sign)"
 msgid "None (Don’t Sign)"
 msgstr "なし (署名しない)"
 
@@ -622,8 +593,6 @@ msgid "Lazy mode"
 msgstr "日付を正規化するかどうか"
 
 #: ../libegg/egg-datetime.c:322
-#, fuzzy
-#| msgid "Lazy mode doesn't normalize entered date and time values"
 msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr "入力した日付や時刻の値を正規化しないかどうかです"
 
@@ -872,10 +841,9 @@ msgid "File is not a valid .desktop file"
 msgstr "妥当な .desktop ファイルではありません"
 
 #: ../libegg/eggdesktopfile.c:187
-#, fuzzy, c-format
-#| msgid "Unrecognized desktop file Version '%s'"
+#, c-format
 msgid "Unrecognized desktop file Version “%s”"
-msgstr "バージョン '%s' の .desktop ファイルはサポートしていません"
+msgstr "バージョン“%s”の .desktop ファイルはサポートしていません"
 
 #: ../libegg/eggdesktopfile.c:967
 #, c-format
@@ -893,10 +861,9 @@ msgid "Unrecognized launch option: %d"
 msgstr "不明な起動オプションです: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
-#, fuzzy, c-format
-#| msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+#, c-format
 msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
-msgstr "ドキュメントの URI を 'Type=Link' な .desktop エントリには渡せません"
+msgstr "ドキュメントの URI を“Type=Link”な .desktop エントリには渡せません"
 
 #: ../libegg/eggdesktopfile.c:1403
 #, c-format

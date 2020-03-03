@@ -2002,7 +2002,7 @@ msgstr "<b>Khoá này đã bị hủy bỏ</b>"
 #: ../pgp/seahorse-pgp-private-key-properties.xml.h:11
 #: ../pgp/seahorse-pgp-public-key-properties.xml.h:10
 msgid "<b>This key has expired</b>"
-msgstr "<b>Khoá này đã hết hạn dùng<b>"
+msgstr "<b>Khoá này đã hết hạn dùng</b>"
 
 #: ../pgp/seahorse-pgp-private-key-properties.xml.h:12
 #: ../pgp/seahorse-pgp-public-key-properties.xml.h:11

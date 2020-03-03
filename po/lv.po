@@ -514,7 +514,7 @@ msgid ""
 "started so that you may either create a key or import one."
 msgstr ""
 "Netika atrasta neviena šifrēšanas atslēga, ar ko veikt jūsu pieprasīto "
-"operāciju. Lietotne <b>Paroles un šifrēšanas atslēgas\" tagad tiks palaista, "
+"operāciju. Lietotne <b>Paroles un šifrēšanas atslēgas</b> tagad tiks palaista, "
 "lai jūs varētu izveidot jaunu atslēgu vai importēt jau eksistējošu."
 
 #: ../libcryptui/cryptui.c:333
@@ -528,7 +528,7 @@ msgid ""
 "import a public key. It is also possible to use a shared passphrase instead."
 msgstr ""
 "Netika atrasta neviena šifrēšanas atslēga. Lai varētu veikt publiskās "
-"atslēgas šifrēšanu, var palaist lietotni <b>Paroles un šifrēšanas atslēgas\", "
+"atslēgas šifrēšanu, var palaist lietotni <b>Paroles un šifrēšanas atslēgas</b>, "
 "lai izveidotu vai importēt publisko atslēgu. Tā vietā varat arī izmatot "
 "kopīgu paroli."
 

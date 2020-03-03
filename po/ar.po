@@ -72,7 +72,7 @@ msgstr "توقيع غير صالح"
 #: ../daemon/seahorse-service-crypto.c:211
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
-msgstr "وقّعه <i><key id='%s'/> في %s <b>انتهت صلاحيته</b>."
+msgstr "وقّعه <i><key id='%s'/></i> في %s <b>انتهت صلاحيته</b>."
 
 #: ../daemon/seahorse-service-crypto.c:212
 msgid "Expired Signature"
@@ -91,7 +91,7 @@ msgstr "توقيع منقوض"
 #: ../daemon/seahorse-service-crypto.c:225
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s."
-msgstr "وقّعه <i><key id='%s'/> في %s."
+msgstr "وقّعه <i><key id='%s'/></i> في %s."
 
 #: ../daemon/seahorse-service-crypto.c:226
 msgid "Good Signature"

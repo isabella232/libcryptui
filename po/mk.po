@@ -54,7 +54,7 @@ msgstr "Невалиден или непрепознаен клуч: %s"
 #: ../daemon/seahorse-service-crypto.c:142
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>expired</b></i> on %s."
-msgstr "Потпишано од <i><Ид. на клуч='%s'/> <b>истечено</b></i> на %s."
+msgstr "Потпишано од <i><key id='%s'/> <b>истечено</b></i> на %s."
 
 #: ../daemon/seahorse-service-crypto.c:143
 msgid "Invalid Signature"
@@ -63,7 +63,7 @@ msgstr "Невалиден потпис"
 #: ../daemon/seahorse-service-crypto.c:149
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
-msgstr "Потпишано од <i><Ид. на клуч='%s'/></i> на %s <b>Истечено</b>."
+msgstr "Потпишано од <i><key id='%s'/></i> на %s <b>Истечено</b>."
 
 #: ../daemon/seahorse-service-crypto.c:150
 msgid "Expired Signature"
@@ -72,7 +72,7 @@ msgstr "Истечен потпис"
 #: ../daemon/seahorse-service-crypto.c:156
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
-msgstr "Потпишано од <i><Ид. на клуч='%s'/> <b>Отповикано</b></i> на %s."
+msgstr "Потпишано од <i><key id='%s'/> <b>Отповикано</b></i> на %s."
 
 #: ../daemon/seahorse-service-crypto.c:157
 msgid "Revoked Signature"
@@ -82,7 +82,7 @@ msgstr "Отповикан потпис"
 #: ../daemon/seahorse-service-crypto.c:163
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s."
-msgstr "Потпишано од <i><Ид. на клуч='%s'/></i> на %s."
+msgstr "Потпишано од <i><key id='%s'/></i> на %s."
 
 #: ../daemon/seahorse-service-crypto.c:164
 msgid "Good Signature"

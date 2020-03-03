@@ -87,7 +87,7 @@ msgstr "Анулиран подпис"
 #: ../daemon/seahorse-service-crypto.c:225
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s."
-msgstr "Подписан с <i><key id='%s'/> на %s."
+msgstr "Подписан с <i><key id='%s'/></i> на %s."
 
 #: ../daemon/seahorse-service-crypto.c:226
 msgid "Good Signature"

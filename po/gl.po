@@ -300,7 +300,7 @@ msgstr "Chave non válida ou non recoñecida: %s"
 #: ../daemon/seahorse-service-crypto.c:204
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>expired</b></i> on %s."
-msgstr "Asinada por <i><key id=«%s»/> <b>caducou</b></i> en %s."
+msgstr "Asinada por <i><key id='%s'/> <b>caducou</b></i> en %s."
 
 #: ../daemon/seahorse-service-crypto.c:205
 msgid "Invalid Signature"
@@ -309,7 +309,7 @@ msgstr "A sinatura non é válida"
 #: ../daemon/seahorse-service-crypto.c:211
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s <b>Expired</b>."
-msgstr "Asinada por <i><key id=«%s»/></i> en %s<b>Caducou</b>."
+msgstr "Asinada por <i><key id='%s'/></i> en %s<b>Caducou</b>."
 
 #: ../daemon/seahorse-service-crypto.c:212
 msgid "Expired Signature"
@@ -318,7 +318,7 @@ msgstr "A sinatura está caducada"
 #: ../daemon/seahorse-service-crypto.c:218
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
-msgstr "Asinada por <i><key id=«%s»/> <b>Revogada</b></i> en %s."
+msgstr "Asinada por <i><key id='%s'/> <b>Revogada</b></i> en %s."
 
 #: ../daemon/seahorse-service-crypto.c:219
 msgid "Revoked Signature"
@@ -328,7 +328,7 @@ msgstr "A sinatura está revogada"
 #: ../daemon/seahorse-service-crypto.c:225
 #, c-format
 msgid "Signed by <i><key id='%s'/></i> on %s."
-msgstr "Asinado por <i><key id=«%s»/></i> en %s."
+msgstr "Asinado por <i><key id='%s'/></i> en %s."
 
 #: ../daemon/seahorse-service-crypto.c:226
 msgid "Good Signature"

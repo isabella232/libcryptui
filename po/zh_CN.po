@@ -294,7 +294,7 @@ msgstr "无效或者无法识别的密钥：%s"
 #: ../daemon/seahorse-service-crypto.c:204
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>expired</b></i> on %s."
-msgstr "签署者 <i><key id=\"%s\"/></i>，已于 %s </i><b>过期</b></i>。"
+msgstr "签署者 <i><key id=\"%s\"/></i>，已于 %s <i><b>过期</b></i>。"
 
 #: ../daemon/seahorse-service-crypto.c:205
 msgid "Invalid Signature"

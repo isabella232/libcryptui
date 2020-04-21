@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: seahorse\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libcryptui/issues\n"
-"POT-Creation-Date: 2020-01-07 15:30+0000\n"
-"PO-Revision-Date: 2020-03-28 23:01+0200\n"
+"POT-Creation-Date: 2020-03-28 21:02+0000\n"
+"PO-Revision-Date: 2020-04-21 08:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
 "=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.03.70\n"
+"X-Generator: Lokalize 20.07.70\n"
 
 #: ../daemon/seahorse-daemon.c:50
 msgid "Do not run seahorse-daemon as a daemon"
@@ -82,7 +82,6 @@ msgid "RSA (sign only)"
 msgstr "RSA (лише підпис)"
 
 #: ../daemon/seahorse-gpgme-generate.c:78
-#| msgid "Couldn't generate PGP key"
 msgid "Couldn’t generate PGP key"
 msgstr "Не вдалося створити ключ PGP"
 
@@ -95,7 +94,6 @@ msgid "Enter the passphrase for your new key twice."
 msgstr "Введіть пароль для нового ключа двічі."
 
 #: ../daemon/seahorse-gpgme-generate.c:148
-#| msgid "Couldn't generate key"
 msgid "Couldn’t generate key"
 msgstr "Не вдалося створити ключ"
 
@@ -110,13 +108,11 @@ msgstr "Неправильний пароль."
 
 #: ../daemon/seahorse-gpgme-source.c:99
 #, c-format
-#| msgid "Enter new passphrase for '%s'"
 msgid "Enter new passphrase for “%s”"
 msgstr "Введіть новий пароль для «%s»"
 
 #: ../daemon/seahorse-gpgme-source.c:101
 #, c-format
-#| msgid "Enter passphrase for '%s'"
 msgid "Enter passphrase for “%s”"
 msgstr "Введіть пароль для «%s»"
 
@@ -138,7 +134,6 @@ msgstr[1] "Завантажено %d ключі"
 msgstr[2] "Завантажено %d ключів"
 
 #: ../daemon/seahorse-gpgme-source.c:762
-#| msgid "Loading Keys..."
 msgid "Loading Keys…"
 msgstr "Завантаження ключів…"
 
@@ -358,7 +353,6 @@ msgid "Bad Signature"
 msgstr "Неправильний підпис"
 
 #: ../daemon/seahorse-service-crypto.c:242
-#| msgid "Couldn't verify signature."
 msgid "Couldn’t verify signature."
 msgstr "Не вдалося перевірити підпис."
 
@@ -448,12 +442,10 @@ msgid "Multiple Keys"
 msgstr "Декілька ключів"
 
 #: ../daemon/seahorse-util.c:765
-#| msgid "Couldn't run file-roller"
 msgid "Couldn’t run file-roller"
 msgstr "Не вдалося запустити File-Roller"
 
 #: ../daemon/seahorse-util.c:771
-#| msgid "Couldn't package files"
 msgid "Couldn’t package files"
 msgstr "Не вдалося запакувати файли"
 
@@ -530,27 +522,21 @@ msgstr ""
 "імпортування наявного."
 
 #: ../libcryptui/cryptui.c:331
-#| msgid ""
-#| "No encryption keys were found with which to perform the operation you "
-#| "requested.  The program <b>Passwords and Encryption Keys</b> will now be "
-#| "started so that you may either create a key or import one."
 msgid ""
 "No encryption keys were found. In order to perform public key encryption, "
 "the <b>Passwords and Encryption Keys</b> program can be started to create or "
 "import a public key. It is also possible to use a shared passphrase instead."
 msgstr ""
-"Не вдалося знайти ключів шифрування. Щоб мати змогу шифрувати дані за"
-" допомогою відкритого ключа, слід запустити програму <b>Паролі та ключі"
-" шифрування</b> і створити або імпортувати відкритий ключ. Також можна"
-" скористатися замість ключа спільним із отримувачем паролем."
+"Не вдалося знайти ключів шифрування. Щоб мати змогу шифрувати дані за "
+"допомогою відкритого ключа, слід запустити програму <b>Паролі та ключі "
+"шифрування</b> і створити або імпортувати відкритий ключ. Також можна "
+"скористатися замість ключа спільним із отримувачем паролем."
 
 #: ../libcryptui/cryptui.c:334
-#| msgid "Enter passphrase"
 msgid "Use a shared passphrase"
 msgstr "Спільний пароль"
 
 #: ../libcryptui/cryptui.c:335
-#| msgid "Couldn't import keys"
 msgid "Create or import a key"
 msgstr "Створити або імпортувати ключ"
 
@@ -573,7 +559,6 @@ msgstr "_Пошук:"
 
 #. first of the group
 #: ../libcryptui/cryptui-key-chooser.c:233
-#| msgid "Enter passphrase"
 msgid "Use passphrase only"
 msgstr "Лише пароль"
 
@@ -582,7 +567,6 @@ msgid "Choose a set of recipients:"
 msgstr "Виберіть набір отримувачів:"
 
 #: ../libcryptui/cryptui-key-chooser.c:288
-#| msgid "None (Don't Sign)"
 msgid "None (Don’t Sign)"
 msgstr "Ні (не підписувати)"
 
@@ -620,7 +604,6 @@ msgid "Lazy mode"
 msgstr "Спрощений режим"
 
 #: ../libegg/egg-datetime.c:322
-#| msgid "Lazy mode doesn't normalize entered date and time values"
 msgid "Lazy mode doesn’t normalize entered date and time values"
 msgstr "У цьому режимі дата та час не приводяться до стандартному вигляду"
 
@@ -870,7 +853,6 @@ msgstr "Файл не є коректним файлом формату .desktop
 
 #: ../libegg/eggdesktopfile.c:187
 #, c-format
-#| msgid "Unrecognized desktop file Version '%s'"
 msgid "Unrecognized desktop file Version “%s”"
 msgstr "Невідома версія файлу .desktop «%s»"
 
@@ -891,14 +873,13 @@ msgstr "Невідомий ключ запуску: %d"
 
 #: ../libegg/eggdesktopfile.c:1382
 #, c-format
-#| msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgid "Can’t pass document URIs to a “Type=Link” desktop entry"
 msgstr "Не вдалося передати рядок на документ у ярлик типу «Посилання»"
 
 #: ../libegg/eggdesktopfile.c:1403
 #, c-format
 msgid "Not a launchable item"
-msgstr "Елемент не можу бути запущений"
+msgstr "Пункт без можливості запуску"
 
 #: ../libegg/eggsmclient.c:223
 msgid "Disable connection to session manager"

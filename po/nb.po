@@ -717,7 +717,7 @@ msgstr "Sekunddelen av øvre tidsgrense"
 #.
 #: ../libegg/egg-datetime.c:474
 msgid "calendar:week_start:0"
-msgstr "1"
+msgstr "calendar:week_start:1"
 
 #: ../libegg/egg-datetime.c:496
 msgid "Date"

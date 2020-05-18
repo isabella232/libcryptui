@@ -930,7 +930,7 @@ msgstr "ਉਤਲੀ ਸਮਾਂ ਸੀਮਾ ਦਾ ਸਕਿੰਟ ਭਾਗ"
 #.
 #: ../libegg/egg-datetime.c:482
 msgid "calendar:week_start:0"
-msgstr "0"
+msgstr "calendar:week_start:0"
 
 #: ../libegg/egg-datetime.c:504
 msgid "Date"

@@ -231,7 +231,7 @@ msgstr "ئىناۋەتلىك چېسلاسى(_X):"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:11
 msgid "<b>_Advanced key options</b>"
-msgstr "b>ئالىي ئاچقۇچ تاللانمىلىرى(_A)</b>"
+msgstr "<b>ئالىي ئاچقۇچ تاللانمىلىرى(_A)</b>"
 
 #: ../daemon/seahorse-pgp-generate.xml.h:12
 msgid "Generate a new key"
@@ -304,7 +304,7 @@ msgstr "ۋاقتى ئوتكەن ئىمزا"
 #: ../daemon/seahorse-service-crypto.c:217
 #, c-format
 msgid "Signed by <i><key id='%s'/> <b>Revoked</b></i> on %s."
-msgstr "%2$s دىكى<b>مەغلۇپ بولغان</b><i><key id='%1$s'/> بىلەن ئىمزا قويۇلغان"
+msgstr "%2$s دىكى<i><b>مەغلۇپ بولغان</b><key id='%1$s'/></i> بىلەن ئىمزا قويۇلغان"
 
 #: ../daemon/seahorse-service-crypto.c:218
 msgid "Revoked Signature"
